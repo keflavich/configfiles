@@ -1,0 +1,3 @@
+--type-set=IDL=.pro
+--type-set=RST=.rst 
+--ignore-dir=build
