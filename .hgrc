@@ -1,0 +1,10 @@
+[ui]
+username = Adam Ginsburg <keflavich@gmail.com>
+verbose = True
+
+[extensions]
+hgext.convert=
+hgext.graphlog = 
+mq = 
+hggit = 
+
