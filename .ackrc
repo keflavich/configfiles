@@ -1,0 +1,4 @@
+--type-set=IDL=.pro
+--type-set=radexinclude=.inc
+--ignore-dir=build
+--ignore-dir=html

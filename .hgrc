@@ -1,0 +1,50 @@
+[ui]
+username=Adam Ginsburg <adam.g.ginsburg@gmail.com>
+verbose = True
+#merge = vimdiff
+#merge = /Applications/Vim.app/Contents/MacOS/Vim -g -d
+#merge = diff
+
+ignore=/Users/adam/.hgignore_global
+[extensions]
+hgext.convert=
+hgext.extdiff = 
+hgsubversion=/Users/adam/repos/hgsubversion/hgsubversion
+hgext.graphlog = 
+fetch = 
+hgk=
+hggit=
+#largefiles=
+
+[extdiff]
+cmd.vimdiff = vimdiff
+cmd.gvimdiff = /Applications/Vim.app/Contents/MacOS/Vim -g -d
+
+#[auth]
+#aposoftware.prefix = aposoftware.googlecode.com
+#aposoftware.username = Adam Ginsburg <keflavich@gmail.com>
+#aposoftware.password = KQ2Kj9aT5JH5
+#aposoftware.schemes = http https
+#
+#[paths]
+#aposoftware = https://aposoftware.googlecode.com/
+[merge-tools]
+sourcetreemerge.gui=False
+sourcetreebulkmerge.gui=False
+sourcetreemerge.binary=False
+sourcetreebulkmerge.executable=/Applications/SourceTree.app/Contents/Resources/hg-merge.sh
+sourcetreemerge.args=$local $other -ancestor $base -merge $output
+sourcetreemerge.checkconflicts=True
+sourcetreemerge.premerge=True
+sourcetreemerge.executable=/Applications/SourceTree.app/Contents/Resources/opendiff-w.sh
+sourcetreebulkmerge.premerge=False
+sourcetreebulkmerge.binary=True
+gvimdiff.args = -d -c "wincmd J" "$output" "$local" "$other" "$base"
+vimdiff.args = -d -c "wincmd J" "$output" "$local" "$other" "$base"
+[extdiff]
+cmd.sourcetreediff=opendiff
+opts.sourcetreediff=
+cmd.vdiff=mvim -d
+
+[web]
+cacerts = /etc/hg-ca-roots.pem

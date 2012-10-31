@@ -1,0 +1,15 @@
+defscrollback 5000
+vbell off
+startup_message off
+hardstatus alwayslastline
+hardstatus string '%{= kG}[%{G}%H%{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B}%d/%m %{G}%C%A]'
+termcapinfo xterm|xterms|xs|rxvt ti@:te@
+bind b eval "writebuf" "exec sh -c 'pbcopy < /tmp/screen-exchange'"
+
+#http://stackoverflow.com/questions/359109/using-the-scrollwheel-in-gnu-screen
+termcapinfo xterm* ti@:te@
+
+
+# http://stackoverflow.com/questions/2181042/when-using-vim-or-less-in-gnu-screen-quitting-vim-or-less-leaves-a-lingering-im
+altscreen on
+
