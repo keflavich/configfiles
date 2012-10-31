@@ -17,19 +17,19 @@ set nowrap
 set ruler
 set hlsearch
 syntax on
-set vb t_vb=
+set vb t_vb=   " When no beep or flash is wanted, use ":set vb t_vb=".
 set bs=2
 set autoindent
 set popt=duplex:long,syntax:y
 set dir=/Users/adam/Documents
 set formatoptions=trocql
-set shiftwidth=4
+set shiftwidth=4 " applies to >>, etc.
 set expandtab " use spaces in place of tabs.
 set tabstop=4 " number of spaces for a tab.
 set softtabstop=4 " number of spaces for a tab in editing operations.
 set is " search as you type
-set autoread
-" set scrollbind
+set autoread " auto-reload
+"set scrollbind  " not on by default because can be annoying
 set history=10000
 
 " buffers in the background remain open (useful for cmd line)
@@ -58,8 +58,8 @@ let g:pydiction_location = '/Users/adam/.vim/pydiction-1.2/complete-dict'
 map Q gq
 
 " 1/27/2012 http://stackoverflow.com/questions/235439/vim-80-column-layout-concerns
-"highlight OverLength ctermbg=DarkGray ctermfg=White guibg=#333333
-"match OverLength /\%81v.\+/
+highlight OverLength ctermbg=DarkGray ctermfg=White guibg=#333333
+match OverLength /\%81v.\+/
  
 
 " 1/19/2012 http://items.sjbach.com/319/configuring-vim-right
@@ -82,6 +82,8 @@ call pathogen#infect()
 
 nnoremap <F5> :GundoToggle<CR>
 
+" this should not be necessary
+" source ~/.vim/plugin/WhichTab.vim
 
 "remote keyboard issues (from lappy):
 map OH ^
@@ -125,7 +127,7 @@ command! -complete=file -nargs=* Hg  call s:RunShellCommand('hg '.<q-args>)
 ""http://vim.1045645.n5.nabble.com/Compiling-LaTeX-within-vim-Two-Questions-td1169813.html
 "map ,p :Shell pdflatex -interaction nonstopmode % 
 "map ,b :Shell bibtex % 
-"" Activate skim
+"" Activate skim (moved to a plugin?)
 "map ,v :w<CR>:silent !/Applications/Skim.app/Contents/SharedSupport/displayline -r <C-r>=line('.')<CR> %<.pdf %<CR><CR>
 "map ,p :w<CR>:silent !pdflatex -synctex=1 --interaction=nonstopmode %:p <CR>:silent !/Applications/Skim.app/Contents/SharedSupport/displayline -r <C-r>=line('.')<CR> %<.pdf %<CR><CR>
 "map ,m :w<CR>:silent !make <CR>:silent !/Applications/Skim.app/Contents/SharedSupport/displayline -r <C-r>=line('.')<CR> %<.pdf %<CR><CR>
@@ -148,7 +150,12 @@ set number
 
 "added 12/7/07
 set softtabstop=4
+" this only applies if set smartindent
 inoremap # X#
+" When typing '#' as the first character in a new line, the indent for
+" that line is removed, the '#' is put in the first column.  The indent
+" is restored for the next line.  If you don't want this, use this
+" mapping: ":inoremap # X^H#", where ^H is entered with CTRL-V CTRL-H.
 
 "added 3/12/08: switch <F9> to <F7> because of Mac F9 behavior
 inoremap <silent> <Plug>Tex_Completion <Esc>:call Tex_Complete("default","text")<CR>
@@ -245,19 +252,19 @@ map! <S-Tab> <C-O>:call NextField(' \{2,}',2,' ',0)<CR>
 " Function to set parameters for python scripts that use
 " spaces for indention.  This is also the default.  YMMV.
 function! PySpacesCfg()
-  set expandtab " use spaces in place of tabs.
-  set tabstop=8 " number of spaces for a tab.
-  set softtabstop=4 " number of spaces for a tab in editing operations.
-  set shiftwidth=4 " number of spaces for indent (>>, <<, ...)
+  setlocal expandtab " use spaces in place of tabs.
+  setlocal tabstop=4 " number of spaces for a tab.
+  setlocal softtabstop=4 " number of spaces for a tab in editing operations.
+  setlocal shiftwidth=4 " number of spaces for indent (>>, <<, ...)
 endfunction
 
 " Function to set parameters for python scripts that use
 " tabs for indention.  YMMV.
 function! PyTabsCfg()
-  set noexpandtab
-  set tabstop=4
-  set softtabstop=4
-  set shiftwidth=4
+  setlocal noexpandtab
+  setlocal tabstop=4
+  setlocal softtabstop=4
+  setlocal shiftwidth=4
 endfunction
 
 " This function returns 1 if the file looks like a python script
@@ -342,10 +349,11 @@ endfunction
 
 
 
-set shiftwidth=4
-set expandtab " use spaces in place of tabs.
-set tabstop=4 " number of spaces for a tab.
-set softtabstop=4 " number of spaces for a tab in editing operations.
+" removed because (probably?) unnecessary
+" set shiftwidth=4
+" set expandtab " use spaces in place of tabs.
+" set tabstop=4 " number of spaces for a tab.
+" set softtabstop=4 " number of spaces for a tab in editing operations.
 
 autocmd BufRead *\.txt setlocal formatoptions=l
 autocmd BufRead *\.txt setlocal lbr
@@ -390,6 +398,7 @@ endif
 " "Conceal" and latex
 " highlight Conceal guibg=black guifg=white
 
+" for vmail:
 let g:vmail_flagged_color = "ctermbg=black guibg=black cterm=bold gui=bold"
 
 map :E :Explore

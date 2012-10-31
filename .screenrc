@@ -12,4 +12,3 @@ termcapinfo xterm* ti@:te@
 
 # http://stackoverflow.com/questions/2181042/when-using-vim-or-less-in-gnu-screen-quitting-vim-or-less-leaves-a-lingering-im
 altscreen on
-

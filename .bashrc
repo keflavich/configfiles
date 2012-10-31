@@ -256,4 +256,3 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 #else
 #    export TERM='xterm-color'
 #fi
-

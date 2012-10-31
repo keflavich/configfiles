@@ -2,3 +2,4 @@
 --type-set=radexinclude=.inc
 --ignore-dir=build
 --ignore-dir=html
+--type-set=RST=.rst 

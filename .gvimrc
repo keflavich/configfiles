@@ -89,3 +89,4 @@ noremap <silent> <leader>G :call MyGrep("lib/ t/ aggtests/ deps_patched/")<cr>
 noremap <silent> <leader>f :call MyGrep("lib/", expand('<cword>'))<cr>
 
 set guifont=Bitstream\ Vera\ Sans\ Mono:h12
+set guioptions-=T
