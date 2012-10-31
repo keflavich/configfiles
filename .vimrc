@@ -35,6 +35,13 @@ set history=10000
 " buffers in the background remain open (useful for cmd line)
 set hidden
 
+" added 10/30/2012
+" suffixes to put to the end of the list when completing file names
+set suffixes=.log,.bak,~,.o,.h,.info,.swp,.aux,.swo,.bbl,.blg,.pdf
+set wildignore=*.aux,*.pdf,*.blg,*.fits,*.png
+
+ 
+
 " Found 1/12/2012: http://stackoverflow.com/questions/3607516/vim-folding-messes-up-syntax-highlighting
 ":syn sync fromstart  
 " Maybe fixes python triple quote issues?
@@ -105,6 +112,13 @@ function! s:RunShellCommand(cmdline)
   setlocal nomodifiable
   1
 endfunction
+
+" from the same wikia post
+command! -complete=file -nargs=* Git call s:RunShellCommand('git '.<q-args>)
+command! -complete=file -nargs=* Svn call s:RunShellCommand('svn '.<q-args>)
+command! -complete=file -nargs=* Bzr call s:RunShellCommand('bzr '.<q-args>)
+command! -complete=file -nargs=* Hg  call s:RunShellCommand('hg '.<q-args>)
+
 
 "LATEX maps
 ""http://vim.1045645.n5.nabble.com/Compiling-LaTeX-within-vim-Two-Questions-td1169813.html
