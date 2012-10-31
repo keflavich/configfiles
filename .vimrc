@@ -17,19 +17,19 @@ set nowrap
 set ruler
 set hlsearch
 syntax on
-set vb t_vb=
+set vb t_vb=   " When no beep or flash is wanted, use ":set vb t_vb=".
 set bs=2
 set autoindent
 set popt=duplex:long,syntax:y
 set dir=/Users/adam/Documents
 set formatoptions=trocql
-set shiftwidth=4
+set shiftwidth=4 " applies to >>, etc.
 set expandtab " use spaces in place of tabs.
 set tabstop=4 " number of spaces for a tab.
 set softtabstop=4 " number of spaces for a tab in editing operations.
 set is " search as you type
-set autoread
-"set scrollbind
+set autoread " auto-reload
+"set scrollbind  " not on by default because can be annoying
 set history=10000
 
 " buffers in the background remain open (useful for cmd line)
@@ -133,7 +133,12 @@ set number
 
 "added 12/7/07
 set softtabstop=4
+" this only applies if set smartindent
 inoremap # X#
+" When typing '#' as the first character in a new line, the indent for
+" that line is removed, the '#' is put in the first column.  The indent
+" is restored for the next line.  If you don't want this, use this
+" mapping: ":inoremap # X^H#", where ^H is entered with CTRL-V CTRL-H.
 
 "added 3/12/08: switch <F9> to <F7> because of Mac F9 behavior
 inoremap <silent> <Plug>Tex_Completion <Esc>:call Tex_Complete("default","text")<CR>
@@ -230,19 +235,19 @@ map! <S-Tab> <C-O>:call NextField(' \{2,}',2,' ',0)<CR>
 " Function to set parameters for python scripts that use
 " spaces for indention.  This is also the default.  YMMV.
 function! PySpacesCfg()
-  set expandtab " use spaces in place of tabs.
-  set tabstop=4 " number of spaces for a tab.
-  set softtabstop=4 " number of spaces for a tab in editing operations.
-  set shiftwidth=4 " number of spaces for indent (>>, <<, ...)
+  setlocal expandtab " use spaces in place of tabs.
+  setlocal tabstop=4 " number of spaces for a tab.
+  setlocal softtabstop=4 " number of spaces for a tab in editing operations.
+  setlocal shiftwidth=4 " number of spaces for indent (>>, <<, ...)
 endfunction
 
 " Function to set parameters for python scripts that use
 " tabs for indention.  YMMV.
 function! PyTabsCfg()
-  set noexpandtab
-  set tabstop=4
-  set softtabstop=4
-  set shiftwidth=4
+  setlocal noexpandtab
+  setlocal tabstop=4
+  setlocal softtabstop=4
+  setlocal shiftwidth=4
 endfunction
 
 " This function returns 1 if the file looks like a python script
@@ -327,10 +332,11 @@ endfunction
 
 
 
-set shiftwidth=4
-set expandtab " use spaces in place of tabs.
-set tabstop=4 " number of spaces for a tab.
-set softtabstop=4 " number of spaces for a tab in editing operations.
+" removed because (probably?) unnecessary
+" set shiftwidth=4
+" set expandtab " use spaces in place of tabs.
+" set tabstop=4 " number of spaces for a tab.
+" set softtabstop=4 " number of spaces for a tab in editing operations.
 
 autocmd BufRead *\.txt setlocal formatoptions=l
 autocmd BufRead *\.txt setlocal lbr
