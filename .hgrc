@@ -7,4 +7,5 @@ hgext.convert=
 hgext.graphlog = 
 mq = 
 hggit = 
+fetch=
 
