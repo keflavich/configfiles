@@ -13,7 +13,11 @@ PATH=/Library/Frameworks/Python.framework/Versions/2.7/bin/:$PATH
 PATH=$PATH:/usr/texbin/
 PATH=$PATH:/usr/stsci/wcstools-3.7.3/bin.macintel/
 PATH=$PATH:/Users/adam/repos/apache-maven-3.0.4/bin
-PATH=/Users/adam/virtual-python/bin:$PATH
+PATH=/Users/adam/virtual-python/bin:$PATH:/usr/local/astrometry/bin/:/usr/local/netpbm/bin/
+
+# Needed for netpbm
+export DYLD_LIBRARY_PATH=/usr/local/netpbm/lib/
+
 #PATH=$PATH:/sw/bin:/opt/local/bin:/opt/local/xpa/bin/:
 export PATH
 #/scisoft/bin/Setup.bash
@@ -46,6 +50,7 @@ alias x86_64='export CFLAGS="-arch x86_64"; export CCFLAGS="-arch x86_64"; expor
 alias i386='export CFLAGS="-arch i386"; export CCFLAGS="-arch i386"; export CXXFLAGS="-arch i386"; FFLAGS="-arch i386"; LDFLAGS="-arch i386"'
 alias clearflags='export CFLAGS=""; export CCFLAGS=""; export CXXFLAGS=""; export LDFLAGS=""; export FFLAGS="";'
 
+alias nbcovert="/Users/adam/repos/nbconvert/nbconvert.py"
 
 alias scp='rsync -Cavpu --partial --progress --rsh=ssh'
 #alias svn='/sw/bin/svn'

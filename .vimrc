@@ -41,6 +41,10 @@ set suffixes=.log,.bak,~,.o,.h,.info,.swp,.aux,.swo,.bbl,.blg,.pdf
 set wildignore=*.aux,*.pdf,*.blg,*.fits,*.png
 
  
+ 
+" Python autocomplete (added 10/31/2012)
+" http://www.vim.org/scripts/script.php?script_id=850
+let g:pydiction_location = '/Users/adam/.vim/pydiction-1.2/complete-dict'
 
 " Found 1/12/2012: http://stackoverflow.com/questions/3607516/vim-folding-messes-up-syntax-highlighting
 ":syn sync fromstart  
@@ -136,6 +140,7 @@ map ,t :w<CR>:silent !pdflatex -synctex=1 --interaction=nonstopmode %:p <CR>:sil
 "# Adam Added 5/7/07
 "noremap y "+y
 map :W :w
+map :spellcheck :setlocal spell spelllang=en_us
 nnoremap <S-Right> gt
 nnoremap <S-Left> gT
 map  :w
@@ -375,6 +380,17 @@ autocmd BufRead *\.txt vmap <down> gj
 "autocmd BufRead *\.txt vmap <home> g^
 "autocmd BufRead *\.txt vmap <end> g$
 "autocmd BufRead *\.txt set wrap
+
+" for html editing
+" http://www.vim.org/scripts/script.php?script_id=1896 ->
+" http://github.com/tpope/vim-ragtag
+let g:ragtag_global_maps = 1 
+
+" blogger:
+" https://github.com/ujihisa/blogger.vim
+let g:blogger_blogid = '4581210966774229205'
+let g:blogger_email = 'keflavich@gmail.com'
+"let g:blogger_pass = ''
 
 " for vmail:
 let g:vmail_flagged_color = "ctermfg=yellow ctermbg=black cterm=bold"
