@@ -160,12 +160,12 @@ export PROMPT_COMMAND='echo -ne "\033]0; $host_short ${PWD/#$HOME/~}\007"; histo
 export PS1="\[${Cyan}\]$host_short \[${Yellow}\]\w\\$ \[${txtrst}\]"
 # git branch?
 #export PS1="\[${Cyan}\]$host_short $(__git_ps1 ' %s' \[${Yellow}\]\w\\$ \[${txtrst}\]"
-export PS1='$(git branch &>/dev/null; if [ $? -eq 0 ]; then \
-echo "\[\e[0;32m\][GIT: \[\e[0;31m\]$(basename `pwd`); \[\e[0;33m\]$(git branch | grep ^*|sed s/\*\ //) \
-$(echo `git status` | grep "nothing to commit" > /dev/null 2>&1; if [ "$?" -eq "0" ]; then \
-echo "\[\e[0;32m\]clean"; else \
-echo "\[\e[0;31m\]dirty"; fi)\[\e[0;32m\]] \$ "; else \
-echo "\[${Cyan}\]$host_short \[${Yellow}\]\w\\$ \[${txtrst}\]"; fi) \[\e[0m\]'
+export PS1='$(git branch &>/dev/null; if [ $? -eq 0 -a -e .git/ ]; then \
+echo "\[\e[0;36m\]$host_short \[\e[0;33m\]\w\[\e[0;33m\] \
+$(echo `git status` | grep -E "nothing (added )?to commit" > /dev/null 2>&1; if [ "$?" -eq "0" ]; then \
+echo "\[\e[0;32m\]$(git branch | grep ^*|sed s/\*\ //)"; else \
+echo "\[\e[0;31m\]$(git branch | grep ^*|sed s/\*\ //)"; fi)\[\e[0;33m\]\$ "; else \
+echo "\[\e[0;36m\]\]$host_short \[\e[0;33m\]\]\w\\$"; fi) \[\e[0m'
 
 
 #. /usr/stsci/envconfig.mac/cshrc
