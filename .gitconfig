@@ -1,9 +1,9 @@
 [user]
 	name = Adam Ginsburg
-	email = keflavich@gmail.com
+	email = adam.g.ginsburg@gmail.com
 [user]
 	name = Adam Ginsburg
-	email = adam.g.ginsburg@gmail.com
+	email = keflavich@gmail.com
 [core]
 	excludesfile = /Users/adam/.gitignore_global
 [difftool "sourcetree"]
@@ -13,8 +13,16 @@
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [mergetool "gvimdiff3"]
-	cmd = gvim -f -d -c \"wincmd J\" \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
+	cmd = mvim -f -d -c \"wincmd J\" \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
 [mergetool "vimdiff3"]
 	cmd = vim -f -d -c \"wincmd J\" \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
+[mergetool "meld"]
+	cmd = meld '\"$LOCAL\"' '\"$BASE\"' '\"$REMOTE\"' '\"$MERGED\"'
+    keepBackup = false
+	path = /Users/adam/bin/meld
 [merge]
-	tool = gvimdiff3
+	tool = diffconflicts
+[mergetool "diffconflicts"]
+	cmd = diffconflicts mvim $BASE $LOCAL $REMOTE $MERGED
+	trustExitCode = true
+	keepBackup = false

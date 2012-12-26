@@ -9,6 +9,7 @@ ignore=/Users/adam/.hgignore_global
 [extensions]
 hgext.convert=
 hgext.extdiff = 
+hgext.fetch=
 hgsubversion=/Users/adam/repos/hgsubversion/hgsubversion
 hgext.graphlog = 
 fetch = 

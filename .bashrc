@@ -17,6 +17,8 @@ export PATH=/Users/adam/virtual-python/bin/:/Library/Frameworks/Python.framework
 export PATH=$PATH:/usr/local/bin/montage:/usr/stsci/wcstools-3.7.3/bin.macintel/
 export PATH=$PATH:/usr/local/cuda/bin:/Applications/itt/idl/idl/bin
 export PATH=$PATH:/usr/local/git/bin:/usr/local/bin:/usr/local/apache2/bin:/usr/sbin:/sbin
+export PATH=$PATH:/usr/local/astrometry/bin:/usr/local/netpbm/bin
+export DYLD_LIBRARY_PATH=/usr/local/netpbm/lib
 #PATH=/sw/bin:$PATH
 #export PATH
 #/scisoft/bin/Setup.bash
@@ -256,3 +258,5 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 #else
 #    export TERM='xterm-color'
 #fi
+alias notebookserver="~/virtual-python/bin/ipython notebook --pylab inline &"
+alias nbconvert="/Users/adam/repos/nbconvert/nbconvert.py"
