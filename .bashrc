@@ -146,6 +146,9 @@ shopt -s histappend
 shopt -s hostcomplete
 shopt -s nocaseglob
 
+# load git completion tools!  http://clalance.blogspot.com/2011/10/git-bash-prompts-and-tab-completion.html
+source /Users/adam/repos/git-1.7.6/contrib/completion/git-completion.bash
+
 # "friendly" colors https://wiki.archlinux.org/index.php/Color_Bash_Prompt
 . ~/.colors
 
@@ -155,6 +158,15 @@ host_short="macbook"
 export PROMPT_COMMAND='echo -ne "\033]0; $host_short ${PWD/#$HOME/~}\007"; history -a'
 # could use \h instead of the variable to automatically get hostname
 export PS1="\[${Cyan}\]$host_short \[${Yellow}\]\w\\$ \[${txtrst}\]"
+# git branch?
+#export PS1="\[${Cyan}\]$host_short $(__git_ps1 ' %s' \[${Yellow}\]\w\\$ \[${txtrst}\]"
+export PS1='$(git branch &>/dev/null; if [ $? -eq 0 ]; then \
+echo "\[\e[0;32m\][GIT: \[\e[0;31m\]$(basename `pwd`); \[\e[0;33m\]$(git branch | grep ^*|sed s/\*\ //) \
+$(echo `git status` | grep "nothing to commit" > /dev/null 2>&1; if [ "$?" -eq "0" ]; then \
+echo "\[\e[0;32m\]clean"; else \
+echo "\[\e[0;31m\]dirty"; fi)\[\e[0;32m\]] \$ "; else \
+echo "\[${Cyan}\]$host_short \[${Yellow}\]\w\\$ \[${txtrst}\]"; fi) \[\e[0m\]'
+
 
 #. /usr/stsci/envconfig.mac/cshrc
 export AUTOSSH_PORT=20000
