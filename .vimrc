@@ -80,8 +80,6 @@ set wildmenu
 " http://stackoverflow.com/questions/3383502/pathogen-does-not-load-plugins
 "call pathogen#runtime_append_all_bundles() 
 
-nnoremap <F5> :GundoToggle<CR>
-
 " this should not be necessary
 source ~/.vim/plugin/WhichTab.vim
 
@@ -181,10 +179,11 @@ set comments+=b:;
 
 "added 7/18/08:
 "vimtips #64 - make current buffer CWD
+" http://stackoverflow.com/questions/308452/vim-bufenter-autocmd-fails-on-ftp-files 
 function! CHANGE_CURR_DIR()
 "    let _dir = expand("%:p:h")
 "    exec "cd " . _dir
-    exec "cd %:p:h"
+    execute ":silent! cd %:p:h"
 "    unlet _dir
 endfunction
 
@@ -394,3 +393,12 @@ let g:blogger_email = 'keflavich@gmail.com'
 
 " for vmail:
 let g:vmail_flagged_color = "ctermfg=yellow ctermbg=black cterm=bold"
+
+" netrw (editing remote files)
+let g:netrw_silent=1
+
+hi CursorLine   cterm=NONE guibg=NONE
+
+" I think netrw overwrote this?
+nnoremap <F5> :GundoToggle<CR>
+
