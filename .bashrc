@@ -165,7 +165,7 @@ echo "\[\e[0;36m\]$host_short \[\e[0;33m\]\w\[\e[0;33m\] \
 $(echo `git status` | grep -E "nothing (added )?to commit" > /dev/null 2>&1; if [ "$?" -eq "0" ]; then \
 echo "\[\e[0;32m\]$(git branch | grep ^*|sed s/\*\ //)"; else \
 echo "\[\e[0;31m\]$(git branch | grep ^*|sed s/\*\ //)"; fi)\[\e[0;33m\]\$ "; else \
-echo "\[\e[0;36m\]\]$host_short \[\e[0;33m\]\]\w\\$"; fi) \[\e[0m'
+echo "\[\e[0;36m\]\]$host_short \[\e[0;33m\]\]\w\\$"; fi)\[\e[0m'
 
 
 #. /usr/stsci/envconfig.mac/cshrc
