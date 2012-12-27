@@ -22,7 +22,7 @@ ___vcs_dir() {
   git_dir() {
     base_dir=$(git rev-parse --show-cdup 2>/dev/null) || return 1
     base_dir=$(readlink "$base_dir/..")
-    if [ "$base_dir" = "/Users/adam" ]; then base_dir=""; return 1; fi
+    if [ "$base_dir" = `echo ~` ]; then base_dir=""; return 1; fi
     sub_dir=$(git rev-parse --show-prefix)
     sub_dir=${sub_dir%/}
     ref=$(git symbolic-ref -q HEAD || git name-rev --name-only HEAD 2>/dev/null)
