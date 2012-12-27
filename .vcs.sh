@@ -78,3 +78,36 @@ ___vcs_dir() {
     PS1="\[${Cyan}\]$host_short \[${Yellow}\]\w"'$(___vcs_dir)'"\\$ \[${txtrst}\]"
 
 }
+
+
+#__vcs_info() {
+#   #echo "DEBUG $?"
+#   #echo "$? -eq 0 -a $(git rev-parse --show-toplevel 2>/dev/null || echo \"/Users/adam\") != \"/Users/adam\""
+#   git branch &>/dev/null 2>&1
+#   if [ $? -eq 0 -a "$(git rev-parse --show-toplevel 2>/dev/null || echo "/Users/adam")" != "/Users/adam" -a "$(git rev-parse --show-toplevel 2>/dev/null || echo "/Users/adam")" != "" ];
+#   then  
+#       #echo "GIT PASSED"
+#       git status 2>&1 | grep -E "nothing (added )?to commit" > /dev/null 2>&1;
+#       if [ "$?" -eq "0" ]; then 
+#           __vcs_branch=":\[\e[0;32m\]$(git branch | grep ^*|sed s/\*\ //)\[\e[0;33m\]"; 
+#       else 
+#           __vcs_branch=":\[\e[0;31m\]$(git branch | grep ^*|sed s/\*\ //)\[\e[0;33m\]"; 
+#       fi
+#   else
+#       hg branch &> /dev/null 2>&1 
+#       if [ $? -eq 0 ];
+#       then
+#           hg id | grep -E "+" > /dev/null 2>&1
+#           if [ "$?" -eq "0" ];
+#           then
+#               __vcs_branch=":\[\e[0;32m\]$(hg branch)\[\e[0;33m\]";
+#           else
+#               __vcs_branch=":\[\e[0;31m\]$(hg branch)\[\e[0;33m\]";
+#           fi
+#       else
+#           __vcs_branch="\[\]";
+#       fi
+#   fi
+#   echo -e $__vcs_branch
+#   }
+# http://glandium.org/blog/?p=170

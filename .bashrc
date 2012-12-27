@@ -149,38 +149,6 @@ shopt -s nocaseglob
 # load git completion tools!  http://clalance.blogspot.com/2011/10/git-bash-prompts-and-tab-completion.html
 source /Users/adam/repos/git-1.7.6/contrib/completion/git-completion.bash
 
-#__vcs_info() {
-#   #echo "DEBUG $?"
-#   #echo "$? -eq 0 -a $(git rev-parse --show-toplevel 2>/dev/null || echo \"/Users/adam\") != \"/Users/adam\""
-#   git branch &>/dev/null 2>&1
-#   if [ $? -eq 0 -a "$(git rev-parse --show-toplevel 2>/dev/null || echo "/Users/adam")" != "/Users/adam" -a "$(git rev-parse --show-toplevel 2>/dev/null || echo "/Users/adam")" != "" ];
-#   then  
-#       #echo "GIT PASSED"
-#       git status 2>&1 | grep -E "nothing (added )?to commit" > /dev/null 2>&1;
-#       if [ "$?" -eq "0" ]; then 
-#           __vcs_branch=":\[\e[0;32m\]$(git branch | grep ^*|sed s/\*\ //)\[\e[0;33m\]"; 
-#       else 
-#           __vcs_branch=":\[\e[0;31m\]$(git branch | grep ^*|sed s/\*\ //)\[\e[0;33m\]"; 
-#       fi
-#   else
-#       hg branch &> /dev/null 2>&1 
-#       if [ $? -eq 0 ];
-#       then
-#           hg id | grep -E "+" > /dev/null 2>&1
-#           if [ "$?" -eq "0" ];
-#           then
-#               __vcs_branch=":\[\e[0;32m\]$(hg branch)\[\e[0;33m\]";
-#           else
-#               __vcs_branch=":\[\e[0;31m\]$(hg branch)\[\e[0;33m\]";
-#           fi
-#       else
-#           __vcs_branch="\[\]";
-#       fi
-#   fi
-#   echo -e $__vcs_branch
-#   }
-# http://glandium.org/blog/?p=170
-
 # "friendly" colors https://wiki.archlinux.org/index.php/Color_Bash_Prompt
 . ~/.colors
 
@@ -191,29 +159,6 @@ export PROMPT_COMMAND='echo -ne "\033]0; $host_short ${PWD/#$HOME/~}\007"; '
 export PROMPT_COMMAND='history -a'
 # could use \h instead of the variable to automatically get hostname
 export PS1="\[${Cyan}\]$host_short \[${Yellow}\]\w\\$ \[${txtrst}\]"
-# git branch?
-#export PS1="\[${Cyan}\]$host_short $(__git_ps1 ' %s' \[${Yellow}\]\w\\$ \[${txtrst}\]"
-gitbranch='echo "\[\e[0;36m\]$host_short \[\e[0;33m\]\w\[\e[0;33m\] \
-$(echo `git status > 2&>1` | grep -E "nothing (added )?to commit" > /dev/null 2>&1; if [ "$?" -eq "0" ]; then \
-echo "\[\e[0;32m\]$(git branch | grep ^*|sed s/\*\ //)"; else \
-echo "\[\e[0;31m\]$(git branch | grep ^*|sed s/\*\ //)"; fi)'
-
-hgbranch='$(echo `hg status -m .` | grep -E "^M" > /dev/null 2>&1; if [ "$?" -eq "0" ]; then \
-echo "\[\e[0;31m\]$(hg branch)"; else \
-echo "\[\e[0;32m\]$(hg branch)"; fi)'
-
-defaultprompt='echo "\[\e[0;36m\]$host_short \[\e[0;33m\]\w\$ "'
-
-hgbranchtest='$(hg branch &>/dev/null; if [ $? -eq 0 -a -e .hg/ ]; then \
-'$hgbranch'\[\e[0;33m\]\$ "; else \
-'$defaultprompt'; fi)\[\e[0m\]'
-
-export PS1='$(git branch &>/dev/null; if [ $? -eq 0 -a $(git rev-parse --show-toplevel) != "/Users/adam" ]; then \
-'$gitbranch'\[\e[0;33m\]\$ "; else \
-'$defaultprompt'; fi)\[\e[0m\]$(tput sgr0)'
-
-#export PS1="\[${Cyan}\]$host_short \[${Yellow}\]\w"'$(__vcs_info)'"\\$ \[${txtrst}\]"
-#export PS1="\[${Cyan}\]$host_short \[${Yellow}\]\w\\$ \[${txtrst}\]"
 . ~/.vcs.sh
 export PS1="\[${Cyan}\]$host_short \[${Yellow}\]\w\[${Green}\]"'$(___vcs_dir)'"\[${Yellow}\]\\$ \[${txtrst}\]"
 
