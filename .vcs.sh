@@ -66,16 +66,18 @@ ___vcs_dir() {
     #echo ":${vcs}:${ref}"
     if [ "$vcs" != "" ];
     then 
-        color="$color"
-        color=\[\${${color}}\]
-        thing=":$ref"
-        echo "$thing"
+        color1=`echo $color`
+        thing="\${$color1}:$ref"
+        blah=`echo "$(echo $thing)"`
+        #echo $blah
+        echo ":$ref"
     else
         echo ""
     fi
 
     #PS1='${debian_chroot:+($debian_chroot)}\u@\h:$(___vcs_dir)\$ '
-    PS1="\[${Cyan}\]$host_short \[${Yellow}\]\w"'$(___vcs_dir)'"\\$ \[${txtrst}\]"
+    #PS1="\[${Cyan}\]$host_short \[${Yellow}\]\w"'$(___vcs_dir)'"\\$ \[${txtrst}\]"
+    #PS1=${PS1//\$(___vcs_dir)/$color:$ref}"
 
 }
 
