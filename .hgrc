@@ -8,4 +8,3 @@ hgext.graphlog =
 mq = 
 hggit = 
 fetch=
-
