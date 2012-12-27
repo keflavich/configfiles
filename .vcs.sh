@@ -4,7 +4,7 @@ _bold=$(tput bold)
 _normal=$(tput sgr0)
 
 function readlink() {
-    DIR=$1; #$(echo "${1%/*}")
+    DIR=$1; 
     (cd "$DIR" && echo "$(pwd -P)")
 }
 
@@ -15,7 +15,6 @@ ___vcs_dir() {
     local sub_dir
     sub_dir=$(readlink "${PWD}")
     sub_dir=${sub_dir#$1}
-    echo ${sub_dir#/}
   }
 
 
@@ -29,6 +28,8 @@ ___vcs_dir() {
     ref=${ref#refs/heads/}
     vcs="git"
     color=$(git diff-index --quiet HEAD 2>/dev/null && echo "Green" || echo "Red")
+    #echo $color
+    return 0
   }
 
 
@@ -41,7 +42,7 @@ ___vcs_dir() {
     sub_dir=$(sub_dir "${base_dir}")
     ref=$(svn info "$base_dir" | awk '/^URL/ { sub(".*/","",$0); r=$0 } /^Revision/ { sub("[^0-9]*","",$0); print r":"$0 }')
     vcs="svn"
-    color="Green"
+    color=$(echo "Green")
   }
 
 
@@ -53,7 +54,9 @@ ___vcs_dir() {
         sub_dir=$(sub_dir "${base_dir}")
         ref=$(< "${base_dir}/.hg/branch")
         vcs="hg"
-        color=$(hg summary | grep -q '(clean)' && echo "Green" || echo "Red")
+        # which is faster?
+        #color=$(hg summary | grep -q '(clean)' && echo "Green" || echo "Red")
+        color=$([ "$(hg diff)" == "" ] && echo "Green" || echo "Red")
     }
 
 
@@ -64,8 +67,10 @@ ___vcs_dir() {
 
     if [ "$vcs" != "" ];
     then 
-        color1=\$$color
-        color2=`eval echo $color1`
+        # alternative approach
+        #color1=\$$color
+        #color2=`eval echo $color1`
+        color2=${!color}
         export __vcs_color=$color2
         export __vcs_branch=" $ref"
     else
