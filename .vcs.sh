@@ -66,13 +66,16 @@ ___vcs_dir() {
     #echo ":${vcs}:${ref}"
     if [ "$vcs" != "" ];
     then 
-        color1=`echo $color`
-        thing="\${$color1}:$ref"
-        blah=`echo "$(echo $thing)"`
-        #echo $blah
-        echo ":$ref"
+        color1=\$$color
+        color2=`eval echo $color1`
+        #color3=`eval echo $color2`
+        export __vcs_color=$color2
+        export __vcs_branch=":$ref"
+        #echo "\[$color2\]:$ref"
     else
-        echo ""
+        export __vcs_color=""
+        export __vcs_branch=""
+        #echo ""
     fi
 
     #PS1='${debian_chroot:+($debian_chroot)}\u@\h:$(___vcs_dir)\$ '

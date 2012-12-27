@@ -156,12 +156,13 @@ source /Users/adam/repos/git-1.7.6/contrib/completion/git-completion.bash
 host_short="macbook"
 #PROMPT_COMMAND='echo -ne "\033]0; $host_short ${PWD/#$HOME/~}\007"'
 export PROMPT_COMMAND='echo -ne "\033]0; $host_short ${PWD/#$HOME/~}\007"; '
-export PROMPT_COMMAND='history -a'
+export PROMPT_COMMAND='history -a; ___vcs_dir'
 # could use \h instead of the variable to automatically get hostname
 export PS1="\[${Cyan}\]$host_short \[${Yellow}\]\w\\$ \[${txtrst}\]"
 . ~/.vcs.sh
 export PS1="\[${Cyan}\]$host_short \[${Yellow}\]\w\[${Green}\]"'$(___vcs_dir)'"\[${Yellow}\]\\$ \[${txtrst}\]"
 export PS1="\[${Cyan}\]$host_short \[${Yellow}\]\w\[${Green}\]\$(___vcs_dir)\[${Yellow}\]\\$ \[${txtrst}\]"
+export PS1="\`echo -e \"\[${Cyan}\]$host_short \[${Yellow}\]\w\[${Green}\]\[\$__vcs_color\]\$__vcs_branch\[${Yellow}\]\\$ \[${txtrst}\]\"\`"
 
 
 #. /usr/stsci/envconfig.mac/cshrc
