@@ -52,11 +52,12 @@ ___vcs_dir() {
         while [ ! -d "$base_dir/.hg" ]; do base_dir="$base_dir/.."; [ $(readlink "${base_dir}") = "/" ] && return 1; done
         base_dir=$(readlink "$base_dir")
         sub_dir=$(sub_dir "${base_dir}")
-        ref=$(< "${base_dir}/.hg/branch")
+        ref=$(hg prompt "{branch}") #$(< "${base_dir}/.hg/branch")
         vcs="hg"
         # which is faster?
         #color=$(hg summary | grep -q '(clean)' && echo "Green" || echo "Red")
-        color=$([ "$(hg diff)" == "" ] && echo "Green" || echo "Red")
+        #color=Green #$([ "$(hg diff)" == "" ] && echo "Green" || echo "Red")
+        color=$([ "$(hg prompt "{status}")" == "!" ] && echo "Red" || echo "Green")
     }
 
 
