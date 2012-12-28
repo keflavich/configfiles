@@ -56,8 +56,8 @@ ___vcs_dir() {
         vcs="hg"
         # which is faster?
         #color=$(hg summary | grep -q '(clean)' && echo "Green" || echo "Red")
-        #color=Green #$([ "$(hg diff)" == "" ] && echo "Green" || echo "Red")
-        color=$([ "$(hg prompt "{status}")" == "!" ] && echo "Red" || echo "Green")
+        color=Green #$([ "$(hg diff)" == "" ] && echo "Green" || echo "Red")
+        #color=$([ "$(hg prompt "{status}")" == "!" ] && echo "Red" || echo "Green")
     }
 
 
