@@ -181,6 +181,8 @@ set -o ignoreeof
 # export DISPLAY=":0.0"
 
 
+export LANG=en_US.UTF-8
+export LC_CTYPE=en_US.UTF-8
 
 # stupid Mac Terminal hack (http://pseudogreen.org/blog/set_tab_names_in_leopard_terminal.html)
 # function set_window_and_tab_title
