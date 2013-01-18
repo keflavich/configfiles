@@ -17,6 +17,7 @@ hgk=
 hggit=
 mq = 
 #largefiles=
+prompt = /Users/adam/repos/hg-prompt/prompt.py
 
 [extdiff]
 cmd.vimdiff = vimdiff

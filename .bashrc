@@ -19,6 +19,8 @@ export PATH=$PATH:/usr/local/cuda/bin:/Applications/itt/idl/idl/bin
 export PATH=$PATH:/usr/local/git/bin:/usr/local/bin:/usr/local/apache2/bin:/usr/sbin:/sbin
 export PATH=$PATH:/usr/local/astrometry/bin:/usr/local/netpbm/bin
 export DYLD_LIBRARY_PATH=/usr/local/netpbm/lib
+export NETPBM_INC=-I/usr/local/netpbm/include
+export NETPBM_LIB="-L/usr/local/netpbm/lib -lnetpbm"
 #PATH=/sw/bin:$PATH
 #export PATH
 #/scisoft/bin/Setup.bash
@@ -77,8 +79,9 @@ alias spectool='/Applications/itt/idl70/bin/idl /Users/adam/observations/triples
 #alias pylab="ipython -log -i -pylab -c 'import numpy,scipy,matplotlib;'"
 #alias pylab32="/sw/bin/ipython -log -q4thread -i -c 'from pylab import *;import numpy,scipy,matplotlib;'"
 alias pylab="/Library/Frameworks/Python.framework/Versions/2.6/bin/ipython --pylab -i"
+alias pylab="ipython --pylab -i"
 alias pyphys='ipython -logfile pyphys.log -p physics -pylab'
-alias python='/Library/Frameworks/Python.framework/Versions/2.6/bin/python'
+#alias python='/Library/Frameworks/Python.framework/Versions/2.6/bin/python'
 alias ipython64='/Library/Frameworks/Python.framework/Versions/2.6/bin/ipython'
 alias python64='python-64'
 alias iyt='/Library/Frameworks/Python.framework/Versions/2.5/bin/ipython -log'

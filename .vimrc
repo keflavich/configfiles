@@ -401,4 +401,4 @@ endif
 " for vmail:
 let g:vmail_flagged_color = "ctermbg=black guibg=black cterm=bold gui=bold"
 
-map :E :Explore
+cabbrev E Explore
