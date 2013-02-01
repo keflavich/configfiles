@@ -1,14 +1,14 @@
 #http://glandium.org/blog/?p=170
-
+ 
 _bold=$(tput bold)
 _normal=$(tput sgr0)
-
+ 
 function readlink() {
     DIR=$1; 
     (cd "$DIR" && echo "$(pwd -P)")
 }
-
-
+ 
+ 
 ___vcs_dir() {
   local vcs base_dir sub_dir ref
   sub_dir() {
@@ -16,8 +16,8 @@ ___vcs_dir() {
     sub_dir=$(readlink "${PWD}")
     sub_dir=${sub_dir#$1}
   }
-
-
+ 
+ 
   git_dir() {
     base_dir=$(git rev-parse --show-cdup 2>/dev/null) || return 1
     base_dir=$(readlink "$base_dir")
@@ -31,8 +31,8 @@ ___vcs_dir() {
     #echo $color
     return 0
   }
-
-
+ 
+ 
   svn_dir() {
     [ -d ".svn" ] || return 1
     base_dir="."
@@ -44,9 +44,9 @@ ___vcs_dir() {
     vcs="svn"
     color=$(echo "Green")
   }
-
-
-
+ 
+ 
+ 
     hg_dir() {
         base_dir="."
         while [ ! -d "$base_dir/.hg" ]; do base_dir="$base_dir/.."; [ $(readlink "${base_dir}") = "/" ] && return 1; done
@@ -59,8 +59,8 @@ ___vcs_dir() {
         color=Green #$([ "$(hg diff)" == "" ] && echo "Green" || echo "Red")
         #color=$([ "$(hg prompt "{status}")" == "!" ] && echo "Red" || echo "Green")
     }
-
-
+ 
+ 
     if [ -d ".git" ]; 
     then
         if [ -d ".hg" ];
@@ -81,7 +81,7 @@ ___vcs_dir() {
         git_dir ||
         base_dir="$PWD"
     fi
-
+ 
     if [ "$vcs" != "" ];
     then 
         # alternative approach
@@ -94,6 +94,9 @@ ___vcs_dir() {
         export __vcs_color=""
         export __vcs_branch=""
     fi
-
+ 
 }
+ 
+export PROMPT_COMMAND='echo -ne "\033]0; ${host_short} `basename $PWD`\007"; history -a; ___vcs_dir'
+export PS1="\`echo -e \"\[${Cyan}\]$host_short \[${Yellow}\]\w\[${Green}\]\[\$__vcs_color\]\$__vcs_branch\[${Yellow}\]\\$ \[${txtrst}\]\"\`"
 
