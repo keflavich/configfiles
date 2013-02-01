@@ -1,6 +1,7 @@
 [ui]
 username = Adam Ginsburg <keflavich@gmail.com>
 verbose = True
+editor = /usr/local/bin/vim
 
 [extensions]
 hgext.convert=

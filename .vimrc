@@ -121,20 +121,6 @@ command! -complete=file -nargs=* Svn call s:RunShellCommand('svn '.<q-args>)
 command! -complete=file -nargs=* Bzr call s:RunShellCommand('bzr '.<q-args>)
 command! -complete=file -nargs=* Hg  call s:RunShellCommand('hg '.<q-args>)
 
-
-"LATEX maps
-""http://vim.1045645.n5.nabble.com/Compiling-LaTeX-within-vim-Two-Questions-td1169813.html
-"map ,p :Shell pdflatex -interaction nonstopmode % 
-"map ,b :Shell bibtex % 
-" Activate skim
-map ,v :w<CR>:silent !/Applications/Skim.app/Contents/SharedSupport/displayline -r <C-r>=line('.')<CR> %<.pdf %<CR><CR>
-map ,p :w<CR>:silent !pdflatex -synctex=1 --interaction=nonstopmode %:p <CR>:silent !/Applications/Skim.app/Contents/SharedSupport/displayline -r <C-r>=line('.')<CR> %<.pdf %<CR><CR>
-map ,m :w<CR>:silent !make <CR>:silent !/Applications/Skim.app/Contents/SharedSupport/displayline -r <C-r>=line('.')<CR> %<.pdf %<CR><CR>
-" Reactivate VIM
-map ,r :w<CR>:silent !/Applications/Skim.app/Contents/SharedSupport/displayline -r <C-r>=line('.')<CR> %<.pdf %<CR>:silent !osascript -e "tell application \"MacVim\" to activate" <CR><CR>
-map ,t :w<CR>:silent !pdflatex -synctex=1 --interaction=nonstopmode %:p <CR>:silent !/Applications/Skim.app/Contents/SharedSupport/displayline -r <C-r>=line('.')<CR> %<.pdf %<CR>:silent !osascript -e "tell application \"MacVim\" to activate" <CR><CR>
-" I don't think this one works... map ,t :w Shell pdflatex % & 
-
 "# Adam Added 5/7/07
 "noremap y "+y
 map :W :w
@@ -402,3 +388,21 @@ hi CursorLine   cterm=NONE guibg=NONE
 " I think netrw overwrote this?
 nnoremap <F5> :GundoToggle<CR>
 
+"let g:jedi#squelch_py_warning=1
+
+
+
+""LATEX maps
+"""http://vim.1045645.n5.nabble.com/Compiling-LaTeX-within-vim-Two-Questions-td1169813.html
+""map ,p :Shell pdflatex -interaction nonstopmode % 
+""map ,b :Shell bibtex % 
+"" Activate skim
+"map ,v :w<CR>:silent !/Applications/Skim.app/Contents/SharedSupport/displayline -r <C-r>=line('.')<CR> %<.pdf %<CR><CR>
+"map ,p :w<CR>:silent !pdflatex -synctex=1 --interaction=nonstopmode %:p <CR>:silent !/Applications/Skim.app/Contents/SharedSupport/displayline -r <C-r>=line('.')<CR> %<.pdf %<CR><CR>
+"map ,m :w<CR>:silent !make <CR>:silent !/Applications/Skim.app/Contents/SharedSupport/displayline -r <C-r>=line('.')<CR> %<.pdf %<CR><CR>
+"" Reactivate VIM
+"map ,r :w<CR>:silent !/Applications/Skim.app/Contents/SharedSupport/displayline -r <C-r>=line('.')<CR> %<.pdf %<CR>:silent !osascript -e "tell application \"MacVim\" to activate" <CR><CR>
+"map ,t :w<CR>:silent !pdflatex -synctex=1 --interaction=nonstopmode %:p <CR>:silent !/Applications/Skim.app/Contents/SharedSupport/displayline -r <C-r>=line('.')<CR> %<.pdf %<CR>:silent !osascript -e "tell application \"MacVim\" to activate" <CR><CR>
+"" I don't think this one works... map ,t :w Shell pdflatex % & 
+
+let g:macvim_skim_app_path='/Applications/Skim.app'
