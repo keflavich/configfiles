@@ -61,18 +61,18 @@ ___vcs_dir() {
     }
  
  
-    if [ -d ".git" ]; 
+    if [ -d ".hg" ]; 
     then
-        if [ -d ".hg" ];
+        if [ -d ".git" ];
         then
             svn_dir ||
-            hg_dir ||
             git_dir ||
+            hg_dir ||
             base_dir="$PWD"
         else
             svn_dir ||
-            git_dir ||
             hg_dir ||
+            git_dir ||
             base_dir="$PWD"
         fi
     else

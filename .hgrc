@@ -2,6 +2,7 @@
 username = Adam Ginsburg <keflavich@gmail.com>
 verbose = True
 editor = /usr/local/bin/vim
+merge = vimdiff
 
 [extensions]
 hgext.convert=
@@ -10,3 +11,14 @@ mq =
 hggit = 
 fetch=
 prompt=~/repos/hg-prompt/prompt.py
+
+[merge-tool]
+diffconflicts.args = $base $local $remote $other
+diffconflicts = diffconflicts
+vimdiff.executable = vim
+vimdiff.args = -d $base $local $output $other +close +close
+
+[hgmerge]
+interactive = diffconflicts
+args = $base $local $remote $other
+#noninteractive = diff3

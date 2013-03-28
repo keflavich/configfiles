@@ -406,3 +406,18 @@ nnoremap <F5> :GundoToggle<CR>
 "" I don't think this one works... map ,t :w Shell pdflatex % & 
 
 let g:macvim_skim_app_path='/Applications/Skim.app'
+
+" per http://vim-taglist.sourceforge.net/faq.html; need exuberant not gnu
+let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
+
+" TagbarToggle!  As per sam's suggestion (3/1/2013)
+nnoremap ,l :TagbarToggle<CR>
+
+
+" http://stackoverflow.com/questions/15643837/vim-autoread-netrw-to-prevent-accidental-overwriting
+:autocmd FocusGained ftp://*,scp://*,rsync://* nested
+\   if ! &modified && ! exists('b:lastchecktime') || localtime() - b:lastchecktime > 300 |
+\       edit |
+\       let b:lastchecktime = localtime() |
+\   endif
+
