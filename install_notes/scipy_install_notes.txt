@@ -1,0 +1,14 @@
+build order:
+
+# this first bit is to get past the error with missing symbols in _ufuncs.so
+CC=/usr/bin/gcc-4.2 CFLAGS="-arch i386 -arch x86_64" FFLAGS="-m32 -m64" LDFLAGS="-Wall -undefined dynamic_lookup -bundle -arch i386 -arch x86_64"  MACOSX_DEPLOYMENT_TARGET=10.7 CFLAGS_SHLIB="-fno-common" NETPBMLIBTYPE=dylib NETPBMLIBSUFFIX=dylib LDSHLIB="--shared" TIFFLIB=-ltiff JPEGLIB=-ljpeg PNGLIB=-lpng ZLIB=-lz python setup.py build_ext --fcompiler=gfortran
+CC=/usr/bin/gcc-4.2 CFLAGS="-arch i386 -arch x86_64" FFLAGS="-m32 -m64" LDFLAGS="-Wall -undefined dynamic_lookup -bundle -arch i386 -arch x86_64"  MACOSX_DEPLOYMENT_TARGET=10.7 CFLAGS_SHLIB="-fno-common" NETPBMLIBTYPE=dylib NETPBMLIBSUFFIX=dylib LDSHLIB="--shared" TIFFLIB=-ltiff JPEGLIB=-ljpeg PNGLIB=-lpng ZLIB=-lz python setup.py build
+
+cd build/lib.macosx-10.6-intel-2.7/
+python -c "import scipy; print scipy.__version__,scipy.__file__; scipy.test()
+
+# now have these bugs:
+ERROR: Failure: ImportError (cannot import name BytesIO)
+ERROR: Failure: ImportError (cannot import name doccer)
+ERROR: Failure: ImportError (cannot import name distance)
+ERROR: Failure: ImportError (cannot import name specfun)
