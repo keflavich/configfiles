@@ -182,7 +182,11 @@ set comments+=b:;
 function! CHANGE_CURR_DIR()
 "    let _dir = expand("%:p:h")
 "    exec "cd " . _dir
-    exec "cd %:p:h"
+    try
+        exec "cd %:p:h"
+    catch
+        " deal with it
+    endtry
 "    unlet _dir
 endfunction
 
@@ -402,3 +406,5 @@ endif
 let g:vmail_flagged_color = "ctermbg=black guibg=black cterm=bold gui=bold"
 
 cabbrev E Explore
+
+set shortmess+=A

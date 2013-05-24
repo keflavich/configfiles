@@ -59,7 +59,7 @@ export STARLINK_DIR=/star
 #alias cloudy="/opt/cloudy/cloudy.exe"
 #alias cloudy="/Users/adam/repos/cloudy_c10.0/source/cloudy.exe"
 export CLOUDY_DATA_PATH='/Users/adam/repos/cloudy_c10.0/data'
-alias ds9='/usr/local/bin/ds9'
+#alias ds9='/usr/local/bin/ds9'
 . /Applications/itt/idl/idl81/bin/idl_setup.bash
 #. /Applications/itt/idl706/bin/idl_setup.bash
 export IDL_BIN='/Applications/itt/idl/idl/bin/idl'
@@ -192,21 +192,25 @@ shopt -s nocaseglob
 # load git completion tools!  http://clalance.blogspot.com/2011/10/git-bash-prompts-and-tab-completion.html
 source /Users/adam/repos/git-1.7.6/contrib/completion/git-completion.bash
 
-# "friendly" colors https://wiki.archlinux.org/index.php/Color_Bash_Prompt
-. ~/.colors
+# http://serverfault.com/questions/146745/how-can-i-check-in-bash-if-a-shell-is-running-in-interactive-mode
+if [[ $- == *i* ]]
+then
+    # "friendly" colors https://wiki.archlinux.org/index.php/Color_Bash_Prompt
+    . ~/.colors
 
-# instead, just use macbook #host_short=`echo $HOSTNAME | sed 's/\([-a-z_]*\).*/\1/'`
-host_short="eta"
-export PROMPT_COMMAND='echo -ne "\033]0; ${host_short} ${PWD/#$HOME/~}\007"; history -a'
-export PROMPT_COMMAND='history -a; ___vcs_dir'
-export PROMPT_COMMAND='echo -ne "\033]0; ${host_short} ${PWD/#$HOME/~}\007"; history -a; ___vcs_dir'
-# could use \h instead of the variable to automatically get hostname
-export PS1="\[${Cyan}\]${host_short} \[${Yellow}\]\w\\$ \[${txtrst}\]"
-. ~/.vcs.sh
-export PS1="\`echo -e \"\[${Cyan}\]$host_short \[${Yellow}\]\w\[${Green}\]\[\$__vcs_color\]\$__vcs_branch\[${Yellow}\]\\$ \[${txtrst}\]\"\`"
+    # instead, just use macbook #host_short=`echo $HOSTNAME | sed 's/\([-a-z_]*\).*/\1/'`
+    host_short="eta"
+    export PROMPT_COMMAND='echo -ne "\033]0; ${host_short} ${PWD/#$HOME/~}\007"; history -a'
+    export PROMPT_COMMAND='history -a; ___vcs_dir'
+    export PROMPT_COMMAND='echo -ne "\033]0; ${host_short} ${PWD/#$HOME/~}\007"; history -a; ___vcs_dir'
+    # could use \h instead of the variable to automatically get hostname
+    export PS1="\[${Cyan}\]${host_short} \[${Yellow}\]\w\\$ \[${txtrst}\]"
+    . ~/.vcs.sh
+    export PS1="\`echo -e \"\[${Cyan}\]$host_short \[${Yellow}\]\w\[${Green}\]\[\$__vcs_color\]\$__vcs_branch\[${Yellow}\]\\$ \[${txtrst}\]\"\`"
 
-#. /usr/stsci/envconfig.mac/cshrc
-export AUTOSSH_PORT=20000
+    #. /usr/stsci/envconfig.mac/cshrc
+    export AUTOSSH_PORT=20000
+fi
 
 #. /sw/etc/bash_completion
 
@@ -254,10 +258,13 @@ function set_window_and_tab_title
 #PROMPT_COMMAND='set_window_and_tab_title "$host_short ${PWD##*/}"'
 #PROMPT_COMMAND='echo -n -e "${PWD##*/}\a"'
 
-# rvm:
-# install by curl -L get.rvm.io | bash -s stable
-source ~/.rvm/scripts/rvm
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+if [[ $- == *i* ]]
+then
+    # rvm:
+    # install by curl -L get.rvm.io | bash -s stable
+    source ~/.rvm/scripts/rvm
+    PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+fi
 
 
 
