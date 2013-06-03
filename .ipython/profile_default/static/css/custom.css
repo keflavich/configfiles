@@ -1,0 +1,137 @@
+.cm-s-ipython { background-color: black; color: lightblue; }
+.cm-s-ipython span.cm-keyword {color: #00ff00; font-weight: bold;}
+.cm-s-ipython span.cm-number {color: #ee88ee;}
+.cm-s-ipython span.cm-operator {color: lime; font-weight: bold;}
+.cm-s-ipython span.cm-meta {color: white;}
+.cm-s-ipython span.cm-comment {color: cyan; font-style: italic;}
+.cm-s-ipython span.cm-string {color: red;}
+.cm-s-ipython span.cm-error {color: darkred;}
+.cm-s-ipython span.cm-builtin {color: pink; font-weight: bold;}
+.CodeMirror pre.CodeMirror-cursor {color: white; border-left: 1px solid white;}
+.CodeMirror div.CodeMirror-cursor {color: white; border-left: 1px solid white;}
+.cm-s-ipython span.cm-variable {color: white;}
+.cm-s-default span.cm-variable {color: white;}
+.cm-s-default { background-color: black; color: lightblue; }
+.cm-s-default span.cm-keyword {color: #00ff00; font-weight: bold;}
+.cm-s-default span.cm-number {color: #ee88ee;}
+.cm-s-default span.cm-operator {color: lime; font-weight: bold;}
+.cm-s-default span.cm-meta {color: white;}
+.cm-s-default span.cm-comment {color: cyan; font-style: italic;}
+.cm-s-default span.cm-string {color: red;}
+.cm-s-default span.cm-error {color: darkred;}
+.cm-s-default span.cm-builtin {color: pink; font-weight: bold;}
+span.cm-variable {color: white;}
+div.text_cell_input  {   background-color: black;    color: white;}
+div.text_cell {   background-color: black;    color: white;}
+div#notebook {    background-color: black;     background-image: none;     color: white;}
+div.code_cell { background-color: black;    color: white;}
+div.metaedit .maintoolbar{    background-color: black;    color: white;}
+body {    background-color: black;    color: white;}
+body pre{    background-color: black;    color: white;}
+#notebook_name {  background-color: #333333;    color: white; background-image:none;}
+span.ui-widget-content{  background-color: #333333;    color: white; background-image:none;}
+div.ui-widget-content{  background-color: #333333;    color: white; background-image:none;}
+div#ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only output_collapsed vbox{  
+  background-color: black;    color: white;}
+div.input_area{    background-color: black;    color: white;}
+div.ui-widget-content { background-color: #333333; background-image: none;}
+div.input_prompt {color:#6666CC; font-weight: bold;}
+div.output_prompt {color:#CC6666; font-weight: bold;}
+div.output_text {color:white;}
+div.text_cell_render {color:white;}
+span.item_name {color:white;}
+.ui-widget-content a {color:white;}
+div.tooltip .ui-corner-all .tooltiptext .smalltooltip {background-color: black; color:white;}
+.pln {color:white} 
+.typ {color:#f9f}
+.lit {color:#BBB}
+.kwd {color:#3e3}
+.metaedit {background: transparent; border-color: transparent; color:white;}
+.ui-button-text {background: #112; color:white; border-color:666;}
+.ui-menubar  {background-color: transparent; background: transparent; background-image:none;}
+.ui-widget-header  {background-color: transparent; background: transparent; background-image:none;}
+.ui-helper-clearfix {background-color: transparent; background: transparent; background-image:none;}
+.ui-corner-all {background: #112; color: white;}
+.ui-widget  {background: #112; color: white;}
+.ui-widget-content {background: #112; color: white;}
+div.highlight {background:black;} /* needed for nbviewer */
+div.output_stderr {background:#400;}
+div.output_area pre {
+    color: white;
+}
+
+
+/**
+div.text_cell {
+    background-color: black;
+    color: white;
+}
+
+div#notebook {
+    background-color: black;
+    color: white;
+}
+
+div.code_cell {
+    background-color: black;
+    color: white;
+}
+
+div.metaedit .maintoolbar{
+    background-color: black;
+    color: white;
+}
+
+body{
+    background-color: black;
+    color: white;
+}
+
+div#ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only output_collapsed vbox{
+    background-color: black;
+    color: white;
+}
+
+div.input_area{
+    background-color: black;
+    color: white;
+}
+    **/
+
+/* Loosely based on the Midnight Textmate theme */
+
+.cm-s-night.CodeMirror { background: #0a001f; color: #f8f8f8; }
+.cm-s-night div.CodeMirror-selected { background: #447 !important; }
+.cm-s-night .CodeMirror-gutters { background: #0a001f; border-right: 1px solid #aaa; }
+.cm-s-night .CodeMirror-linenumber { color: #f8f8f8; }
+.cm-s-night .CodeMirror-cursor { border-left: 1px solid white !important; }
+
+.cm-s-night span.cm-comment { color: #6900a1; }
+.cm-s-night span.cm-atom { color: #845dc4; }
+.cm-s-night span.cm-number, .cm-s-night span.cm-attribute { color: #ffd500; }
+.cm-s-night span.cm-keyword { color: #599eff; }
+.cm-s-night span.cm-string { color: #37f14a; }
+.cm-s-night span.cm-meta { color: #7678e2; }
+.cm-s-night span.cm-variable-2, .cm-s-night span.cm-tag { color: #99b2ff; }
+.cm-s-night span.cm-variable-3, .cm-s-night span.cm-def { color: white; }
+.cm-s-night span.cm-error { color: #9d1e15; }
+.cm-s-night span.cm-bracket { color: #8da6ce; }
+.cm-s-night span.cm-comment { color: #6900a1; }
+.cm-s-night span.cm-builtin, .cm-s-night span.cm-special { color: #ff9e59; }
+.cm-s-night span.cm-link { color: #845dc4; }
+
+.tooltiptext .tooltip .ipython_tooltip {
+    background-color: #222;
+}
+.ansiblue {
+    color: #66e;
+}
+a.ui-button {
+    background-color: #112;
+}
+.celltoolbar {
+    background: #555;
+    background-color: #555;
+}
+ul#menus{background-color: black;}
+div.border-box-sizing div.toolbar {background-color:black;}
