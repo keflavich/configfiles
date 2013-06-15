@@ -76,7 +76,7 @@ set wildmenu
 "command! -nargs=* W :execute("silent !echo " . strftime("%Y-%m-%d %H:%M:%S") . " >> ~/timestamps_vim_write")|w <args>
 
 " 1/19/2012 http://www.vim.org/scripts/script.php?script_id=2332
-"call pathogen#infect() 
+call pathogen#infect() 
 " http://stackoverflow.com/questions/3383502/pathogen-does-not-load-plugins
 "call pathogen#runtime_append_all_bundles() 
 
@@ -405,6 +405,8 @@ nnoremap <F5> :GundoToggle<CR>
 "map ,t :w<CR>:silent !pdflatex -synctex=1 --interaction=nonstopmode %:p <CR>:silent !/Applications/Skim.app/Contents/SharedSupport/displayline -r <C-r>=line('.')<CR> %<.pdf %<CR>:silent !osascript -e "tell application \"MacVim\" to activate" <CR><CR>
 "" I don't think this one works... map ,t :w Shell pdflatex % & 
 
+map ,r :w<CR>:silent !rst2html.py % > "%:r"."html" <CR>
+
 let g:macvim_skim_app_path='/Applications/Skim.app'
 
 " per http://vim-taglist.sourceforge.net/faq.html; need exuberant not gnu
@@ -415,9 +417,15 @@ nnoremap ,l :TagbarToggle<CR>
 
 
 " http://stackoverflow.com/questions/15643837/vim-autoread-netrw-to-prevent-accidental-overwriting
+let b:lastchecktime = 0
 :autocmd FocusGained ftp://*,scp://*,rsync://* nested
 \   if ! &modified && ! exists('b:lastchecktime') || localtime() - b:lastchecktime > 300 |
 \       edit |
 \       let b:lastchecktime = localtime() |
 \   endif
 
+" pyflakes things:
+" https://github.com/scrooloose/syntastic
+" http://pep8.readthedocs.org/en/latest/intro.html#error-codes
+let g:syntastic_python_flake8_args="--ignore=E231,E501,E225,E226,E3,E261,W293,E241"
+cabbrev E Explore

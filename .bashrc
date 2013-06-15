@@ -61,6 +61,7 @@ alias idl="/Applications/itt/idl706/bin/idl ~/.idl/idlrc /Users/adam/work/boloca
 alias idl="/Applications/exelis/idl/bin/idl ~/.idl/idlrc /Users/adam/work/bolocam/.idl_startup_bgps.pro"
 alias bgpsv1="/Applications/itt/idl706/bin/idl ~/.idl/idlrc /Users/adam/work/bolocam/.idl_startup_bgpsv1.pro"
 alias idl_bolo="/Applications/itt/idl706/bin/idl /Users/adam/work/bolocam/bolocam_svn/environment/bolocam_startup.pro"
+alias idlde='/Applications/exelis/idl/bin/idlde ~/.idl/idlrc'
 alias aoidl='/Applications/itt/idl706/bin/idl ~/.aoidl' # must be IDL 7, I think
 alias gbtidl="/Users/adam/repos/gbtidl/gbtidl"
 alias macvim="/Applications/Vim.app/Contents/MacOS/Vim -g"
@@ -73,7 +74,7 @@ alias spectool='/Applications/itt/idl70/bin/idl /Users/adam/observations/triples
 #alias pylab="ipython -pylab -log"
 #alias pylab32='/sw/bin/ipython -log -q4thread -i -c '\''from pylab import *;import numpy,scipy,matplotlib;'\'''
 alias pylab='ipython -log -i -c '\''from pylab import *;import numpy,scipy,matplotlib,pyfits;'\'''
-alias pylab='ipython --logappend ipython_`date +"%Y%m%d"`.py -i --c='\''from pylab import *;import numpy,scipy,matplotlib,pyfits;'\'''
+alias pylab='ipython --logappend ipython_`date +"%Y%m%d"`.py --c='\''from pylab import *;import numpy,scipy,matplotlib,pyfits;'\'' -i'
 alias pyphys='ipython -logfile pyphys.log -p physics -pylab'
 alias ssh_milkyway='/usr/bin/ssh -XY ginsbura@milkyway.colorado.edu'
 alias ssh_origins2='/usr/bin/ssh -XY ginsbura@origins2.colorado.edu'
