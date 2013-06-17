@@ -135,6 +135,8 @@ command! -complete=file -nargs=* Hg  call s:RunShellCommand('hg '.<q-args>)
 "map ,r :w<CR>:silent !/Applications/Skim.app/Contents/SharedSupport/displayline -r <C-r>=line('.')<CR> %<.pdf %<CR>:silent !osascript -e "tell application \"MacVim\" to activate" <CR><CR>
 "map ,t :w<CR>:silent !pdflatex -synctex=1 --interaction=nonstopmode %:p <CR>:silent !/Applications/Skim.app/Contents/SharedSupport/displayline -r <C-r>=line('.')<CR> %<.pdf %<CR>:silent !osascript -e "tell application \"MacVim\" to activate" <CR><CR>
 "" I don't think this one works... map ,t :w Shell pdflatex % & 
+"map ,p :w<CR>:silent !pdflatex -synctex=1 --interaction=nonstopmode %:p <CR>:silent !/Applications/Skim.app/Contents/SharedSupport/displayline -r <C-r>=line('.')<CR> %<.pdf %<CR><CR>
+map ,r :w<CR>:silent !rst2html.py % > "%:r"."html" <CR>
 
 "# Adam Added 5/7/07
 "noremap y "+y
