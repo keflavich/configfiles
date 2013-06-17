@@ -8,6 +8,23 @@ function readlink() {
     (cd "$DIR" && echo "$(pwd -P)")
 }
  
+
+get_dir_type() {
+  current=$(readlink "${PWD}")
+  nparents=$(echo ${current} | grep -o "/" | wc -l)
+  dir=${current}
+  #echo $nparents 
+  for i in $(seq 1 ${nparents}); 
+  do
+      if [ -e ${dir}/.git ]; then ___vcs_type='git'; return 0; fi
+      if [ -e ${dir}/.hg ];  then ___vcs_type='hg';  return 0; fi
+      if [ -e ${dir}/.svn ]; then ___vcs_type='svn'; return 0; fi
+      dir=$(dirname ${dir});
+      #echo $dir, $i
+  done;
+  ___vcs_type=""
+  return 1
+}
  
 ___vcs_dir() {
   local vcs base_dir sub_dir ref
@@ -60,28 +77,12 @@ ___vcs_dir() {
         #color=$([ "$(hg prompt "{status}")" == "!" ] && echo "Red" || echo "Green")
     }
  
- 
-    if [ -d ".hg" ]; 
-    then
-        if [ -d ".git" ];
-        then
-            svn_dir ||
-            git_dir ||
-            hg_dir ||
-            base_dir="$PWD"
-        else
-            svn_dir ||
-            hg_dir ||
-            git_dir ||
-            base_dir="$PWD"
-        fi
-    else
-        svn_dir ||
-        hg_dir ||
-        git_dir ||
-        base_dir="$PWD"
-    fi
- 
+    get_dir_type
+    base_dir="$PWD"
+    if [ ${___vcs_type} == "git" ]; then git_dir; fi
+    if [ ${___vcs_type} == "hg" ]; then hg_dir; fi
+    if [ ${___vcs_type} == "svn" ]; then svn_dir; fi
+
     if [ "$vcs" != "" ];
     then 
         # alternative approach
