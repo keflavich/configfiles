@@ -16,10 +16,10 @@ get_dir_type() {
   #echo $nparents 
   for i in $(seq 1 ${nparents}); 
   do
-      if [ -e ${dir}/.git ]; then ___vcs_type='git'; return 0; fi
-      if [ -e ${dir}/.hg ];  then ___vcs_type='hg';  return 0; fi
-      if [ -e ${dir}/.svn ]; then ___vcs_type='svn'; return 0; fi
-      dir=$(dirname ${dir});
+      if [ -e "${dir}/.git" ]; then ___vcs_type='git'; return 0; fi
+      if [ -e "${dir}/.hg" ];  then ___vcs_type='hg';  return 0; fi
+      if [ -e "${dir}/.svn" ]; then ___vcs_type='svn'; return 0; fi
+      dir=$(dirname "${dir}");
       #echo $dir, $i
   done;
   ___vcs_type=""
