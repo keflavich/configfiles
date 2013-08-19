@@ -30,7 +30,7 @@ set softtabstop=4 " number of spaces for a tab in editing operations.
 set is " search as you type
 set autoread " auto-reload
 "set scrollbind  " not on by default because can be annoying
-set history=10000
+set history=100000
 
 " buffers in the background remain open (useful for cmd line)
 set hidden
@@ -429,3 +429,6 @@ let b:lastchecktime = 0
 " http://pep8.readthedocs.org/en/latest/intro.html#error-codes
 let g:syntastic_python_flake8_args="--ignore=E231,E501,E225,E226,E3,E261,W293,E241"
 cabbrev E Explore
+
+let g:netrw_dirhistmax=1000
+

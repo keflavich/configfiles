@@ -32,3 +32,5 @@
 	keepBackup = false
 [remote-hg]
 	hg-git-compat = true
+[hub]
+	protocol = git
