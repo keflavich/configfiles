@@ -9,3 +9,7 @@ For now, my recommended workflow is:
     ln -s configfiles/* ~/
 
 to symlink all the config files to `~/`.  It might be a good idea to back them up first.
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/keflavich/configfiles/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
