@@ -215,9 +215,9 @@ export LC_CTYPE=en_US.UTF-8
 # PROMPT_COMMAND='set_window_and_tab_title "$host_short ${PWD##*/}"'
 
 
-source ~/.rvm/scripts/rvm
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+#source ~/.rvm/scripts/rvm
+#PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 
-. /Users/adam/repos/docbook-xsl-1.76.1/.profile.incl
+#. /Users/adam/repos/docbook-xsl-1.76.1/.profile.incl
 

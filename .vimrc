@@ -428,7 +428,17 @@ let b:lastchecktime = 0
 " https://github.com/scrooloose/syntastic
 " http://pep8.readthedocs.org/en/latest/intro.html#error-codes
 let g:syntastic_python_flake8_args="--ignore=E231,E501,E225,E226,E3,E261,W293,E241"
+let g:syntastic_python_pyflakes_args="--ignore=E231,E501,E225,E226,E3,E261,W293,E241"
 cabbrev E Explore
+" If syntastic breaks, make sure the command-line versions work
+" I needed to install:
+" https://github.com/kevinw/pyflakes
 
 let g:netrw_dirhistmax=1000
+
+set tabpagemax=30
+
+" http://vim.wikia.com/wiki/All_folds_open_when_opening_a_file
+set foldlevelstart=20
+set foldlevel=20
 

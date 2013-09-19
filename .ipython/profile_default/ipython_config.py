@@ -1,3 +1,4 @@
+from __future__ import print_function
 # Configuration file for ipython.
 
 c = get_config()
@@ -27,10 +28,10 @@ c.InteractiveShellApp.ignore_old_config=True
 
 # A list of dotted module names of IPython extensions to load.
 # c.TerminalIPythonApp.extensions = []
-c.TerminalIPythonApp.extensions = [
-    'line_profiler_ext',
-    'line_profiler',
-]
+#c.TerminalIPythonApp.extensions = [
+#    'line_profiler_ext',
+#    'line_profiler',
+#]
 # 
 
 # Whether to install the default config files into the profile dir. If a new
@@ -252,7 +253,7 @@ out_str = '# Started Logging At: '+ strftime('%Y-%m-%d %H:%M:%S\n')
 file_handle.write(out_str) 
 file_handle.write('########################################################\n') 
 file_handle.close() 
-print "Logging to %s" % logfilepath
+print("Logging to %s" % logfilepath)
 
 c.TerminalInteractiveShell.logappend = logfilepath
 

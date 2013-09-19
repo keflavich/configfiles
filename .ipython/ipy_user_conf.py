@@ -22,19 +22,19 @@ import IPython.ipapi
 ip = IPython.ipapi.get()
 
 import sys
-sys.path.reverse()
+#sys.path.reverse()
 #sys.path.append('/Library/Python/2.5/site-packages')
 #sys.path.append('/Library//Frameworks/Python.framework/Versions/2.5/lib/python2.5/site-packages')
 #sys.path.append('/opt/local/bin/
-sys.path.reverse()
+#sys.path.reverse()
 #sys.path.append('/Library/Python/2.5/site-packages/coords')
 #sys.path.append('/scisoft/i386/Packages/Python-2.5.1/Python.framework/Versions/2.5/lib/python2.5/site-packages/')
 #sys.path.append('/scisoft/i386/Packages/Python-2.5.1/Python.framework/Versions/2.5/lib/python2.5/site-packages/pyephem-3.7.2.3-py2.5-macosx-10.4-i386.egg')
 #sys.path.append('/Users/adam')
 #sys.path.append('/Users/adam/agpy')
 #sys.path.append('/Users/adam/work/code')
-sys.path.append('/Users/adam/work/bolocam/AGidl/')
-sys.path.append('/Users/adam/work/bolocam/AGidl/bgps_pipeline/cleaning/flagging/')
+#sys.path.append('/Users/adam/work/bolocam/AGidl/')
+#sys.path.append('/Users/adam/work/bolocam/AGidl/bgps_pipeline/cleaning/flagging/')
 sys.output_line_width=180
 
 # import PyQt4

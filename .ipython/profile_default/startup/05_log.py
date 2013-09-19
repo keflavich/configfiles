@@ -1,3 +1,4 @@
+from __future__ import print_function
 from time import strftime
 import os.path
 
@@ -20,6 +21,6 @@ try:
       ip.logger.log_write( u"# IPython automatic logging file\n" )
   ip.logger.log_write( u"# " + '# Started Logging At: '+ strftime('%Y-%m-%d %H:%M:%S\n') ) 
   ip.logger.log_write( u"########################################################\n" ) 
-  print " Logging to "+filename
+  print(" Logging to "+filename)
 except RuntimeError:
-    print " Already logging to "+ip.logger.logfname
+    print(" Already logging to "+ip.logger.logfname)
