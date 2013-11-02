@@ -100,6 +100,9 @@ ___vcs_dir() {
  
 }
  
+# host + top-level dir
 export PROMPT_COMMAND='echo -ne "\033]0; ${host_short} `basename $PWD`\007"; history -a; ___vcs_dir'
+# just the top-level directory
+export PROMPT_COMMAND='echo -ne "\033]0; `basename $PWD`\007"; history -a; ___vcs_dir'
 export PS1="\`echo -e \"\[${Cyan}\]$host_short \[${Yellow}\]\w\[${Green}\]\[\$__vcs_color\]\$__vcs_branch\[${Yellow}\]\\$ \[${txtrst}\]\"\`"
 

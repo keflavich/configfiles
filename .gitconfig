@@ -5,7 +5,7 @@
 #	name = Adam Ginsburg
 #	email = keflavich@yahoo.com
 [user]
-	name = Adam Ginsburg
+	name = Adam Ginsburg (keflavich)
 	email = keflavich@gmail.com
 [core]
 	excludesfile = /Users/adam/.gitignore_global
@@ -34,3 +34,5 @@
 	hg-git-compat = true
 [hub]
 	protocol = git
+[alias]
+	unadd = reset HEAD

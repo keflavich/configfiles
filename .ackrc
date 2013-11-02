@@ -1,3 +1,4 @@
 --type-set=IDL=.pro
 --type-set=RST=.rst 
+--type-set=rst=.rst 
 --ignore-dir=build

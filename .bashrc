@@ -18,6 +18,9 @@ PATH=$PATH:/Developer-4.2/usr/bin/
 
 # Needed for netpbm
 export DYLD_LIBRARY_PATH=/usr/local/netpbm/lib/
+# Oct 6, 2013: needed for PyMultiNest
+export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:/usr/local/hpc/lib:/usr/local/openmpi/lib/
+export LD_LIBRARY_PATH=/Users/adam/repos/MultiNest/lib
 
 #PATH=$PATH:/sw/bin:/opt/local/bin:/opt/local/xpa/bin/:
 export PATH
@@ -62,6 +65,7 @@ alias idl="/Applications/exelis/idl/bin/idl ~/.idl/idlrc /Users/adam/work/boloca
 alias bgpsv1="/Applications/itt/idl706/bin/idl ~/.idl/idlrc /Users/adam/work/bolocam/.idl_startup_bgpsv1.pro"
 alias idl_bolo="/Applications/itt/idl706/bin/idl /Users/adam/work/bolocam/bolocam_svn/environment/bolocam_startup.pro"
 alias idlde='/Applications/exelis/idl/bin/idlde ~/.idl/idlrc'
+alias radmc_idl='/Applications/exelis/idl/bin/idl ~/.idl/radmc_startup'
 alias aoidl='/Applications/itt/idl706/bin/idl ~/.aoidl' # must be IDL 7, I think
 alias gbtidl="/Users/adam/repos/gbtidl/gbtidl"
 alias macvim="/Applications/Vim.app/Contents/MacOS/Vim -g"
