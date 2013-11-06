@@ -36,3 +36,5 @@
 	protocol = git
 [alias]
 	unadd = reset HEAD
+[push]
+	default = simple
