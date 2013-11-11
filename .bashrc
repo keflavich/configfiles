@@ -80,6 +80,8 @@ alias spectool='/Applications/itt/idl70/bin/idl /Users/adam/observations/triples
 alias pylab='ipython -log -i -c '\''from pylab import *;import numpy,scipy,matplotlib,pyfits;'\'''
 alias pylab='ipython --logappend ipython_`date +"%Y%m%d"`.py --c='\''from pylab import *;import numpy,scipy,matplotlib,pyfits;'\'' -i'
 alias pyphys='ipython -logfile pyphys.log -p physics -pylab'
+alias astropy='ipython --profile=astropy -i'
+alias astropylab='ipython --profile=astropy --pylab -i'
 alias ssh_milkyway='/usr/bin/ssh -XY ginsbura@milkyway.colorado.edu'
 alias ssh_origins2='/usr/bin/ssh -XY ginsbura@origins2.colorado.edu'
 alias ssh_calculon='/usr/bin/ssh -XY ginsbura@calculon.colorado.edu'
