@@ -15,6 +15,7 @@ PATH=$PATH:/usr/stsci/wcstools-3.7.3/bin.macintel/
 PATH=$PATH:/Users/adam/repos/apache-maven-3.0.4/bin
 PATH=/Users/adam/virtual-python/bin:$PATH:/usr/local/astrometry/bin/:/usr/local/netpbm/bin/
 PATH=$PATH:/Developer-4.2/usr/bin/
+PATH=$PATH:/Users/adam/repos/casa-python/
 
 # Needed for netpbm
 export DYLD_LIBRARY_PATH=/usr/local/netpbm/lib/
@@ -55,7 +56,9 @@ alias i386='export CFLAGS="-arch i386"; export CCFLAGS="-arch i386"; export CXXF
 alias clearflags='export CFLAGS=""; export CCFLAGS=""; export CXXFLAGS=""; export LDFLAGS=""; export FFLAGS="";'
 
 alias nbconvert="/Users/adam/repos/nbconvert/nbconvert.py"
+alias nbconvert="~/virtual-ipydev/bin/ipython nbconvert"
 
+alias scp='rsync -avp --progress'
 alias scp='rsync -Cavpu --partial --progress --rsh=ssh'
 #alias svn='/sw/bin/svn'
 alias HPC="export PATH=/Users/adam/Downloads/usr/local/bin:$PATH"
@@ -82,6 +85,7 @@ alias pylab='ipython --logappend ipython_`date +"%Y%m%d"`.py --c='\''from pylab 
 alias pyphys='ipython -logfile pyphys.log -p physics -pylab'
 alias astropy='ipython --profile=astropy -i'
 alias astropylab='ipython --profile=astropy --pylab -i'
+alias despotic_gui='ipython -i --c="import despotic; despotic.run_cloud_gui()"'
 alias ssh_milkyway='/usr/bin/ssh -XY ginsbura@milkyway.colorado.edu'
 alias ssh_origins2='/usr/bin/ssh -XY ginsbura@origins2.colorado.edu'
 alias ssh_calculon='/usr/bin/ssh -XY ginsbura@calculon.colorado.edu'
@@ -99,7 +103,6 @@ alias epd_python='/Library/Frameworks/EPD64.framework/Versions/7.2/bin/python'
 alias epd_ipython='/Library/Frameworks/EPD64.framework/Versions/7.2/bin/ipython'
 alias ssh_kilauea='/usr/bin/ssh -XY bolocam@kilauea.caltech.edu'
 alias ssh_sharc='/usr/bin/ssh -XY sharc@kilauea.caltech.edu'
-alias scp='rsync -avp --progress'
 alias pngtoeps='/Users/adam/agpy/contributed/pngtoeps'
 alias ssh_gb='ssh -XY aginsbur@ssh.gb.nrao.edu'
 alias ssh_newton='ssh -XY cuobserver@newton.apo.nmsu.edu'
@@ -227,3 +230,16 @@ export LC_CTYPE=en_US.UTF-8
 
 #. /Users/adam/repos/docbook-xsl-1.76.1/.profile.incl
 
+
+# qhull installed 11/11/2013
+# required hacking the makefile to not include -Wno-sign-somethingorother
+# because that was for gcc-4.4 and I am using gcc-4.2
+# because artist is stupid, I had to link /usr/local/include/libqhull to /usr/local/include/qhull
+export LIBDIR_QHULL=/usr/local/lib
+export INCLUDEDIR_QHULL=/usr/local/include/libqhull
+
+# add artist to path...
+. /Users/adam/Downloads/ARTIST/install/artistrc.sh
+
+# 11/12/2013: add RADEX_DATAPATH
+export RADEX_DATAPATH=/Users/adam/LAMDA/

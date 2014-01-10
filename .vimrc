@@ -1,4 +1,3 @@
-
 if match($TERM, "xterm-256color")!=-1
     set t_Co=256
     set t_AB=^[[48;5;%dm
@@ -31,6 +30,8 @@ set is " search as you type
 set autoread " auto-reload
 "set scrollbind  " not on by default because can be annoying
 set history=100000
+" Nov 29, 2013 - from the upvoted comment here: http://superuser.com/questions/289264/count-highlighted-string-length-in-vim
+set showcmd
 
 " buffers in the background remain open (useful for cmd line)
 set hidden
@@ -173,7 +174,7 @@ function! CHANGE_CURR_DIR()
 "    unlet _dir
 endfunction
 
-autocmd BufEnter * call CHANGE_CURR_DIR()
+" moved below into "if autocmd" block autocmd BufEnter * call CHANGE_CURR_DIR()
 " end vimtips 64
 
 "map ,v :sp $VIMRC<CR><C-W>_
@@ -336,35 +337,48 @@ endfunction
 
 
 
-" removed because (probably?) unnecessary
-" set shiftwidth=4
-" set expandtab " use spaces in place of tabs.
-" set tabstop=4 " number of spaces for a tab.
-" set softtabstop=4 " number of spaces for a tab in editing operations.
+" 11/25/2013: http://vimdoc.sourceforge.net/htmldoc/autocmd.html
+":autocmd!	" Remove ALL autocommands for the current group.
+if !exists("autocommands_loaded")
+    let autocommands_loaded = 1
+  
+    " removed because (probably?) unnecessary
+    " set shiftwidth=4
+    " set expandtab " use spaces in place of tabs.
+    " set tabstop=4 " number of spaces for a tab.
+    " set softtabstop=4 " number of spaces for a tab in editing operations.
 
-autocmd BufRead *\.txt setlocal formatoptions=l
-autocmd BufRead *\.txt setlocal lbr
-autocmd BufRead *\.txt map <Down> gj
-autocmd BufRead *\.txt map <Up>   gk
-autocmd BufRead *\.txt setlocal smartindent
-autocmd BufRead *\.txt setlocal spell spelllang=en_us
-"F7 WordProcessorOn
-:map <F7> :set linebreak <CR> :set display+=lastline <CR> :set wrap <CR> :setlocal spell spelllang=en_gb <CR> 
-"F6 WordProcessorOff
-:map <F6> :set nowrap <CR> :set nospell <CR> 
-autocmd BufRead *\.txt imap <up> <C-O>gk
-autocmd BufRead *\.txt imap <down> <C-O>gj
-autocmd BufRead *\.txt nmap <up> gk
-autocmd BufRead *\.txt nmap <down> gj
-autocmd BufRead *\.txt vmap <up> gk
-autocmd BufRead *\.txt vmap <down> gj
-"autocmd BufRead *\.txt imap <home> <C-O>g^
-"autocmd BufRead *\.txt imap <end> <C-O>g$
-"autocmd BufRead *\.txt nmap <home> g^
-"autocmd BufRead *\.txt nmap <end> g$
-"autocmd BufRead *\.txt vmap <home> g^
-"autocmd BufRead *\.txt vmap <end> g$
-"autocmd BufRead *\.txt set wrap
+    autocmd BufEnter * call CHANGE_CURR_DIR()
+
+    autocmd BufRead *\.txt setlocal formatoptions=l
+    autocmd BufRead *\.txt setlocal lbr
+    autocmd BufRead *\.txt map <Down> gj
+    autocmd BufRead *\.txt map <Up>   gk
+    autocmd BufRead *\.txt setlocal smartindent
+    autocmd BufRead *\.txt setlocal spell spelllang=en_us
+    "F7 WordProcessorOn
+    :map <F7> :set linebreak <CR> :set display+=lastline <CR> :set wrap <CR> :setlocal spell spelllang=en_gb <CR> 
+    "F6 WordProcessorOff
+    :map <F6> :set nowrap <CR> :set nospell <CR> 
+    autocmd BufRead *\.txt imap <up> <C-O>gk
+    autocmd BufRead *\.txt imap <down> <C-O>gj
+    autocmd BufRead *\.txt nmap <up> gk
+    autocmd BufRead *\.txt nmap <down> gj
+    autocmd BufRead *\.txt vmap <up> gk
+    autocmd BufRead *\.txt vmap <down> gj
+    "autocmd BufRead *\.txt imap <home> <C-O>g^
+    "autocmd BufRead *\.txt imap <end> <C-O>g$
+    "autocmd BufRead *\.txt nmap <home> g^
+    "autocmd BufRead *\.txt nmap <end> g$
+    "autocmd BufRead *\.txt vmap <home> g^
+    "autocmd BufRead *\.txt vmap <end> g$
+    "autocmd BufRead *\.txt set wrap
+
+endif
+
+
+
+
 
 " for html editing
 " http://www.vim.org/scripts/script.php?script_id=1896 ->
@@ -405,7 +419,7 @@ nnoremap <F5> :GundoToggle<CR>
 "map ,t :w<CR>:silent !pdflatex -synctex=1 --interaction=nonstopmode %:p <CR>:silent !/Applications/Skim.app/Contents/SharedSupport/displayline -r <C-r>=line('.')<CR> %<.pdf %<CR>:silent !osascript -e "tell application \"MacVim\" to activate" <CR><CR>
 "" I don't think this one works... map ,t :w Shell pdflatex % & 
 
-map ,r :w<CR>:silent !rst2html.py % > "%:r"."html" <CR>
+map ,h :w<CR>:silent !rst2html.py --math-output=MathJax % > "%:r"."html" <CR>
 
 let g:macvim_skim_app_path='/Applications/Skim.app'
 
