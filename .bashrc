@@ -27,9 +27,8 @@ export LD_LIBRARY_PATH=/Users/adam/repos/MultiNest/lib
 export PATH
 #/scisoft/bin/Setup.bash
 #xset b off
-HISTSIZE=50000
 export HISTTIMEFORMAT="%d/%m/%y %T "
-export HISTSIZE
+export HISTSIZE=50000
 #filt_dir=/home/adam/work/FILTERs_new
 #export filt_dir
 #alias ls="ls --color=auto"
@@ -80,11 +79,11 @@ alias casjobs="java -jar /Users/adam/DU_work/casjobs/casjobs.jar"
 alias spectool='/Applications/itt/idl70/bin/idl /Users/adam/observations/triplespec/.idl_startup_tspec' 
 #alias pylab="ipython -pylab -log"
 #alias pylab32='/sw/bin/ipython -log -q4thread -i -c '\''from pylab import *;import numpy,scipy,matplotlib;'\'''
-alias pylab='ipython -log -i -c '\''from pylab import *;import numpy,scipy,matplotlib,pyfits;'\'''
-alias pylab='ipython --logappend ipython_`date +"%Y%m%d"`.py --c='\''from pylab import *;import numpy,scipy,matplotlib,pyfits;'\'' -i'
-alias pyphys='ipython -logfile pyphys.log -p physics -pylab'
+alias pylab='ipython -log -i -c '\''import numpy,scipy,matplotlib;'\'''
+alias pylab='ipython --logappend ipython_`date +"%Y%m%d"`.py --matplotlib --c='\''import numpy,scipy,matplotlib,pyfits;'\'' -i'
+alias pyphys='ipython -logfile pyphys.log -p physics --matplotilb'
 alias astropy='ipython --profile=astropy -i'
-alias astropylab='ipython --profile=astropy --pylab -i'
+alias astropylab='ipython --profile=astropy --matplotlib -i'
 alias despotic_gui='ipython -i --c="import despotic; despotic.run_cloud_gui()"'
 alias ssh_milkyway='/usr/bin/ssh -XY ginsbura@milkyway.colorado.edu'
 alias ssh_origins2='/usr/bin/ssh -XY ginsbura@origins2.colorado.edu'
