@@ -13,9 +13,10 @@ PATH=/Library/Frameworks/Python.framework/Versions/2.7/bin/:$PATH
 PATH=$PATH:/usr/texbin/
 PATH=$PATH:/usr/stsci/wcstools-3.7.3/bin.macintel/
 PATH=$PATH:/Users/adam/repos/apache-maven-3.0.4/bin
-PATH=/Users/adam/virtual-python/bin:$PATH:/usr/local/astrometry/bin/:/usr/local/netpbm/bin/
+PATH=$PATH:/usr/local/astrometry/bin/:/usr/local/netpbm/bin/
 PATH=$PATH:/Developer-4.2/usr/bin/
 PATH=$PATH:/Users/adam/repos/casa-python/
+PATH=$PATH:/Users/adam/anaconda/bin/
 
 # Needed for netpbm
 export DYLD_LIBRARY_PATH=/usr/local/netpbm/lib/
@@ -27,9 +28,8 @@ export LD_LIBRARY_PATH=/Users/adam/repos/MultiNest/lib
 export PATH
 #/scisoft/bin/Setup.bash
 #xset b off
-HISTSIZE=50000
 export HISTTIMEFORMAT="%d/%m/%y %T "
-export HISTSIZE
+export HISTSIZE=50000
 #filt_dir=/home/adam/work/FILTERs_new
 #export filt_dir
 #alias ls="ls --color=auto"
@@ -155,6 +155,9 @@ export IDL_PATH='/Users/adam/.idl/smart:/Users/adam/.idl/IRS_Calibration:/Applic
 shopt -s histappend
 shopt -s hostcomplete
 shopt -s nocaseglob
+
+# activate anaconda python
+source activate python27
 
 # load git completion tools!  http://clalance.blogspot.com/2011/10/git-bash-prompts-and-tab-completion.html
 source /Users/adam/repos/git-1.7.6/contrib/completion/git-completion.bash

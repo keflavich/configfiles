@@ -1,2 +1,2 @@
 import numpy as np
-np.seterr(all='warn')
+#np.seterr(all='warn')
