@@ -1,0 +1,2 @@
+import appnope
+appnope.nope()
