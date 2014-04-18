@@ -5,11 +5,11 @@
 # User specific aliases and functions
 #PATH=/sw/bin:$PATH:/scisoft/bin:/scisoft/i386/bin:/sw/bin:/opt/local/bin
 #PATH=/usr/X11/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/sw/bin:/opt/local/bin:/scisoft/bin:/scisoft/i386/bin:/Developer/usr/bin/:/star/bin
-PATH=/usr/local/bin:/usr/X11/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/Developer/usr/bin/:/star/bin:/Users/adam/bin/:$PATH
+PATH=/Users/adam/bin/ccache:/usr/local/bin:/usr/X11/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/Developer/usr/bin/:/star/bin:/Users/adam/bin/:$PATH
 PATH=$PATH:/Library/Frameworks/GLib.framework/Resources/dev/bin/
 PATH=$PATH:/Applications//exelis/idl82/bin/:/usr/local/itt/idl/idl81/bin/
 PATH=$PATH:/usr/stsci/wcstools-3.7.3/bin.macintel/
-PATH=/Library/Frameworks/Python.framework/Versions/2.7/bin/:$PATH
+#PATH=/Library/Frameworks/Python.framework/Versions/2.7/bin/:$PATH
 PATH=$PATH:/usr/texbin/
 PATH=$PATH:/usr/stsci/wcstools-3.7.3/bin.macintel/
 PATH=$PATH:/Users/adam/repos/apache-maven-3.0.4/bin
@@ -17,19 +17,24 @@ PATH=$PATH:/usr/local/astrometry/bin/:/usr/local/netpbm/bin/
 PATH=$PATH:/Developer-4.2/usr/bin/
 PATH=$PATH:/Users/adam/repos/casa-python/
 PATH=$PATH:/Users/adam/anaconda/bin/
+PATH=/Users/adam/virtual-python/bin:$PATH:/Users/adam/anaconda/bin/
+# required for python extension builds, apparently?
+#export CC=/usr/bin/gcc CPP=/usr/bin/cpp
+#export CC=/usr/local/bin/gcc CPP=/usr/local/bin/cpp
 
 # Needed for netpbm
 export DYLD_LIBRARY_PATH=/usr/local/netpbm/lib/
 # Oct 6, 2013: needed for PyMultiNest
 export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:/usr/local/hpc/lib:/usr/local/openmpi/lib/
-export LD_LIBRARY_PATH=/Users/adam/repos/MultiNest/lib
+export LD_LIBRARY_PATH=/usr/lib:/usr/local/lib:/Users/adam/repos/MultiNest/lib:/usr/local/hpc/lib:/usr/local/openmpi/lib/
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/X11/lib/
 
 #PATH=$PATH:/sw/bin:/opt/local/bin:/opt/local/xpa/bin/:
 export PATH
 #/scisoft/bin/Setup.bash
 #xset b off
 export HISTTIMEFORMAT="%d/%m/%y %T "
-export HISTSIZE=50000
+export HISTSIZE=500000
 #filt_dir=/home/adam/work/FILTERs_new
 #export filt_dir
 #alias ls="ls --color=auto"
@@ -81,10 +86,10 @@ alias spectool='/Applications/itt/idl70/bin/idl /Users/adam/observations/triples
 #alias pylab="ipython -pylab -log"
 #alias pylab32='/sw/bin/ipython -log -q4thread -i -c '\''from pylab import *;import numpy,scipy,matplotlib;'\'''
 alias pylab='ipython -log -i -c '\''import numpy,scipy,matplotlib;'\'''
-alias pylab='ipython --logappend ipython_`date +"%Y%m%d"`.py --matplotlib --c='\''import numpy,scipy,matplotlib,pyfits;'\'' -i'
+alias pylab='ipython --logappend ipython_`date +"%Y%m%d"`.py --profile=pyplot --matplotlib -i'
 alias pyphys='ipython -logfile pyphys.log -p physics --matplotilb'
 alias astropy='ipython --profile=astropy -i'
-alias astropylab='ipython --profile=astropy --matplotlib -i'
+alias astropylab='ipython --profile=astropylab --matplotlib -i'
 alias despotic_gui='ipython -i --c="import despotic; despotic.run_cloud_gui()"'
 alias ssh_milkyway='/usr/bin/ssh -XY ginsbura@milkyway.colorado.edu'
 alias ssh_origins2='/usr/bin/ssh -XY ginsbura@origins2.colorado.edu'
@@ -107,6 +112,7 @@ alias pngtoeps='/Users/adam/agpy/contributed/pngtoeps'
 alias ssh_gb='ssh -XY aginsbur@ssh.gb.nrao.edu'
 alias ssh_newton='ssh -XY cuobserver@newton.apo.nmsu.edu'
 alias ssh_aws="ssh -i ec2keypair.pem ubuntu@107.22.222.121"
+alias skim='open -a /Applications/Skim.app'
 scp_aws () { rsync -Cavpu --partial --progress --rsh="ssh -i ec2keypair.pem" "$1" ubuntu@107.22.222.121:$2; } 
 
 newton=cuobserver@newton.apo.nmsu.edu
@@ -157,16 +163,18 @@ shopt -s hostcomplete
 shopt -s nocaseglob
 
 # activate anaconda python
-source activate python27
+#source activate python27
 
 # load git completion tools!  http://clalance.blogspot.com/2011/10/git-bash-prompts-and-tab-completion.html
 source /Users/adam/repos/git-1.7.6/contrib/completion/git-completion.bash
+# Done once:
+# git config --global alias.unstage 'reset --'
 
 # "friendly" colors https://wiki.archlinux.org/index.php/Color_Bash_Prompt
 . ~/.colors
 
 # instead, just use macbook #host_short=`echo $HOSTNAME | sed 's/\([-a-z_]*\).*/\1/'`
-host_short="dor"
+host_short="cyg"
 #PROMPT_COMMAND='echo -ne "\033]0; $host_short ${PWD/#$HOME/~}\007"'
 export PROMPT_COMMAND='echo -ne "\033]0; $host_short ${PWD/#$HOME/~}\007"; '
 export PROMPT_COMMAND='history -a; ___vcs_dir'
@@ -246,3 +254,11 @@ export INCLUDEDIR_QHULL=/usr/local/include/libqhull
 
 # 11/12/2013: add RADEX_DATAPATH
 export RADEX_DATAPATH=/Users/adam/LAMDA/
+
+# Bloody hell... MAVERICKS!!!
+# https://groups.google.com/a/continuum.io/forum/#!msg/anaconda/kvWVtW40aDI/cr9IkGdyzY4J
+defaults write org.python.python NSAppSleepDisabled -bool YES 
+defaults write com.apple.Finder NSAppSleepDisabled -bool YES
+
+alias wtf='say "What the F?"'
+alias enhance='say "enhance"'

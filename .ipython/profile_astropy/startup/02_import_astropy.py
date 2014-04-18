@@ -5,6 +5,5 @@ from astropy import coordinates
 from astropy.io import fits
 from astropy import wcs
 import numpy as np
-if 'show' in locals():
-    # get the pl-version in addition to the from pylab import * version
-    import pylab as pl
+from matplotlib import pyplot as pl
+import matplotlib as mpl

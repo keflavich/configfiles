@@ -40,8 +40,6 @@ set hidden
 " suffixes to put to the end of the list when completing file names
 set suffixes=.log,.bak,~,.o,.h,.info,.swp,.aux,.swo,.bbl,.blg,.pdf
 set wildignore=*.aux,*.pdf,*.blg,*.fits,*.png
-
- 
  
 " Python autocomplete (added 10/31/2012)
 " http://www.vim.org/scripts/script.php?script_id=850
@@ -75,11 +73,6 @@ set wildmenu
 " Heh - these two commands add a timestamp to ~/timestamps_vim_write every time I hit :w
 "cabbrev w <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'W' : 'w')<CR>
 "command! -nargs=* W :execute("silent !echo " . strftime("%Y-%m-%d %H:%M:%S") . " >> ~/timestamps_vim_write")|w <args>
-
-" 1/19/2012 http://www.vim.org/scripts/script.php?script_id=2332
-call pathogen#infect() 
-" http://stackoverflow.com/questions/3383502/pathogen-does-not-load-plugins
-"call pathogen#runtime_append_all_bundles() 
 
 " this should not be necessary
 source ~/.vim/plugin/WhichTab.vim
@@ -387,12 +380,12 @@ let g:ragtag_global_maps = 1
 
 " blogger:
 " https://github.com/ujihisa/blogger.vim
-let g:blogger_blogid = '4581210966774229205'
-let g:blogger_email = 'keflavich@gmail.com'
+"let g:blogger_blogid = '4581210966774229205'
+"let g:blogger_email = 'keflavich@gmail.com'
 "let g:blogger_pass = ''
 
 " for vmail:
-let g:vmail_flagged_color = "ctermfg=yellow ctermbg=black cterm=bold"
+"let g:vmail_flagged_color = "ctermfg=yellow ctermbg=black cterm=bold"
 
 " netrw (editing remote files)
 let g:netrw_silent=1
@@ -443,6 +436,8 @@ let b:lastchecktime = 0
 " http://pep8.readthedocs.org/en/latest/intro.html#error-codes
 let g:syntastic_python_flake8_args="--ignore=E231,E501,E225,E226,E3,E261,W293,E241"
 let g:syntastic_python_pyflakes_args="--ignore=E231,E501,E225,E226,E3,E261,W293,E241"
+" Deal with major delay on quitting
+let g:syntastic_check_on_wq=0
 cabbrev E Explore
 " If syntastic breaks, make sure the command-line versions work
 " I needed to install:
@@ -455,4 +450,9 @@ set tabpagemax=30
 " http://vim.wikia.com/wiki/All_folds_open_when_opening_a_file
 set foldlevelstart=20
 set foldlevel=20
+
+" 1/19/2012 http://www.vim.org/scripts/script.php?script_id=2332
+call pathogen#infect() 
+" http://stackoverflow.com/questions/3383502/pathogen-does-not-load-plugins
+"call pathogen#runtime_append_all_bundles() 
 
