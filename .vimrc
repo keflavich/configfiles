@@ -4,7 +4,25 @@ if match($TERM, "xterm-256color")!=-1
     set t_AF=^[[38;5;%dm
     set term=xterm-256color
 endif
+
+
+
     
+" April 2014: attempt to debug
+" Block syntastic from loading
+"let g:loaded_syntastic_plugin=1
+"let g:pathogen_disabled = ['syntastic']
+""SYNTASTIC IS NOT AT FAULT!!!
+"let g:pathogen_disabled = ['nerdtree']
+""NERDTREE IS NOT AT FAULT!!!
+"let g:loaded_gnupg = 1
+"gnupg is not at fault
+"let g:ConqueTerm_Loaded = 1
+"ConqueTerm is not at fault
+"let g:loaded_gitgutter = 1
+"gitgutter is not at fault
+let g:loaded_undo_browse = 1
+"undo_browse is not at fault (but I don't use it either)
 
 " nocp disables history and other commands
 set nocp
@@ -29,7 +47,7 @@ set softtabstop=4 " number of spaces for a tab in editing operations.
 set is " search as you type
 set autoread " auto-reload
 "set scrollbind  " not on by default because can be annoying
-set history=100000
+set history=10000
 " Nov 29, 2013 - from the upvoted comment here: http://superuser.com/questions/289264/count-highlighted-string-length-in-vim
 set showcmd
 
@@ -455,4 +473,3 @@ set foldlevel=20
 call pathogen#infect() 
 " http://stackoverflow.com/questions/3383502/pathogen-does-not-load-plugins
 "call pathogen#runtime_append_all_bundles() 
-
