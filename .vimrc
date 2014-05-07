@@ -38,7 +38,7 @@ set vb t_vb=   " When no beep or flash is wanted, use ":set vb t_vb=".
 set bs=2
 set autoindent
 set popt=duplex:long,syntax:y
-set dir=/Users/adam/Documents
+set dir=~/vim_docs/
 set formatoptions=trocql
 set shiftwidth=4 " applies to >>, etc.
 set expandtab " use spaces in place of tabs.
@@ -93,7 +93,7 @@ set wildmenu
 "command! -nargs=* W :execute("silent !echo " . strftime("%Y-%m-%d %H:%M:%S") . " >> ~/timestamps_vim_write")|w <args>
 
 " this should not be necessary
-source ~/.vim/plugin/WhichTab.vim
+" source ~/.vim/plugin/WhichTab.vim
 
 
 "remote keyboard issues (from lappy):
@@ -104,7 +104,7 @@ map OF $
 filetype plugin on
 set grepprg=grep\ -nH\ $*
 filetype indent on
-helptags ~/.vim/doc
+"helptags ~/.vim/doc
 
 "http://vim.wikia.com/wiki/Display_output_of_shell_commands_in_new_window
 command! -complete=shellcmd -nargs=+ Shell call s:RunShellCommand(<q-args>)
@@ -470,6 +470,6 @@ set foldlevelstart=20
 set foldlevel=20
 
 " 1/19/2012 http://www.vim.org/scripts/script.php?script_id=2332
-call pathogen#infect() 
+"call pathogen#infect() 
 " http://stackoverflow.com/questions/3383502/pathogen-does-not-load-plugins
 "call pathogen#runtime_append_all_bundles() 
