@@ -469,6 +469,12 @@ set tabpagemax=30
 set foldlevelstart=20
 set foldlevel=20
 
+" 5/2/2014
+" http://stackoverflow.com/questions/2019281/load-different-colorscheme-when-using-vimdiff
+if &diff
+    colorscheme diffcolorscheme
+endif
+
 " 1/19/2012 http://www.vim.org/scripts/script.php?script_id=2332
 call pathogen#infect() 
 " http://stackoverflow.com/questions/3383502/pathogen-does-not-load-plugins

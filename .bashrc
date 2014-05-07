@@ -37,7 +37,6 @@ export HISTTIMEFORMAT="%d/%m/%y %T "
 export HISTSIZE=500000
 #filt_dir=/home/adam/work/FILTERs_new
 #export filt_dir
-#alias ls="ls --color=auto"
 #PGPLOT_DIR="/usr/local/pgplot/"; export PGPLOT_DIR
 #LD_LIBRARY_PATH="/usr/local/pgplot"; export LD_LIBARY_PATH
 #export IRAFARCH=redhat
@@ -80,7 +79,12 @@ alias macvim="/Applications/Vim.app/Contents/MacOS/Vim -g"
 alias gvim="/Applications/Vim.app/Contents/MacOS/Vim -g"
 alias f77="gfortran"
 alias fv="/Applications/fv.app/Contents/MacOS/fv"
-alias ls="ls -G"
+#alias ls="ls -Ghp"
+## 4/30/2014: http://apple.stackexchange.com/questions/33677/how-can-i-configure-mac-terminal-to-have-color-ls-output
+#export CLICOLOR=1
+#export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
+# GNU ls:
+alias ls="ls --color=auto -hp"
 alias casjobs="java -jar /Users/adam/DU_work/casjobs/casjobs.jar"
 alias spectool='/Applications/itt/idl70/bin/idl /Users/adam/observations/triplespec/.idl_startup_tspec' 
 #alias pylab="ipython -pylab -log"
@@ -262,3 +266,4 @@ defaults write com.apple.Finder NSAppSleepDisabled -bool YES
 
 alias wtf='say "What the F?"'
 alias enhance='say "enhance"'
+
