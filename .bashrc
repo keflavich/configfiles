@@ -15,9 +15,13 @@ PATH=$PATH:/usr/stsci/wcstools-3.7.3/bin.macintel/
 PATH=$PATH:/Users/adam/repos/apache-maven-3.0.4/bin
 PATH=$PATH:/usr/local/astrometry/bin/:/usr/local/netpbm/bin/
 PATH=$PATH:/Developer-4.2/usr/bin/
-PATH=$PATH:/Users/adam/repos/casa-python/
+PATH=$PATH:~/.casa/bin/
 PATH=$PATH:/Users/adam/anaconda/bin/
-PATH=/Users/adam/virtual-python/bin:$PATH:/Users/adam/anaconda/bin/
+# May 19, 2014: finally gave up on my custom-installed python.  gcc-4.2 is
+# apparently incompatible with ccache, and I can't wait for astropy to build
+# any more
+#PATH=/Users/adam/virtual-python/bin:$PATH:/Users/adam/anaconda/bin/
+PATH=/Users/adam/anaconda/envs/astropy27/bin:$PATH:/Users/adam/anaconda/bin/
 # required for python extension builds, apparently?
 #export CC=/usr/bin/gcc CPP=/usr/bin/cpp
 #export CC=/usr/local/bin/gcc CPP=/usr/local/bin/cpp
@@ -266,4 +270,6 @@ defaults write com.apple.Finder NSAppSleepDisabled -bool YES
 
 alias wtf='say "What the F?"'
 alias enhance='say "enhance"'
+
+export GIT_CEILING_DIRECTORIES='/Users/adam/'
 

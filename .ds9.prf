@@ -43,7 +43,7 @@ array set ptile { grid,col 10 mode grid grid,row 10 grid,gap 4 grid,mode automat
 array set tile [array get ptile]
 global threed
 global pthreed
-array set pthreed { scale 1 compass,color green border,color blue highlite,color cyan method mip compass 0 border 1 highlite 1 background none border,color,msg Blue highlite,color,msg Cyan }
+array set pthreed { scale 1 compass,color green border,color blue highlite,color cyan method mip compass 0 border 1 highlite 1 background none highlite,color,msg Cyan border,color,msg Blue }
 array set threed [array get pthreed]
 global bin
 global pbin
@@ -104,9 +104,9 @@ array set pcat { sym,units physical sym,font,weight normal vot 1 loc 500 server 
 global pvo
 array set pvo { method xpa hv 1 delay 15 server http://cxc.harvard.edu/chandraed/list.txt }
 global pap
-array set pap { textlabStyle normal textlabSlant roman quadratic 0 textlabFont,msg Helvetica numlabWeight normal quadratic,dash no textlabWeight normal graph,y,grid 1 quadratic,color black discrete,color,msg Red error 1 discrete,color red step,color black linear,color,msg Black discrete 0 graph,x,log 0 titleSize 12 error,color red bar 0 graph,y,flip 0 linear,color black error,style 1 step,dash no titleFont helvetica titleWeight normal linear 1 discrete,fill 1 textlabSize 10 graph,x,grid 1 numlabStyle normal numlabSlant roman quadratic,width 1 textlabFont helvetica titleStyle normal titleSlant roman step 0 quadratic,color,msg Black discrete,symbol circle linear,dash no step,width 1 numlabFont,msg Helvetica step,color,msg Black numlabSize 10 graph,x,flip 0 grid 1 numlabFont helvetica error,width 1 linear,width 1 error,color,msg Red bar,color black titleFont,msg Helvetica grid,log linearlinear graph,y,log 0 }
+array set pap { textlabStyle normal textlabSlant roman quadratic 0 textlabFont,msg Helvetica numlabWeight normal quadratic,dash no textlabWeight normal graph,y,grid 1 quadratic,color black discrete,color,msg Red error 1 discrete,color red step,color black linear,color,msg Black discrete 0 graph,x,log 0 titleSize 12 error,color red bar 0 graph,y,flip 0 linear,color black error,style 1 step,dash no titleFont helvetica titleWeight normal linear 1 discrete,fill 1 textlabSize 10 graph,x,grid 1 numlabStyle normal numlabSlant roman quadratic,width 1 textlabFont helvetica titleStyle normal titleSlant roman step 0 quadratic,color,msg Black discrete,symbol circle linear,dash no step,width 1 numlabFont,msg Helvetica step,color,msg Black numlabSize 10 graph,x,flip 0 grid 1 numlabFont helvetica error,width 1 linear,width 1 error,color,msg Red bar,color black grid,log linearlinear titleFont,msg Helvetica graph,y,log 0 }
 global panalysis
-array set panalysis { user2 /Users/adam/repos/pvextractor/scripts/ds9_pvextract.ans autoload 1 user3 {} log 0 user4 {} user /Users/adam/agpy/agpy/phot.ds9.ans }
+array set panalysis { user2 /Users/adam/repos/pvextractor/scripts/ds9_pvextract.ans autoload 1 user3 /Users/adam/repos/agpy/agpy/region_to_query.ans log 1 user4 {} user /Users/adam/agpy/agpy/phot.ds9.ans }
 
 # Colorbar prefs
 global colorbar
