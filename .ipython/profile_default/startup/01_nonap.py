@@ -1,2 +1,2 @@
-import appnope
-appnope.nope()
+#import appnope
+#appnope.nope()

@@ -14,7 +14,7 @@ export HISTSIZE=500000
 
 . ~/.colors
 
-host_short="cleese"
+host_short=`hostname`
 #PROMPT_COMMAND='echo -ne "\033]0; $host_short ${PWD/#$HOME/~}\007"'
 export PROMPT_COMMAND='echo -ne "\033]0; $host_short ${PWD/#$HOME/~}\007"; '
 export PROMPT_COMMAND='history -a; ___vcs_dir'
@@ -25,17 +25,22 @@ export PS1="\[${Cyan}\]$host_short \[${Yellow}\]\w\[${Green}\]"'$(___vcs_dir)'"\
 export PS1="\[${Cyan}\]$host_short \[${Yellow}\]\w\[${Green}\]\$(___vcs_dir)\[${Yellow}\]\\$ \[${txtrst}\]"
 export PS1="\`echo -e \"\[${Cyan}\]$host_short \[${Yellow}\]\w\[${Green}\]\[\$__vcs_color\]\$__vcs_branch\[${Yellow}\]\\$ \[${txtrst}\]\"\`"
 
-. ~/.mkfifo.sh &
+if [[ `shopt -q login_shell` ]];
+then
 
-update_session() {
-  FIFO=/tmp/your_variables
+    . ~/.mkfifo.sh &
 
-  NVAR=$(cat $FIFO)
-  for i in $(seq $NVAR); do
-    export $(cat $FIFO)
-  done
-  #delete the pipe, or it will not work next time
-  rm $FIFO
-}
+    update_session() {
+      FIFO=/tmp/your_variables
 
-export PATH=/scratch/aginsbur/casa/casapy-stable-42.0.26945-001-64b/bin:/home/aginsbur/anaconda/bin/:$PATH
+      NVAR=$(cat $FIFO)
+      for i in $(seq $NVAR); do
+        export $(cat $FIFO)
+      done
+      #delete the pipe, or it will not work next time
+      rm $FIFO
+    }
+
+fi
+
+export PATH=/home/aginsbur/bin/:/scratch/aginsbur/casa/casapy-stable-42.0.26945-001-64b/bin:/home/aginsbur/anaconda/bin/:$PATH
