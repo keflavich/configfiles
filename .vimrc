@@ -38,7 +38,7 @@ set hidden
 " added 10/30/2012
 " suffixes to put to the end of the list when completing file names
 set suffixes=.log,.bak,~,.o,.h,.info,.swp,.aux,.swo,.bbl,.blg,.pdf
-set wildignore=*.aux,*.pdf,*.blg,*.fits,*.png
+set wildignore=*.aux,*.pdf,*.blg,*.fits,*.png,*.synctex.gz
 
  
 " Python autocomplete (added 10/31/2012)
@@ -145,7 +145,7 @@ nnoremap <S-Right> gt
 nnoremap <S-Left> gT
 map  :w
 "map  ^
-map  $
+"map  $ " conflicts with riv.vim
 
 "added 10/6/07
 set number
@@ -410,3 +410,14 @@ let g:vmail_flagged_color = "ctermbg=black guibg=black cterm=bold gui=bold"
 cabbrev E Explore
 
 set shortmess+=A
+
+" pyflakes things:
+" https://github.com/scrooloose/syntastic
+" http://pep8.readthedocs.org/en/latest/intro.html#error-codes
+" see https://github.com/scrooloose/syntastic/issues/204 for syntax problems
+let g:syntastic_python_checkers=['flake8']
+let g:syntastic_python_checker_args="--ignore=E231,E501,E225,E226,E3,E261,W293,E241,F811,E302"
+
+" RIV things:
+" https://github.com/Rykka/riv.vim/blob/master/doc/riv_instruction.rst
+let g:riv_ignored_imaps = "<BS>,"

@@ -79,9 +79,9 @@ ___vcs_dir() {
  
     get_dir_type
     base_dir="$PWD"
-    if [ ${___vcs_type} == "git" ]; then git_dir; fi
-    if [ ${___vcs_type} == "hg" ]; then hg_dir; fi
-    if [ ${___vcs_type} == "svn" ]; then svn_dir; fi
+    if [ "${___vcs_type}" == "git" ]; then git_dir; fi
+    if [ "${___vcs_type}" == "hg" ]; then hg_dir; fi
+    if [ "${___vcs_type}" == "svn" ]; then svn_dir; fi
 
     if [ "$vcs" != "" ];
     then 

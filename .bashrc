@@ -18,6 +18,7 @@ export PATH=$PATH:/usr/local/bin/montage:/usr/stsci/wcstools-3.7.3/bin.macintel/
 export PATH=$PATH:/usr/local/cuda/bin:/Applications/itt/idl/idl/bin
 export PATH=$PATH:/usr/local/git/bin:/usr/local/bin:/usr/local/apache2/bin:/usr/sbin:/sbin
 export PATH=$PATH:/usr/local/astrometry/bin:/usr/local/netpbm/bin
+export PATH=/Users/adam/anaconda/bin/:$PATH
 export DYLD_LIBRARY_PATH=/usr/local/netpbm/lib
 export NETPBM_INC=-I/usr/local/netpbm/include
 export NETPBM_LIB="-L/usr/local/netpbm/lib -lnetpbm"
@@ -193,7 +194,7 @@ shopt -s nocaseglob
 source /Users/adam/repos/git-1.7.6/contrib/completion/git-completion.bash
 
 # http://serverfault.com/questions/146745/how-can-i-check-in-bash-if-a-shell-is-running-in-interactive-mode
-if [[ $- == *i* ]]
+if [[ "$-" == *i* ]]
 then
     # "friendly" colors https://wiki.archlinux.org/index.php/Color_Bash_Prompt
     . ~/.colors
@@ -258,7 +259,7 @@ function set_window_and_tab_title
 #PROMPT_COMMAND='set_window_and_tab_title "$host_short ${PWD##*/}"'
 #PROMPT_COMMAND='echo -n -e "${PWD##*/}\a"'
 
-if [[ $- == *i* ]]
+if [[ "$-" == *i* ]]
 then
     # rvm:
     # install by curl -L get.rvm.io | bash -s stable
@@ -277,3 +278,21 @@ fi
 #fi
 alias notebookserver="~/virtual-python/bin/ipython notebook --pylab inline &"
 alias nbconvert="/Users/adam/repos/nbconvert/nbconvert.py"
+
+if [[ `shopt -q login_shell` ]];
+then
+
+    . ~/.mkfifo.sh &
+
+    update_session() {
+      FIFO=/tmp/your_variables
+
+      NVAR=$(cat $FIFO)
+      for i in $(seq $NVAR); do
+        export $(cat $FIFO)
+      done
+      #delete the pipe, or it will not work next time
+      rm $FIFO
+    }
+
+fi
