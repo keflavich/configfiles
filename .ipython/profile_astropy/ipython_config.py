@@ -232,9 +232,6 @@ c.TerminalInteractiveShell.editor = 'vim'
 # Start logging to the default log file.
 c.TerminalInteractiveShell.logstart = True
 
-# The name of the logfile to use.
-c.TerminalInteractiveShell.logfile = 'ipython_log.py'
-
 # The shell program to be used for paging.
 # c.TerminalInteractiveShell.pager = 'less'
 
@@ -262,6 +259,9 @@ file_handle.close()
 print("Logging to %s" % logfilepath)
 
 c.TerminalInteractiveShell.logappend = logfilepath
+
+# The name of the logfile to use.
+c.TerminalInteractiveShell.logfile = logfilepath
 
 # 
 c.TerminalInteractiveShell.xmode = 'Plain' # or 'context' ?
@@ -408,7 +408,3 @@ c.TerminalInteractiveShell.xmode = 'Plain' # or 'context' ?
 # This will enable completion on elements of lists, results of function calls,
 # etc., but can be unsafe because the code is actually evaluated on TAB.
 # c.IPCompleter.greedy = False
-
-import astropy.units as u
-from astropy import coordinates
-from astropy import constants

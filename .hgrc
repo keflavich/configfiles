@@ -8,7 +8,6 @@ merge = vimdiff
 hgext.convert=
 hgext.graphlog = 
 mq = 
-hggit = 
 fetch=
 prompt=~/repos/hg-prompt/prompt.py
 
