@@ -13,3 +13,6 @@ echo DISPLAY=$DISPLAY > $FIFO
 
 #so that you can in your old screen session
 #update_session
+
+# Most of this script and the corresponding script in .bashrc came from:
+# http://superuser.com/questions/105954/updating-screen-session-environment-variables-to-reflect-new-graphical-login
