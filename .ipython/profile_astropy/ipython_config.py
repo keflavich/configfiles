@@ -142,7 +142,7 @@ c.InteractiveShellApp.extensions = [
 c.TerminalInteractiveShell.color_info = True
 
 # 
-# c.TerminalInteractiveShell.history_length = 10000
+c.TerminalInteractiveShell.history_length = 100000
 
 # Don't call post-execute functions that have failed in the past.
 # c.TerminalInteractiveShell.disable_failing_post_execute = False

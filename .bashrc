@@ -273,3 +273,5 @@ alias enhance='say "enhance"'
 
 export GIT_CEILING_DIRECTORIES='/Users/adam/'
 
+# http://stackoverflow.com/questions/8766730/tar-command-in-mac-os-x-adding-hidden-files-why
+export COPYFILE_DISABLE=true
