@@ -13,15 +13,15 @@ PATH=/Library/Frameworks/Python.framework/Versions/2.7/bin/:$PATH
 PATH=$PATH:/usr/texbin/
 PATH=$PATH:/usr/stsci/wcstools-3.7.3/bin.macintel/
 PATH=$PATH:/Users/adam/repos/apache-maven-3.0.4/bin
-PATH=/Users/adam/virtual-python/bin:$PATH:/usr/local/astrometry/bin/:/usr/local/netpbm/bin/
+PATH=/anaconda/bin/:/Users/adam/anaconda2/astropy27/bin:/Users/adam/virtual-python/bin/:$PATH:/usr/local/astrometry/bin/:/usr/local/netpbm/bin/
 PATH=$PATH:/Developer-4.2/usr/bin/
 PATH=$PATH:/Users/adam/repos/casa-python/
 
 # Needed for netpbm
-export DYLD_LIBRARY_PATH=/usr/local/netpbm/lib/
+#export DYLD_LIBRARY_PATH=/usr/local/netpbm/lib/
 # Oct 6, 2013: needed for PyMultiNest
-export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:/usr/local/hpc/lib:/usr/local/openmpi/lib/
-export LD_LIBRARY_PATH=/Users/adam/repos/MultiNest/lib
+#export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:/usr/local/hpc/lib:/usr/local/openmpi/lib/
+#export LD_LIBRARY_PATH=/Users/adam/repos/MultiNest/lib
 
 #PATH=$PATH:/sw/bin:/opt/local/bin:/opt/local/xpa/bin/:
 export PATH
@@ -45,7 +45,7 @@ export TEXINPUTS=".:~/papers/latexfiles/:"
 #export XDG_DATA_HOME=/opt/local/share
 #export XDG_CONFIG_DIRS=/opt/local/etc/xdg
 
-export PYTHONSTARTUP=~/.pythonrc
+#export PYTHONSTARTUP=~/.pythonrc
 
 export STARLINK_DIR=/star
 #. /star/etc/profile
@@ -238,7 +238,7 @@ export LIBDIR_QHULL=/usr/local/lib
 export INCLUDEDIR_QHULL=/usr/local/include/libqhull
 
 # add artist to path...
-. /Users/adam/Downloads/ARTIST/install/artistrc.sh
+#. /Users/adam/Downloads/ARTIST/install/artistrc.sh
 
 # 11/12/2013: add RADEX_DATAPATH
 export RADEX_DATAPATH=/Users/adam/LAMDA/
