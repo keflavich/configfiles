@@ -28,6 +28,8 @@ PATH=/Users/adam/anaconda/envs/astropy27/bin:$PATH:/Users/adam/anaconda/bin/
 
 # Needed for netpbm
 export DYLD_LIBRARY_PATH=/usr/local/netpbm/lib/
+export NETPBM_INC="-I/usr/local/netpbm/include/"
+export NETPBM_LIB="-L/usr/local/netpbm/lib -lnetpbm"
 # Oct 6, 2013: needed for PyMultiNest
 export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:/usr/local/hpc/lib:/usr/local/openmpi/lib/
 export LD_LIBRARY_PATH=/usr/lib:/usr/local/lib:/Users/adam/repos/MultiNest/lib:/usr/local/hpc/lib:/usr/local/openmpi/lib/
