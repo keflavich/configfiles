@@ -1,12 +1,12 @@
 #[user]
 #	name = Adam Ginsburg
 #	email = adam.g.ginsburg@gmail.com
-#[user]
-#	name = Adam Ginsburg
-#	email = keflavich@yahoo.com
 [user]
 	name = Adam Ginsburg (keflavich)
 	email = keflavich@gmail.com
+[user]
+	name = Adam Ginsburg
+	email = keflavich@yahoo.com
 [core]
 	excludesfile = /Users/adam/.gitignore_global
 	editor = /usr/local/bin/vim
