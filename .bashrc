@@ -17,6 +17,8 @@ PATH=$PATH:/usr/local/astrometry/bin/:/usr/local/netpbm/bin/
 PATH=$PATH:/Developer-4.2/usr/bin/
 PATH=$PATH:~/.casa/bin/
 PATH=$PATH:/Users/adam/anaconda/bin/
+PATH=$PATH:/Users/adam/repos/esoreflex/bin/
+PATH=$PATH:/Users/adam/repos/gasgano/bin
 # May 19, 2014: finally gave up on my custom-installed python.  gcc-4.2 is
 # apparently incompatible with ccache, and I can't wait for astropy to build
 # any more
@@ -168,9 +170,9 @@ export IDL_DIR='/Applications/itt/idl70/'
 export IDL_DIR='/Applications//exelis/idl82/'
 export IDL_PATH='/Users/adam/.idl/smart:/Users/adam/.idl/IRS_Calibration:/Applications/itt/idl70/lib/:/Applications/itt/idl70/lib/astron/:/Users/adam/observations/triplespec/Spextool2/pro/:'$IDL_PATH
 
-shopt -s histappend
-shopt -s hostcomplete
-shopt -s nocaseglob
+# moved to 'universal' shopt -s histappend
+# moved to 'universal' shopt -s hostcomplete
+# moved to 'universal' shopt -s nocaseglob
 
 # activate anaconda python
 #source activate python27
@@ -179,6 +181,9 @@ shopt -s nocaseglob
 source /Users/adam/repos/git-1.7.6/contrib/completion/git-completion.bash
 # Done once:
 # git config --global alias.unstage 'reset --'
+
+# load "global" parameters here
+. ~/.bashrc_universal
 
 # "friendly" colors https://wiki.archlinux.org/index.php/Color_Bash_Prompt
 . ~/.colors
@@ -201,7 +206,7 @@ export AUTOSSH_PORT=20000
 
 #. /sw/etc/bash_completion
 
-set -o ignoreeof
+# moved to universal set -o ignoreeof
 
 # GILDAS - includes class
 #export GAG_ROOT_DIR=/Users/adam/Downloads/gildas-exe-jul09a
@@ -212,8 +217,8 @@ set -o ignoreeof
 # export DISPLAY=":0.0"
 
 
-export LANG=en_US.UTF-8
-export LC_CTYPE=en_US.UTF-8
+# moved to universal export LANG=en_US.UTF-8
+# moved to universal export LC_CTYPE=en_US.UTF-8
 
 # stupid Mac Terminal hack (http://pseudogreen.org/blog/set_tab_names_in_leopard_terminal.html)
 # function set_window_and_tab_title
@@ -277,3 +282,12 @@ export GIT_CEILING_DIRECTORIES='/Users/adam/'
 
 # http://stackoverflow.com/questions/8766730/tar-command-in-mac-os-x-adding-hidden-files-why
 export COPYFILE_DISABLE=true
+
+ur_setup() {
+    export PATH=/bin:$PATH 
+    eval `/Users/adam/.ureka/ur_setup -sh $*`
+}
+ur_forget() {
+    export PATH=/bin:$PATH 
+    eval `/Users/adam/.ureka/ur_forget -sh $*`
+}

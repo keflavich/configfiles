@@ -51,3 +51,10 @@ export LANG=en_US.UTF-8
 #PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
 #export PATH
 . ~/.bashrc
+
+ur_setup() {
+    eval `/Users/adam/.ureka/ur_setup -sh $*`
+}
+ur_forget() {
+    eval `/Users/adam/.ureka/ur_forget -sh $*`
+}
