@@ -2,13 +2,25 @@
 username = Adam Ginsburg <keflavich@gmail.com>
 verbose = True
 editor = /usr/local/bin/vim
-merge = vimdiff
+#merge = mvimdiff
 
 [extensions]
 hgext.convert=
 hgext.graphlog = 
 mq = 
 fetch=
+shelve=
+color =
+pager =
+churn =
+convert =
+purge =
+progress =
+rebase =
+histedit =
+shelve =
+strip =
+transplant =
 prompt=~/repos/hg-prompt/prompt.py
 
 [merge-tool]

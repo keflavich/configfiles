@@ -5,6 +5,7 @@ from astropy import constants
 from astropy import coordinates
 from astropy.io import fits
 from astropy import wcs
+from astropy.table import Table
 import numpy as np
 from matplotlib import pyplot as pl
 import matplotlib as mpl

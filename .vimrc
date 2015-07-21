@@ -456,7 +456,9 @@ let g:syntastic_python_flake8_args="--ignore=E231,E501,E225,E226,E3,E261,W293,E2
 let g:syntastic_python_pyflakes_args="--ignore=E231,E501,E225,E226,E3,E261,W293,E241"
 " Deal with major delay on quitting
 let g:syntastic_check_on_wq=0
-cabbrev E Explore
+"cabbrev E Explore
+"http://stackoverflow.com/questions/14367440/map-e-to-explore-in-command-mode
+command! -nargs=* -bar -bang -count=0 -complete=dir E Explore <args>
 " If syntastic breaks, make sure the command-line versions work
 " I needed to install:
 " https://github.com/kevinw/pyflakes
@@ -468,6 +470,17 @@ set tabpagemax=30
 " http://vim.wikia.com/wiki/All_folds_open_when_opening_a_file
 set foldlevelstart=20
 set foldlevel=20
+
+" default for everyone
+"DoMatchParen
+" http://stackoverflow.com/questions/4775605/vim-syntax-highlight-improve-performance
+"set cursorline
+set norelativenumber
+syntax sync minlines=256
+" https://bbs.archlinux.org/viewtopic.php?id=111647
+" for dealing with exceedingly slow latex
+autocmd FileType tex :NoMatchParen
+au FileType tex setlocal nocursorline
 
 " 5/2/2014
 " http://stackoverflow.com/questions/2019281/load-different-colorscheme-when-using-vimdiff

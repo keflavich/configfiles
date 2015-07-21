@@ -19,6 +19,7 @@ PATH=$PATH:~/.casa/bin/
 PATH=$PATH:/Users/adam/anaconda/bin/
 PATH=$PATH:/Users/adam/repos/esoreflex/bin/
 PATH=$PATH:/Users/adam/repos/gasgano/bin
+PATH=$PATH:/opt/local/bin/ # this is where wget lives
 # May 19, 2014: finally gave up on my custom-installed python.  gcc-4.2 is
 # apparently incompatible with ccache, and I can't wait for astropy to build
 # any more
@@ -74,7 +75,6 @@ alias scp='rsync -avp --progress'
 alias scp='rsync -Cavpu --partial --progress --rsh=ssh'
 #alias svn='/sw/bin/svn'
 alias HPC="export PATH=/Users/adam/Downloads/usr/local/bin:$PATH"
-alias cloudy="/opt/cloudy/cloudy.exe"
 alias idl="/Applications/itt/idl706/bin/idl ~/.idl/idlrc /Users/adam/work/bolocam/.idl_startup_bgps.pro"
 alias idl="/Applications/exelis/idl/bin/idl ~/.idl/idlrc /Users/adam/work/bolocam/.idl_startup_bgps.pro"
 alias bgpsv1="/Applications/itt/idl706/bin/idl ~/.idl/idlrc /Users/adam/work/bolocam/.idl_startup_bgpsv1.pro"
@@ -291,3 +291,16 @@ ur_forget() {
     export PATH=/bin:$PATH 
     eval `/Users/adam/.ureka/ur_forget -sh $*`
 }
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+# Cloudy:
+export CLOUDY_DATA_PATH=~/repos/c13.02/data/
+export PATH=$PATH:/Users/adam/repos/c13.02/source
+
+# The next line updates PATH for the Google Cloud SDK.
+export PATH=$PATH:/Users/adam/google-cloud-sdk/bin/
+
+# The next line enables shell command completion for gcloud.
+source '/Users/adam/google-cloud-sdk/completion.bash.inc'
