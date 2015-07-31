@@ -38,7 +38,6 @@ set vb t_vb=   " When no beep or flash is wanted, use ":set vb t_vb=".
 set bs=2
 set autoindent
 set popt=duplex:long,syntax:y
-set dir=~/vim_docs/
 set formatoptions=trocql
 set shiftwidth=4 " applies to >>, etc.
 set expandtab " use spaces in place of tabs.
@@ -61,7 +60,7 @@ set wildignore=*.aux,*.pdf,*.blg,*.fits,*.png
  
 " Python autocomplete (added 10/31/2012)
 " http://www.vim.org/scripts/script.php?script_id=850
-let g:pydiction_location = '/Users/adam/.vim/pydiction-1.2/complete-dict'
+let g:pydiction_location = '~/.vim/pydiction-1.2/complete-dict'
 
 " Found 1/12/2012: http://stackoverflow.com/questions/3607516/vim-folding-messes-up-syntax-highlighting
 ":syn sync fromstart  
