@@ -452,8 +452,9 @@ let b:lastchecktime = 0
 " pyflakes things:
 " https://github.com/scrooloose/syntastic
 " http://pep8.readthedocs.org/en/latest/intro.html#error-codes
-let g:syntastic_python_flake8_args="--ignore=E231,E501,E225,E226,E3,E261,W293,E241"
-let g:syntastic_python_pyflakes_args="--ignore=E231,E501,E225,E226,E3,E261,W293,E241"
+let g:syntastic_python_flake8_args="--ignore=E231,E501,E225,E226,E3,E261,W293,E241,E124,E265,E262"
+let g:syntastic_python_pyflakes_args="--ignore=E231,E501,E225,E226,E3,E261,W293,E241,E124,E265,E262"
+let g:syntastic_python_checkers=['flake8']
 " Deal with major delay on quitting
 let g:syntastic_check_on_wq=0
 "cabbrev E Explore
@@ -462,6 +463,10 @@ command! -nargs=* -bar -bang -count=0 -complete=dir E Explore <args>
 " If syntastic breaks, make sure the command-line versions work
 " I needed to install:
 " https://github.com/kevinw/pyflakes
+" allow lprev/lnext to work
+let g:syntastic_always_populate_loc_list = 1
+map ]l :lnext
+map [l :lprev
 
 let g:netrw_dirhistmax=1000
 

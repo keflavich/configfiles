@@ -265,7 +265,7 @@ export LIBDIR_QHULL=/usr/local/lib
 export INCLUDEDIR_QHULL=/usr/local/include/libqhull
 
 # add artist to path...
-. /Users/adam/Downloads/ARTIST/install/artistrc.sh
+#. /Users/adam/Downloads/ARTIST/install/artistrc.sh
 
 # 11/12/2013: add RADEX_DATAPATH
 export RADEX_DATAPATH=/Users/adam/LAMDA/
