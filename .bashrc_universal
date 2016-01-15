@@ -7,6 +7,7 @@ export SVN_EDITOR=vim
 shopt -s histappend
 shopt -s hostcomplete
 shopt -s nocaseglob
+shopt -s extglob
 set -o ignoreeof
 export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8

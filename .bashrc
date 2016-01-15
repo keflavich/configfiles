@@ -1,4 +1,3 @@
-# .bashrc
 
 
 
@@ -24,7 +23,8 @@ PATH=$PATH:/opt/local/bin/ # this is where wget lives
 # apparently incompatible with ccache, and I can't wait for astropy to build
 # any more
 #PATH=/Users/adam/virtual-python/bin:$PATH:/Users/adam/anaconda/bin/
-PATH=/Users/adam/anaconda/envs/astropy27/bin:$PATH:/Users/adam/anaconda/bin/
+#PATH=/Users/adam/anaconda/envs/astropy27/bin:$PATH:/Users/adam/anaconda/bin/
+PATH=/Users/adam/anaconda/envs/astropy35/bin:$PATH:/Users/adam/anaconda/bin/
 # required for python extension builds, apparently?
 #export CC=/usr/bin/gcc CPP=/usr/bin/cpp
 #export CC=/usr/local/bin/gcc CPP=/usr/local/bin/cpp
@@ -36,7 +36,7 @@ export NETPBM_LIB="-L/usr/local/netpbm/lib -lnetpbm"
 # Oct 6, 2013: needed for PyMultiNest
 export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:/usr/local/hpc/lib:/usr/local/openmpi/lib/
 export LD_LIBRARY_PATH=/usr/lib:/usr/local/lib:/Users/adam/repos/MultiNest/lib:/usr/local/hpc/lib:/usr/local/openmpi/lib/
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/X11/lib/
+#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/X11/lib/
 
 #PATH=$PATH:/sw/bin:/opt/local/bin:/opt/local/xpa/bin/:
 export PATH
@@ -63,6 +63,8 @@ export PYTHONSTARTUP=~/.pythonrc
 
 export STARLINK_DIR=/star
 #. /star/etc/profile
+alias random="python -c 'import random, string;print(\"\".join(random.sample(string.ascii_letters+string.digits, 10)))'"
+alias pwgen=random
 alias universal='export CFLAGS="-arch i386 -arch x86_64"; export CCFLAGS="-arch i386 -arch x86_64"; export CXXFLAGS="-arch i386 -arch x86_64";'
 alias x86_64='export CFLAGS="-arch x86_64"; export CCFLAGS="-arch x86_64"; export CXXFLAGS="-arch x86_64"; FFLAGS="-arch x86_64"; LDFLAGS="-arch x86_64"'
 alias i386='export CFLAGS="-arch i386"; export CCFLAGS="-arch i386"; export CXXFLAGS="-arch i386"; FFLAGS="-arch i386"; LDFLAGS="-arch i386"'
@@ -102,6 +104,16 @@ alias pylab='ipython --logappend ipython_`date +"%Y%m%d"`.py --profile=pyplot --
 alias pyphys='ipython -logfile pyphys.log -p physics --matplotilb'
 alias astropy='ipython --profile=astropy -i'
 alias astropylab='ipython --profile=astropylab --matplotlib -i'
+alias astropylab35='~/anaconda/envs/astropy35/bin/ipython --profile=astropylab --matplotlib -i'
+alias astropylab27='~/anaconda/envs/astropy27/bin/ipython --profile=astropylab --matplotlib -i'
+alias pelican-themes='/Users/adam/anaconda/envs/astropy27/bin/pelican-themes'
+alias pelican='/Users/adam/anaconda/envs/astropy27/bin/pelican'
+alias blog_make_html='PATH=/Users/adam/anaconda/envs/astropy27/bin/:$PATH pelican-themes --upgrade /Users/adam/repos/pelican-themes/mine && PATH=/Users/adam/anaconda/envs/astropy27/bin/:$PATH make html'
+alias blog_make_github='PATH=/Users/adam/anaconda/envs/astropy27/bin/:$PATH pelican-themes --upgrade /Users/adam/repos/pelican-themes/mine && PATH=/Users/adam/anaconda/envs/astropy27/bin/:$PATH make github'
+alias ipython27='~/anaconda/envs/astropy27/bin/ipython'
+alias ipynb='ipython notebook'
+alias ipynb35='~/anaconda/envs/astropy35/bin/ipython notebook'
+alias ipynb27='~/anaconda/envs/astropy27/bin/ipython notebook'
 alias despotic_gui='ipython -i --c="import despotic; despotic.run_cloud_gui()"'
 alias ssh_milkyway='/usr/bin/ssh -XY ginsbura@milkyway.colorado.edu'
 alias ssh_origins2='/usr/bin/ssh -XY ginsbura@origins2.colorado.edu'
@@ -125,6 +137,7 @@ alias ssh_gb='ssh -XY aginsbur@ssh.gb.nrao.edu'
 alias ssh_newton='ssh -XY cuobserver@newton.apo.nmsu.edu'
 alias ssh_aws="ssh -i ec2keypair.pem ubuntu@107.22.222.121"
 alias skim='open -a /Applications/Skim.app'
+alias adsbibdesk='/Users/adam/anaconda/envs/astropy27/bin/adsbibdesk'
 scp_aws () { rsync -Cavpu --partial --progress --rsh="ssh -i ec2keypair.pem" "$1" ubuntu@107.22.222.121:$2; } 
 
 newton=cuobserver@newton.apo.nmsu.edu

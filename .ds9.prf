@@ -8,7 +8,7 @@ if {[string compare $prefs(version) [lindex $ds9(version) 0]] == 1} {
     return
 }
 global pds9
-array set pds9 { nan,msg Black dialog native text,font courier samp 1 font,msg Helvetica threads 8 font,weight normal automarker 1 bg,msg Black language locale text,font,weight normal dialog,all 0 nan black font,slant roman confirm 1 backup 1 language,dir {} font helvetica language,name English bg black xpa 1 text,font,msg Courier theme native tcl 0 dialog,center 0 font,size 9 text,font,slant roman text,font,size 9 }
+array set pds9 { nan,msg Black dialog native text,font courier samp 1 font,msg Helvetica threads 8 font,weight normal automarker 1 bg,msg #333333 language locale text,font,weight normal dialog,all 0 nan black font,slant roman confirm 1 backup 1 language,dir {} font helvetica language,name English bg #333333 xpa 1 text,font,msg Courier theme native tcl 0 dialog,center 0 font,size 9 text,font,slant roman text,font,size 9 }
 global current
 global pcurrent
 array set pcurrent { orient none zoom { 1 1 } mode region display single align 0 rotate 0 }
@@ -71,7 +71,7 @@ array set pmarker { panda,ang2 360 bpanda,ang1 0 shape circle show 1 bpanda,ang2
 array set marker [array get pmarker]
 global wcs
 global pwcs
-array set pwcs { skyformat degrees system wcs sky galactic }
+array set pwcs { skyformat sexagesimal system wcs sky fk5 }
 array set wcs [array get pwcs]
 global pgraph
 array set pgraph { horz,log false horz,grid 1 vert,log false vert,grid 1 }

@@ -234,6 +234,10 @@ endfunc
 map <S-Tab> :call NextField(' \{2,}',2,' ',0)<CR>
 map! <S-Tab> <C-O>:call NextField(' \{2,}',2,' ',0)<CR> 
 
+" date time insert
+" http://vim.wikia.com/wiki/Insert_current_date_or_time
+iab <expr> dts strftime("%Y-%m-%d %H:%M")
+
 " Tip: set indent parameters for python files.
 " Version: 0.1
 " Date: 13 May 2006
@@ -492,6 +496,10 @@ au FileType tex setlocal nocursorline
 if &diff
     colorscheme diffelflord
 endif
+
+" https://github.com/keflavich/macvim-skim/pull/10#issuecomment-160431866
+let maplocalleader = ","
+
 
 " 1/19/2012 http://www.vim.org/scripts/script.php?script_id=2332
 call pathogen#infect() 

@@ -58,3 +58,21 @@ ur_setup() {
 ur_forget() {
     eval `/Users/adam/.ureka/ur_forget -sh $*`
 }
+
+##
+# Your previous /Users/adam/.profile file was backed up as /Users/adam/.profile.macports-saved_2015-10-27_at_08:46:16
+##
+
+# MacPorts Installer addition on 2015-10-27_at_08:46:16: adding an appropriate PATH variable for use with MacPorts.
+#export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+# Finished adapting your PATH environment variable for use with MacPorts.
+
+
+##
+# Your previous /Users/adam/.profile file was backed up as /Users/adam/.profile.macports-saved_2015-10-27_at_09:57:39
+##
+
+# MacPorts Installer addition on 2015-10-27_at_09:57:39: adding an appropriate PATH variable for use with MacPorts.
+#export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+# Finished adapting your PATH environment variable for use with MacPorts.
+
