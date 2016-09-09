@@ -500,6 +500,16 @@ endif
 " https://github.com/keflavich/macvim-skim/pull/10#issuecomment-160431866
 let maplocalleader = ","
 
+" 5/23/2016 after code coffee suggested by sebastian:
+call plug#begin('~/.vim/plugged')
+
+Plug 'scrooloose/syntastic'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'davidhalter/jedi-vim'
+
+call plug#end()
+
+
 
 " 1/19/2012 http://www.vim.org/scripts/script.php?script_id=2332
 call pathogen#infect() 

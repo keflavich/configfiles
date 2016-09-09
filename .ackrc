@@ -5,3 +5,7 @@
 --type-add=RST=.rst
 --type-add=rst=.rst
 --ignore-dir=build
+--type-set=PDF=.pdf
+--noPDF
+--type-set=FITS=.fits
+--noFITS

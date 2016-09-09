@@ -24,6 +24,8 @@
 	cmd = meld '\"$LOCAL\"' '\"$BASE\"' '\"$REMOTE\"' '\"$MERGED\"'
     keepBackup = false
 	path = /Users/adam/bin/meld
+[mergetool "nbmerge"]
+      cmd = nbmerge $LOCAL $BASE $REMOTE $MERGED
 [merge]
 	tool = diffconflicts
 [mergetool "diffconflicts"]

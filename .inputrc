@@ -1,3 +1,4 @@
+# to reload this file, use ctrl-x ctrl-r
 # "\e[A" and "\e[B" being whatever your terminal uses for up & down.
 "\e[A": history-search-backward
 "\e[B": history-search-forward

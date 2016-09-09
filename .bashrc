@@ -138,6 +138,7 @@ alias ssh_newton='ssh -XY cuobserver@newton.apo.nmsu.edu'
 alias ssh_aws="ssh -i ec2keypair.pem ubuntu@107.22.222.121"
 alias skim='open -a /Applications/Skim.app'
 alias adsbibdesk='/Users/adam/anaconda/envs/astropy27/bin/adsbibdesk'
+alias scp_shamash_hoops='rsync -Capu --partial --progress --rsh=ssh -e "ssh -A aginsbur@ssh.eso.org ssh -A aginsbur@orion.hq.eso.org ssh -A -o StrictHostKeyChecking=no ginsburg@hera.ph1.uni-koeln.de ssh -o StrictHostKeyChecking=no -A"'
 scp_aws () { rsync -Cavpu --partial --progress --rsh="ssh -i ec2keypair.pem" "$1" ubuntu@107.22.222.121:$2; } 
 
 newton=cuobserver@newton.apo.nmsu.edu
@@ -317,3 +318,12 @@ export PATH=$PATH:/Users/adam/google-cloud-sdk/bin/
 
 # The next line enables shell command completion for gcloud.
 source '/Users/adam/google-cloud-sdk/completion.bash.inc'
+
+# to solve this issue:
+# $ gdb
+# dyld: Library not loaded: @rpath/libpython3.5m.dylib
+#   Referenced from: /usr/local/bin/gdb
+#   Reason: image not found
+# Trace/BPT trap: 5
+# see comments below http://ntraft.com/installing-gdb-on-os-x-mavericks/
+export DYLD_FALLBACK_LIBRARY_PATH="/Users/adam/anaconda/envs/astropy35/lib/"

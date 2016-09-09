@@ -35,7 +35,7 @@ c.TerminalIPythonApp.extensions = [
 
 c.InteractiveShellApp.extensions = [
     'line_profiler_ext',
-    'grasp',
+    #'grasp',
 ]
 
  
