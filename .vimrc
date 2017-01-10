@@ -472,6 +472,9 @@ let g:syntastic_always_populate_loc_list = 1
 map ]l :lnext
 map [l :lprev
 
+" http://stackoverflow.com/questions/20030603/vim-syntastic-how-to-disable-the-checker
+let g:syntastic_disabled_filetypes=['html']
+
 let g:netrw_dirhistmax=1000
 
 set tabpagemax=30

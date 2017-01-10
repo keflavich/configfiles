@@ -313,6 +313,13 @@ export PATH="/usr/local/heroku/bin:$PATH"
 export CLOUDY_DATA_PATH=~/repos/c13.02/data/
 export PATH=$PATH:/Users/adam/repos/c13.02/source
 
+
+# RATRAN:
+export RATRAN=/Users/adam/repos/ratran
+export RATRANRUN=/Users/adam/repos/ratran/run
+export CFITSIO=/usr/local/lib
+
+
 # The next line updates PATH for the Google Cloud SDK.
 export PATH=$PATH:/Users/adam/google-cloud-sdk/bin/
 
