@@ -19,6 +19,7 @@ PATH=$PATH:/Users/adam/anaconda/bin/
 PATH=$PATH:/Users/adam/repos/esoreflex/bin/
 PATH=$PATH:/Users/adam/repos/gasgano/bin
 PATH=$PATH:/opt/local/bin/ # this is where wget lives
+PATH=$PATH:/usr/local/mysql/bin/
 # May 19, 2014: finally gave up on my custom-installed python.  gcc-4.2 is
 # apparently incompatible with ccache, and I can't wait for astropy to build
 # any more
@@ -34,8 +35,9 @@ export DYLD_LIBRARY_PATH=/usr/local/netpbm/lib/
 export NETPBM_INC="-I/usr/local/netpbm/include/"
 export NETPBM_LIB="-L/usr/local/netpbm/lib -lnetpbm"
 # Oct 6, 2013: needed for PyMultiNest
-export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:/usr/local/hpc/lib:/usr/local/openmpi/lib/
-export LD_LIBRARY_PATH=/usr/lib:/usr/local/lib:/Users/adam/repos/MultiNest/lib:/usr/local/hpc/lib:/usr/local/openmpi/lib/
+export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH
+# Feb 22, 2017: gsl needed for Krumholz codes: despotic, slug2
+export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib:/Users/adam/repos/MultiNest/lib:/Users/adam/anaconda/pkgs/gsl-2.2.1-0/lib/
 #export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/X11/lib/
 
 #PATH=$PATH:/sw/bin:/opt/local/bin:/opt/local/xpa/bin/:
@@ -63,8 +65,9 @@ export PYTHONSTARTUP=~/.pythonrc
 
 export STARLINK_DIR=/star
 #. /star/etc/profile
-alias random="python -c 'import random, string;print(\"\".join(random.sample(string.ascii_letters+string.digits, 10)))'"
-alias pwgen=random
+alias random10="python -c 'import random, string;print(\"\".join(random.sample(string.ascii_letters+string.digits, 10)))'"
+alias random20="python -c 'import random, string;print(\"\".join(random.sample(string.ascii_letters+string.digits, 20)))'"
+alias pwgen=random20
 alias universal='export CFLAGS="-arch i386 -arch x86_64"; export CCFLAGS="-arch i386 -arch x86_64"; export CXXFLAGS="-arch i386 -arch x86_64";'
 alias x86_64='export CFLAGS="-arch x86_64"; export CCFLAGS="-arch x86_64"; export CXXFLAGS="-arch x86_64"; FFLAGS="-arch x86_64"; LDFLAGS="-arch x86_64"'
 alias i386='export CFLAGS="-arch i386"; export CCFLAGS="-arch i386"; export CXXFLAGS="-arch i386"; FFLAGS="-arch i386"; LDFLAGS="-arch i386"'
@@ -110,7 +113,7 @@ alias pelican-themes='/Users/adam/anaconda/envs/astropy27/bin/pelican-themes'
 alias pelican='/Users/adam/anaconda/envs/astropy27/bin/pelican'
 alias blog_make_html='PATH=/Users/adam/anaconda/envs/astropy27/bin/:$PATH pelican-themes --upgrade /Users/adam/repos/pelican-themes/mine && PATH=/Users/adam/anaconda/envs/astropy27/bin/:$PATH make html'
 alias blog_make_github='PATH=/Users/adam/anaconda/envs/astropy27/bin/:$PATH pelican-themes --upgrade /Users/adam/repos/pelican-themes/mine && PATH=/Users/adam/anaconda/envs/astropy27/bin/:$PATH make github'
-alias ipython27='~/anaconda/envs/astropy27/bin/ipython'
+alias ipython27='DYLD_LIBRARY_PATH="/Users/adam/anaconda/envs/astropy27/lib/" ~/anaconda/envs/astropy27/bin/ipython'
 alias ipynb='ipython notebook'
 alias ipynb35='~/anaconda/envs/astropy35/bin/ipython notebook'
 alias ipynb27='~/anaconda/envs/astropy27/bin/ipython notebook'
@@ -333,4 +336,6 @@ source '/Users/adam/google-cloud-sdk/completion.bash.inc'
 #   Reason: image not found
 # Trace/BPT trap: 5
 # see comments below http://ntraft.com/installing-gdb-on-os-x-mavericks/
-export DYLD_FALLBACK_LIBRARY_PATH="/Users/adam/anaconda/envs/astropy35/lib/"
+
+# added the local / lib paths to solve a shapely.geom issue: https://github.com/kjordahl/SciPy2013#installation-instructions
+export DYLD_FALLBACK_LIBRARY_PATH="/Users/adam/anaconda/envs/astropy35/lib/:/usr/local/lib:/lib:/usr/lib"
