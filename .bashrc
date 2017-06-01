@@ -339,3 +339,6 @@ source '/Users/adam/google-cloud-sdk/completion.bash.inc'
 
 # added the local / lib paths to solve a shapely.geom issue: https://github.com/kjordahl/SciPy2013#installation-instructions
 export DYLD_FALLBACK_LIBRARY_PATH="/Users/adam/anaconda/envs/astropy35/lib/:/usr/local/lib:/lib:/usr/lib"
+
+# https://askubuntu.com/questions/567813/automake-does-not-find-pkg-config-macros
+export AL_OPTS=/usr/local/share/aclocal
