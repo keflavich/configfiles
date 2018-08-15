@@ -41,7 +41,6 @@ sys.output_line_width=180
 # import PyQt4.QtCore
 # PyQt4.QtCore.pyqtRemoveInputHook()
 
-import pyfits
 import re
 def grep(string,list,opt=''):
     expr = re.compile(string)

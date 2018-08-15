@@ -25,7 +25,8 @@ PATH=$PATH:/usr/local/mysql/bin/
 # any more
 #PATH=/Users/adam/virtual-python/bin:$PATH:/Users/adam/anaconda/bin/
 #PATH=/Users/adam/anaconda/envs/astropy27/bin:$PATH:/Users/adam/anaconda/bin/
-PATH=/Users/adam/anaconda/envs/astropy35/bin:$PATH:/Users/adam/anaconda/bin/
+#PATH=/Users/adam/anaconda/envs/astropy35/bin:$PATH:/Users/adam/anaconda/bin/
+PATH=/Users/adam/anaconda/envs/astropy36mpl2/bin:$PATH:/Users/adam/anaconda/bin/
 # required for python extension builds, apparently?
 #export CC=/usr/bin/gcc CPP=/usr/bin/cpp
 #export CC=/usr/local/bin/gcc CPP=/usr/local/bin/cpp
@@ -141,8 +142,10 @@ alias ssh_newton='ssh -XY cuobserver@newton.apo.nmsu.edu'
 alias ssh_aws="ssh -i ec2keypair.pem ubuntu@107.22.222.121"
 alias skim='open -a /Applications/Skim.app'
 alias adsbibdesk='/Users/adam/anaconda/envs/astropy27/bin/adsbibdesk'
+alias adsbibdesk='/Users/adam/anaconda/envs/astropy35/bin/adsbibdesk'
 alias scp_shamash_hoops='rsync -Capu --partial --progress --rsh=ssh -e "ssh -A aginsbur@ssh.eso.org ssh -A aginsbur@orion.hq.eso.org ssh -A -o StrictHostKeyChecking=no ginsburg@hera.ph1.uni-koeln.de ssh -o StrictHostKeyChecking=no -A"'
 scp_aws () { rsync -Cavpu --partial --progress --rsh="ssh -i ec2keypair.pem" "$1" ubuntu@107.22.222.121:$2; } 
+alias gnutar="DYLD_LIBRARY_PATH=/Users/adam/anaconda/lib /usr/local/bin/gnutar"
 
 newton=cuobserver@newton.apo.nmsu.edu
 origins=ginsbura@origins.colorado.edu
@@ -342,3 +345,7 @@ export DYLD_FALLBACK_LIBRARY_PATH="/Users/adam/anaconda/envs/astropy35/lib/:/usr
 
 # https://askubuntu.com/questions/567813/automake-does-not-find-pkg-config-macros
 export AL_OPTS=/usr/local/share/aclocal
+
+# to make gnu-tar work (worried this might cause problems though)
+#export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:/Users/adam/anaconda/lib
+# (yes, it breaks everything else)

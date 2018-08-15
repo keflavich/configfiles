@@ -1,9 +1,14 @@
 from __future__ import print_function
+
 # Configuration file for ipython.
 
 c = get_config()
 
 c.InteractiveShellApp.ignore_old_config=True
+
+#not clear if this is the right way to use rlipython
+# import rlipython
+# c.TerminalIPythonApp.interactive_shell_class = rlipython
 
 #------------------------------------------------------------------------------
 # InteractiveShellApp configuration
