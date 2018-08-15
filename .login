@@ -12,4 +12,4 @@ setenv LD_LIBRARY_PATH /opt/SUNWspro/lib:/usr/ccs/lib:$LD_LIBRARY_PATH
 set path=(/opt/SUNWspro/bin $path)
 
 
-. ~/.bashrc
+#. ~/.bashrc

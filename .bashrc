@@ -53,7 +53,7 @@ alias gbtidl="/opt/local/bin/gbtidl ~/.idl/idlrc"
 
 if test $SHLVL -gt 1; then
     source /etc/bashrc
-    source $HOME/.bash_profile
+    #source $HOME/.bash_profile
 fi
 
 # added by Anaconda 1.6.1 installer
@@ -61,3 +61,7 @@ export PATH="/users/aginsbur/anaconda/bin:$PATH"
 
 ## added by Miniconda 3.3.0 installer
 #export PATH="/users/aginsbur/miniconda/bin:$PATH"
+
+# added by Anaconda3 installer
+export PATH="/lustre/naasc/users/aginsbur/anaconda/bin:$PATH"
+alias vncserver='PATH=/bin:/usr/bin vncserver $*'
