@@ -7,7 +7,7 @@ endif
 
 
 
-    
+
 " April 2014: attempt to debug
 " Block syntastic from loading
 "let g:loaded_syntastic_plugin=1
@@ -58,13 +58,13 @@ set hidden
 " suffixes to put to the end of the list when completing file names
 set suffixes=.log,.bak,~,.o,.h,.info,.swp,.aux,.swo,.bbl,.blg,.pdf
 set wildignore=*.aux,*.pdf,*.blg,*.fits,*.png
- 
+
 " Python autocomplete (added 10/31/2012)
 " http://www.vim.org/scripts/script.php?script_id=850
 let g:pydiction_location = '/Users/adam/.vim/pydiction-1.2/complete-dict'
 
 " Found 1/12/2012: http://stackoverflow.com/questions/3607516/vim-folding-messes-up-syntax-highlighting
-":syn sync fromstart  
+":syn sync fromstart
 " Maybe fixes python triple quote issues?
 
 "#IDL stuff
@@ -77,7 +77,10 @@ map Q gq
 " 1/27/2012 http://stackoverflow.com/questions/235439/vim-80-column-layout-concerns
 highlight OverLength ctermbg=DarkGray ctermfg=White guibg=#333333
 match OverLength /\%81v.\+/
- 
+
+" https://stackoverflow.com/questions/4617059/showing-trailing-spaces-in-vim
+highlight ExtraWhitespace ctermbg=DarkGray guibg=DarkGray
+match ExtraWhitespace /\s\+$/
 
 " 1/19/2012 http://items.sjbach.com/319/configuring-vim-right
 " match if/else with %
@@ -157,10 +160,10 @@ inoremap # X#
 
 "added 3/12/08: switch <F9> to <F7> because of Mac F9 behavior
 inoremap <silent> <Plug>Tex_Completion <Esc>:call Tex_Complete("default","text")<CR>
-imap <buffer> <silent> <F7> <Plug>Tex_Completion 
+imap <buffer> <silent> <F7> <Plug>Tex_Completion
 
 "added 6/23/08: don't jump to error window
-"let g:Tex_ViewRule_pdf='/Applications/Adobe Reader 8/Adobe Reader.app/Contents/MacOS/AdobeReader'      
+"let g:Tex_ViewRule_pdf='/Applications/Adobe Reader 8/Adobe Reader.app/Contents/MacOS/AdobeReader'
 "let g:Tex_ViewRule_pdf='/Applications/Skim.app/Contents/SharedSupport/skimpdf'
 let g:Tex_ViewRule_pdf='Skim'
 let g:Tex_GotoError = 0
@@ -177,7 +180,7 @@ set comments+=b:;
 
 "added 7/18/08:
 "vimtips #64 - make current buffer CWD
-" http://stackoverflow.com/questions/308452/vim-bufenter-autocmd-fails-on-ftp-files 
+" http://stackoverflow.com/questions/308452/vim-bufenter-autocmd-fails-on-ftp-files
 function! CHANGE_CURR_DIR()
 "    let _dir = expand("%:p:h")
 "    exec "cd " . _dir
@@ -229,10 +232,10 @@ call setline(linenum,substitute(curline,"$",padding,""))
 endif
 	call cursor(linenum,nextposn+a:offset)
 return
-endfunc 
+endfunc
 
 map <S-Tab> :call NextField(' \{2,}',2,' ',0)<CR>
-map! <S-Tab> <C-O>:call NextField(' \{2,}',2,' ',0)<CR> 
+map! <S-Tab> <C-O>:call NextField(' \{2,}',2,' ',0)<CR>
 
 " date time insert
 " http://vim.wikia.com/wiki/Insert_current_date_or_time
@@ -356,7 +359,7 @@ endfunction
 ":autocmd!	" Remove ALL autocommands for the current group.
 if !exists("autocommands_loaded")
     let autocommands_loaded = 1
-  
+
     " removed because (probably?) unnecessary
     " set shiftwidth=4
     " set expandtab " use spaces in place of tabs.
@@ -372,9 +375,9 @@ if !exists("autocommands_loaded")
     autocmd BufRead *\.txt setlocal smartindent
     autocmd BufRead *\.txt setlocal spell spelllang=en_us
     "F7 WordProcessorOn
-    :map <F7> :set linebreak <CR> :set display+=lastline <CR> :set wrap <CR> :setlocal spell spelllang=en_gb <CR> 
+    :map <F7> :set linebreak <CR> :set display+=lastline <CR> :set wrap <CR> :setlocal spell spelllang=en_gb <CR>
     "F6 WordProcessorOff
-    :map <F6> :set nowrap <CR> :set nospell <CR> 
+    :map <F6> :set nowrap <CR> :set nospell <CR>
     autocmd BufRead *\.txt imap <up> <C-O>gk
     autocmd BufRead *\.txt imap <down> <C-O>gj
     autocmd BufRead *\.txt nmap <up> gk
@@ -398,7 +401,7 @@ endif
 " for html editing
 " http://www.vim.org/scripts/script.php?script_id=1896 ->
 " http://github.com/tpope/vim-ragtag
-let g:ragtag_global_maps = 1 
+let g:ragtag_global_maps = 1
 
 " blogger:
 " https://github.com/ujihisa/blogger.vim
@@ -423,8 +426,8 @@ nnoremap <F5> :GundoToggle<CR>
 
 ""LATEX maps
 """http://vim.1045645.n5.nabble.com/Compiling-LaTeX-within-vim-Two-Questions-td1169813.html
-""map ,p :Shell pdflatex -interaction nonstopmode % 
-""map ,b :Shell bibtex % 
+""map ,p :Shell pdflatex -interaction nonstopmode %
+""map ,b :Shell bibtex %
 "" Activate skim
 "map ,v :w<CR>:silent !/Applications/Skim.app/Contents/SharedSupport/displayline -r <C-r>=line('.')<CR> %<.pdf %<CR><CR>
 "map ,p :w<CR>:silent !pdflatex -synctex=1 --interaction=nonstopmode %:p <CR>:silent !/Applications/Skim.app/Contents/SharedSupport/displayline -r <C-r>=line('.')<CR> %<.pdf %<CR><CR>
@@ -432,7 +435,7 @@ nnoremap <F5> :GundoToggle<CR>
 "" Reactivate VIM
 "map ,r :w<CR>:silent !/Applications/Skim.app/Contents/SharedSupport/displayline -r <C-r>=line('.')<CR> %<.pdf %<CR>:silent !osascript -e "tell application \"MacVim\" to activate" <CR><CR>
 "map ,t :w<CR>:silent !pdflatex -synctex=1 --interaction=nonstopmode %:p <CR>:silent !/Applications/Skim.app/Contents/SharedSupport/displayline -r <C-r>=line('.')<CR> %<.pdf %<CR>:silent !osascript -e "tell application \"MacVim\" to activate" <CR><CR>
-"" I don't think this one works... map ,t :w Shell pdflatex % & 
+"" I don't think this one works... map ,t :w Shell pdflatex % &
 
 map ,h :w<CR>:silent !rst2html.py --math-output=MathJax % > "%:r"."html" <CR>
 
@@ -515,6 +518,6 @@ call plug#end()
 
 
 " 1/19/2012 http://www.vim.org/scripts/script.php?script_id=2332
-call pathogen#infect() 
+call pathogen#infect()
 " http://stackoverflow.com/questions/3383502/pathogen-does-not-load-plugins
-"call pathogen#runtime_append_all_bundles() 
+"call pathogen#runtime_append_all_bundles()
