@@ -12,6 +12,7 @@ export HISTTIMEFORMAT="%d/%m/%y %T "
 export HISTSIZE=500000
 
 
+
 . ~/.colors
 
 host_short=`hostname`
@@ -43,7 +44,9 @@ then
 
 fi
 
-export PATH=/home/aginsbur/bin/:/scratch/aginsbur/casa/casapy-stable-42.0.26945-001-64b/bin:/home/aginsbur/anaconda/bin/:$PATH
+export PATH=/home/aginsbur/bin/:/scratch/aginsbur/casa/casapy-stable-42.0.26945-001-64b/bin:/home/aginsbur/anaconda/bin/:$PATH:/usr/local/bin
+# added by Anaconda 1.6.1 installer, modified to put /usr/bin first because anaconda's qdbus gets in the way
+export PATH="/usr/bin:/users/aginsbur/anaconda/envs/python3.6/bin:/users/aginsbur/anaconda/bin:$PATH"
 
 HISTSIZE=100000
 export HISTSIZE
@@ -53,11 +56,16 @@ alias gbtidl="/opt/local/bin/gbtidl ~/.idl/idlrc"
 
 if test $SHLVL -gt 1; then
     source /etc/bashrc
-    source $HOME/.bash_profile
+    #source $HOME/.bash_profile
 fi
-
-# added by Anaconda 1.6.1 installer
-export PATH="/users/aginsbur/anaconda/bin:$PATH"
 
 ## added by Miniconda 3.3.0 installer
 #export PATH="/users/aginsbur/miniconda/bin:$PATH"
+export PATH="/users/aginsbur/bin:$PATH"
+
+export PATH="$PATH:~/.gem/ruby/1.8/bin/"
+
+alias vncserver='PATH=/bin:/usr/bin vncserver $*'
+export CLOUDY_DATA_PATH=/lustre/aginsbur/repos/c17.01/data
+
+export PYTHONDONTWRITEBYTECODE=1

@@ -44,7 +44,10 @@ export LANG=en_US.UTF-8
 
 
 # modifications by HEALPixAutoConf 3.11
-[ -r /Users/adam/.healpix/3_11_Darwin/config ] && . /Users/adam/.healpix/3_11_Darwin/config
+#[ -r /Users/adam/.healpix/3_11_Darwin/config ] && . /Users/adam/.healpix/3_11_Darwin/config
+
+# https://github.com/P0cL4bs/WiFi-Pumpkin/issues/53
+export QT_X11_NO_MITSHM=1
 
 # Setting PATH for Python 2.7
 # The orginal version is saved in .profile.pysave

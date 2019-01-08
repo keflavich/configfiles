@@ -161,13 +161,13 @@ imap <buffer> <silent> <F7> <Plug>Tex_Completion
 "added 6/23/08: don't jump to error window
 "let g:Tex_ViewRule_pdf='/Applications/Adobe Reader 8/Adobe Reader.app/Contents/MacOS/AdobeReader'      
 "let g:Tex_ViewRule_pdf='/Applications/Skim.app/Contents/SharedSupport/skimpdf'
-let g:Tex_ViewRule_pdf='Skim'
-let g:Tex_GotoError = 0
-let g:Imap_UsePlaceHolders = 0
-let g:tex_flavor='latex'
-let Tex_FoldedSections=""
-let Tex_FoldedEnvironments=""
-let Tex_FoldedMisc=""
+"let g:Tex_ViewRule_pdf='Skim'
+"let g:Tex_GotoError = 0
+"let g:Imap_UsePlaceHolders = 0
+"let g:tex_flavor='latex'
+"let Tex_FoldedSections=""
+"let Tex_FoldedEnvironments=""
+"let Tex_FoldedMisc=""
 
 
 "added 6/24/08:
@@ -465,8 +465,8 @@ let g:netrw_dirhistmax=1000
 set tabpagemax=30
 
 " http://vim.wikia.com/wiki/All_folds_open_when_opening_a_file
-set foldlevelstart=20
-set foldlevel=20
+"set foldlevelstart=20
+"set foldlevel=20
 
 " 1/19/2012 http://www.vim.org/scripts/script.php?script_id=2332
 "call pathogen#infect() 
