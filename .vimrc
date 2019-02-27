@@ -140,6 +140,11 @@ command! -complete=file -nargs=* Hg  call s:RunShellCommand('hg '.<q-args>)
 "noremap y "+y
 map :W :w
 map :spellcheck :setlocal spell spelllang=en_us
+" spellcheck requires:
+" :syn sync minlines=50
+" :syn sync maxlines=200
+" :syn spell toplevel
+" :setlocal spell
 nnoremap <S-Right> gt
 nnoremap <S-Left> gT
 map  :w
