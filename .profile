@@ -52,12 +52,12 @@ export LANG=en_US.UTF-8
 #export PATH
 . ~/.bashrc
 
-ur_setup() {
-    eval `/Users/adam/.ureka/ur_setup -sh $*`
-}
-ur_forget() {
-    eval `/Users/adam/.ureka/ur_forget -sh $*`
-}
+#ur_setup() {
+#    eval `/Users/adam/.ureka/ur_setup -sh $*`
+#}
+#ur_forget() {
+#    eval `/Users/adam/.ureka/ur_forget -sh $*`
+#}
 
 ##
 # Your previous /Users/adam/.profile file was backed up as /Users/adam/.profile.macports-saved_2015-10-27_at_08:46:16

@@ -7,7 +7,7 @@
 	email = keflavich@gmail.com
 [core]
 	excludesfile = /Users/adam/.gitignore_global
-	editor = /usr/local/bin/vim
+	editor = vim
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 

@@ -13,14 +13,14 @@ get_dir_type() {
   current=$(readlink "${PWD}")
   nparents=$(echo ${current} | grep -o "/" | wc -l)
   dir=${current}
-  #echo $nparents 
+  #echo nparents=$nparents 
   for i in $(seq 1 ${nparents}); 
   do
       if [ -e "${dir}/.git" ]; then ___vcs_type='git'; return 0; fi
       if [ -e "${dir}/.hg" ];  then ___vcs_type='hg';  return 0; fi
       if [ -e "${dir}/.svn" ]; then ___vcs_type='svn'; return 0; fi
       dir=$(dirname "${dir}");
-      #echo $dir, $i
+      #echo "dir=$dir, i=$i, vcstype=$___vcs_type"
   done;
   ___vcs_type=""
   return 1
@@ -45,7 +45,7 @@ ___vcs_dir() {
     ref=${ref#refs/heads/}
     vcs="git"
     color=$(git diff-index --quiet HEAD 2>/dev/null && echo "Green" || echo "Red")
-    #echo $color
+    #echo $color $ref $vcs $base_dir $sub_dir
     return 0
   }
  

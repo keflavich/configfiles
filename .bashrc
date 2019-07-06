@@ -15,7 +15,6 @@ PATH=$PATH:/Users/adam/repos/apache-maven-3.0.4/bin
 PATH=$PATH:/usr/local/astrometry/bin/:/usr/local/netpbm/bin/
 PATH=$PATH:/Developer-4.2/usr/bin/
 PATH=$PATH:~/.casa/bin/
-PATH=$PATH:/Users/adam/anaconda/bin/
 PATH=$PATH:/Users/adam/repos/esoreflex/bin/
 PATH=$PATH:/Users/adam/repos/gasgano/bin
 PATH=$PATH:/opt/local/bin/ # this is where wget lives
@@ -26,19 +25,24 @@ PATH=$PATH:/usr/local/mysql/bin/
 #PATH=/Users/adam/virtual-python/bin:$PATH:/Users/adam/anaconda/bin/
 #PATH=/Users/adam/anaconda/envs/astropy27/bin:$PATH:/Users/adam/anaconda/bin/
 #PATH=/Users/adam/anaconda/envs/astropy35/bin:$PATH:/Users/adam/anaconda/bin/
-PATH=/Users/adam/anaconda/envs/astropy36mpl2/bin:$PATH:/Users/adam/anaconda/bin/
+PATH=/Users/adam/miniconda3/bin:$PATH
 # required for python extension builds, apparently?
 #export CC=/usr/bin/gcc CPP=/usr/bin/cpp
 #export CC=/usr/local/bin/gcc CPP=/usr/local/bin/cpp
 
+
+
+
+# July 6, 2019: disable DYLD paths entirely
+
 # Needed for netpbm
-export DYLD_LIBRARY_PATH=/usr/local/netpbm/lib/
-export NETPBM_INC="-I/usr/local/netpbm/include/"
-export NETPBM_LIB="-L/usr/local/netpbm/lib -lnetpbm"
+#export DYLD_LIBRARY_PATH=/usr/local/netpbm/lib/
+#export NETPBM_INC="-I/usr/local/netpbm/include/"
+#export NETPBM_LIB="-L/usr/local/netpbm/lib -lnetpbm"
 # Oct 6, 2013: needed for PyMultiNest
-export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH
+#export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH
 # Feb 22, 2017: gsl needed for Krumholz codes: despotic, slug2
-export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib:/Users/adam/repos/MultiNest/lib:/Users/adam/anaconda/pkgs/gsl-2.2.1-0/lib/
+#export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib:/Users/adam/repos/MultiNest/lib:/Users/adam/anaconda/pkgs/gsl-2.2.1-0/lib/
 #export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/X11/lib/
 
 #PATH=$PATH:/sw/bin:/opt/local/bin:/opt/local/xpa/bin/:
@@ -98,7 +102,7 @@ alias fv="/Applications/fv.app/Contents/MacOS/fv"
 #export CLICOLOR=1
 #export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 # GNU ls:
-alias ls="ls --color=auto -hp"
+#alias ls="ls --color=auto -hp"
 alias casjobs="java -jar /Users/adam/DU_work/casjobs/casjobs.jar"
 alias spectool='/Applications/itt/idl70/bin/idl /Users/adam/observations/triplespec/.idl_startup_tspec' 
 #alias pylab="ipython -pylab -log"
@@ -115,7 +119,7 @@ alias pelican='/Users/adam/anaconda/envs/astropy27/bin/pelican'
 alias blog_make_html='PATH=/Users/adam/anaconda/envs/astropy27/bin/:$PATH pelican-themes --upgrade /Users/adam/repos/pelican-themes/mine && PATH=/Users/adam/anaconda/envs/astropy27/bin/:$PATH make html'
 alias blog_make_github='PATH=/Users/adam/anaconda/envs/astropy27/bin/:$PATH pelican-themes --upgrade /Users/adam/repos/pelican-themes/mine && PATH=/Users/adam/anaconda/envs/astropy27/bin/:$PATH make github'
 alias ipython27='DYLD_LIBRARY_PATH="/Users/adam/anaconda/envs/astropy27/lib/" ~/anaconda/envs/astropy27/bin/ipython'
-alias ipynb='ipython notebook'
+alias ipynb='jupyter notebook'
 alias ipynb35='~/anaconda/envs/astropy35/bin/ipython notebook'
 alias ipynb27='~/anaconda/envs/astropy27/bin/ipython notebook'
 alias despotic_gui='ipython -i --c="import despotic; despotic.run_cloud_gui()"'
@@ -340,8 +344,9 @@ source '/Users/adam/google-cloud-sdk/completion.bash.inc'
 # Trace/BPT trap: 5
 # see comments below http://ntraft.com/installing-gdb-on-os-x-mavericks/
 
+# July 6, 2019: removed this to avoid library path problems
 # added the local / lib paths to solve a shapely.geom issue: https://github.com/kjordahl/SciPy2013#installation-instructions
-export DYLD_FALLBACK_LIBRARY_PATH="/Users/adam/anaconda/envs/astropy35/lib/:/usr/local/lib:/lib:/usr/lib"
+#export DYLD_FALLBACK_LIBRARY_PATH="/Users/adam/anaconda/envs/astropy35/lib/:/usr/local/lib:/lib:/usr/lib"
 
 # https://askubuntu.com/questions/567813/automake-does-not-find-pkg-config-macros
 export AL_OPTS=/usr/local/share/aclocal
