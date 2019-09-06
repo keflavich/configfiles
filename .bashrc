@@ -114,8 +114,8 @@ alias astropy='ipython --profile=astropy -i'
 alias astropylab='ipython --profile=astropylab --matplotlib -i'
 alias astropylab35='~/anaconda/envs/astropy35/bin/ipython --profile=astropylab --matplotlib -i'
 alias astropylab27='~/anaconda/envs/astropy27/bin/ipython --profile=astropylab --matplotlib -i'
-alias pelican-themes='/Users/adam/anaconda/envs/astropy27/bin/pelican-themes'
-alias pelican='/Users/adam/anaconda/envs/astropy27/bin/pelican'
+#alias pelican-themes='/Users/adam/anaconda/envs/astropy27/bin/pelican-themes'
+#alias pelican='/Users/adam/anaconda/envs/astropy27/bin/pelican'
 alias blog_make_html='PATH=/Users/adam/anaconda/envs/astropy27/bin/:$PATH pelican-themes --upgrade /Users/adam/repos/pelican-themes/mine && PATH=/Users/adam/anaconda/envs/astropy27/bin/:$PATH make html'
 alias blog_make_github='PATH=/Users/adam/anaconda/envs/astropy27/bin/:$PATH pelican-themes --upgrade /Users/adam/repos/pelican-themes/mine && PATH=/Users/adam/anaconda/envs/astropy27/bin/:$PATH make github'
 alias ipython27='DYLD_LIBRARY_PATH="/Users/adam/anaconda/envs/astropy27/lib/" ~/anaconda/envs/astropy27/bin/ipython'
@@ -145,8 +145,8 @@ alias ssh_gb='ssh -XY aginsbur@ssh.gb.nrao.edu'
 alias ssh_newton='ssh -XY cuobserver@newton.apo.nmsu.edu'
 alias ssh_aws="ssh -i ec2keypair.pem ubuntu@107.22.222.121"
 alias skim='open -a /Applications/Skim.app'
-alias adsbibdesk='/Users/adam/anaconda/envs/astropy27/bin/adsbibdesk'
-alias adsbibdesk='/Users/adam/anaconda/envs/astropy35/bin/adsbibdesk'
+#alias adsbibdesk='/Users/adam/anaconda/envs/astropy27/bin/adsbibdesk'
+#alias adsbibdesk='/Users/adam/anaconda/envs/astropy35/bin/adsbibdesk'
 alias scp_shamash_hoops='rsync -Capu --partial --progress --rsh=ssh -e "ssh -A aginsbur@ssh.eso.org ssh -A aginsbur@orion.hq.eso.org ssh -A -o StrictHostKeyChecking=no ginsburg@hera.ph1.uni-koeln.de ssh -o StrictHostKeyChecking=no -A"'
 scp_aws () { rsync -Cavpu --partial --progress --rsh="ssh -i ec2keypair.pem" "$1" ubuntu@107.22.222.121:$2; } 
 alias gnutar="DYLD_LIBRARY_PATH=/Users/adam/anaconda/lib /usr/local/bin/gnutar"
@@ -354,3 +354,5 @@ export AL_OPTS=/usr/local/share/aclocal
 # to make gnu-tar work (worried this might cause problems though)
 #export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:/Users/adam/anaconda/lib
 # (yes, it breaks everything else)
+#
+export ASTROMETRY_NET_API_KEY="ylqlshinbzlbuvue"
