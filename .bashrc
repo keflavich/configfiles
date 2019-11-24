@@ -356,3 +356,7 @@ export AL_OPTS=/usr/local/share/aclocal
 # (yes, it breaks everything else)
 #
 export ASTROMETRY_NET_API_KEY="ylqlshinbzlbuvue"
+
+# mac os 10.14 mojave fixes
+export LIBRARY_PATH=/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib/:/Library/Developer/CommandLineTools/usr/lib/
+export C_INCLUDE_PATH=/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/:/Library/Developer/CommandLineTools/usr/include/
