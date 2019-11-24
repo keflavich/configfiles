@@ -358,5 +358,10 @@ export AL_OPTS=/usr/local/share/aclocal
 export ASTROMETRY_NET_API_KEY="ylqlshinbzlbuvue"
 
 # mac os 10.14 mojave fixes
-export LIBRARY_PATH=/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib/:/Library/Developer/CommandLineTools/usr/lib/
-export C_INCLUDE_PATH=/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/:/Library/Developer/CommandLineTools/usr/include/
+#export LIBRARY_PATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/lib:/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib/:/Library/Developer/CommandLineTools/usr/lib/
+#export C_INCLUDE_PATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include:/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/:/Library/Developer/CommandLineTools/usr/include/
+# above lines removed soon after
+# the fix process was:
+# (1) download a very specific version of xcode cmdline tools: "/Users/adam/Downloads/Command_Line_Tools_macOS_10.14_for_Xcode_10.2.1.dmg"
+# (2) Install those
+# (3) install the SDK headers package that didn't exist until you completed (2), i.e.:  /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg
