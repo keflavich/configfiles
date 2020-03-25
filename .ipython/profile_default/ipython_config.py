@@ -4,7 +4,7 @@ from __future__ import print_function
 
 c = get_config()
 
-c.InteractiveShellApp.ignore_old_config=True
+# c.InteractiveShellApp.ignore_old_config=True
 
 #not clear if this is the right way to use rlipython
 # import rlipython
@@ -31,15 +31,17 @@ c.InteractiveShellApp.ignore_old_config=True
 # If true, an 'import *' is done from numpy and pylab, when using pylab
 # c.InteractiveShellApp.pylab_import_all = True
 
+# January 2020: commented out line_profiler because they resulted in segfaults someimtes
+
 # A list of dotted module names of IPython extensions to load.
 # c.TerminalIPythonApp.extensions = []
 c.TerminalIPythonApp.extensions = [
-    'line_profiler_ext',
-    'line_profiler',
+#    'line_profiler_ext',
+#    'line_profiler',
 ]
 
 c.InteractiveShellApp.extensions = [
-    'line_profiler_ext',
+#    'line_profiler_ext',
     #'grasp',
 ]
 
