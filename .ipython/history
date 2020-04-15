@@ -1,0 +1,1000 @@
+blocks['A10OFF2'].xarr
+blocks['A10OFF1'].xarr - blocks['A10OFF2'].xarr
+(blocks['A10OFF1'].xarr - blocks['A10OFF2'].xarr).max()
+blocks['A10OFF1'].xarr.units
+blocks['A10OFF1'].xarr.diff()
+blocks['A10OFF1'].__add__
+blocks['A10OFF1'].__sub__
+blocks['A10OFF1'] - blocks['A10OFF2']
+q
+b = blocks['A10OFF1']
+b.__class__.__add__
+x=1
+x.__add__
+x.__class__.__add__
+b.__class__.__add__.__class__
+x.__class__.__add__.__class__
+x.__add__.__getattribute__
+b.__add__.__getattribute__
+b._define_arithmetic_attributes()
+b+B
+q
+b+b
+q
+blocks['A10OFF1'] - blocks['A10OFF2']
+av1.plotter()
+onMoff1on = blocks['A10ON1'] - blocks['A10ON2']
+av2 = onMoff1on.average()
+av2.plotter()
+av1-av2
+(av1-av2).plotter()
+onoffs = dict((name[:-1],blocks[name[:-1]+'1'] - blocks[name[:-1]+'2']) for name in blocks if name[-1]=='1']
+onoffs = dict((name[:-1],blocks[name[:-1]+'1'] - blocks[name[:-1]+'2']) for name in blocks if name[-1]=='1')
+onoffs
+onoffs['C25OFF'].average().plotter()
+onoffs['A13OFF'].average().plotter()
+avHon = onoffs['A13ON'].average()
+avHoff = onoffs['A13OFF'].average()
+avHon.plotter()
+avHoff.plotter()
+gbtdata[1].data['OBJECT']
+unique(gbtdata[1].data['OBJECT'])
+%run gbt_sdfits_example.py
+av2 = onMoff1on.average()
+av2.plotter(axis=av1.plotter.axis,clear=False,color='b')
+(av1/av2).plotter()
+(blocks['A9ON1']-blocks['A9OFF1']).average().plotter()
+(blocks['A9ON1']/(blocks['A9ON1']-blocks['A9OFF1'])).average()
+sp = Out[24]
+sp.plotter()
+(blocks['A9ON1']/(blocks['A9ON1']-blocks['A9OFF1'])).average() * 5+2.5
+sp = Out[27]
+sp.plotter()
+((blocks['A9ON1']-blocks['A9OFF1'])).average().plotter
+((blocks['A9ON1']-blocks['A9OFF1'])).average().plotter()
+((blocks['A9ON1']-blocks['A9OFF1'])).plotter()
+sp = (blocks['A9OFF1']/(blocks['A9ON1']-blocks['A9OFF1'])).average() * -5+2.5
+sp.plotter()
+gbtdata
+gbtdata[1].data.dtype.names
+grep.grep('CAL',gbtdata[1].data.dtype.names)
+q
+from agpy import grep
+grep.grep('CAL',gbtdata[1].data.dtype.names)
+unique(gbtdata[1].data['CALTYPE'])
+unique(gbtdata[1].data['TCAL'])
+sp = (blocks['A9ON1']/(median(blocks['A9ON1'].data)-median(blocks['A9OFF1'].data))).average() * 4 + 2
+sp.plotter()
+sp2 = (blocks['A9ON2']/(median(blocks['A9ON2'].data)-median(blocks['A9OFF2'].data))).average() * 4 + 2
+sp2.plotter()
+(sp1-sp2).plotter()
+(sp-sp2).plotter()
+sp._arithmetic_threshold
+sp._arithmetic_threshold=100
+(sp-sp2).plotter()
+sp._arithmetic_threshold=1000
+(sp-sp2).plotter()
+%run gbt_sdfits_example.py
+(sp1-sp2).plotter()
+sp1 = (blocks['A9ON1']/(median(blocks['A9ON1'].data)-median(blocks['A9OFF1'].data))).average() * 4 + 2
+sp2 = (blocks['A9ON2']/(median(blocks['A9ON2'].data)-median(blocks['A9OFF2'].data))).average() * 4 + 2
+sp1.arithmetic_threshold = 1000
+sp2.arithmetic_threshold = 1000
+(sp1-sp2).plotter()
+sp2.arithmetic_threshold = 10000
+q
+sp1.arithmetic_threshold = 10000
+(sp1-sp2).plotter()
+sp12
+sp1
+q
+sp1
+sp2
+sp1.arithmetic_threshold = 100000
+sp2.arithmetic_threshold = 100000
+(sp1-sp2).plotter()
+sp2.arithmetic_threshold = 1000000
+sp1.arithmetic_threshold = 1000000
+sp1.sp1._arithmetic_threshold = 1000arithmetic_threshold = 1000000
+sp2._arithmetic_threshold = 1000
+sp1._arithmetic_threshold = 1000
+sp2._arithmetic_threshold = 1000
+(sp1-sp2).plotter()
+sp1.plotter()
+sp1 = (blocks['A9ON1']/(median(blocks['A9ON1'].data)-median(blocks['A9OFF1'].data))).average() * -4 + 2
+sp2 = (blocks['A9ON2']/(median(blocks['A9ON2'].data)-median(blocks['A9OFF2'].data))).average() * -4 + 2
+sp1.plotter()
+spdiff = sp1-sp2
+q
+sp1._arithmetic_threshold = 1000
+sp2._arithmetic_threshold = 1000
+spdiff = sp1-sp2
+spdiff.plotter()
+median(blocks['A9ON1'].data)-median(blocks['A9OFF1'].data)
+median(blocks['A9ON2'].data)-median(blocks['A9OFF2'].data)
+gbtdata.data['TSYS']
+gbtdata[1].data['TSYS']
+unique(gbtdata[1].data['TSYS'])
+grep.grep('TSYS',gbtdata[1].data.dtype.names)
+from agpy import grep
+grep.grep('TSYS',gbtdata[1].data.dtype.names)
+%run /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+dcmeantsys(blocks['A9ON1'],blocks['A9OFF1'])
+gbtdata[1].data['TCAL']
+gbtdata[1].data['TCAL'][whobject]
+q
+objectname = 'G37.87-0.40'
+whobject = bintable.data['OBJECT'] == objectname
+bintable=gbtdata
+whobject = bintable.data['OBJECT'] == objectname
+bintable=gbtdata[1]
+whobject = bintable.data['OBJECT'] == objectname
+gbtdata[1].data['TCAL'][whobject]
+blocks['A9ON1'].header['TCAL']
+blocks['A9OFF1'].header['TCAL']
+dcmeantsys(blocks['A9ON1'],blocks['A9OFF1'],blocks['A9ON1'].header['TCAL')
+dcmeantsys(blocks['A9ON1'],blocks['A9OFF1'],blocks['A9ON1'].header['TCAL'])
+q
+%run /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+dcmeantsys(blocks['A9ON1'],blocks['A9OFF1'],blocks['A9ON1'].header['TCAL'])
+caloff
+pct10
+pct90
+caloff[pct10:pct90]
+caloff.slice(pct10,pct90,units='pixels')
+caloff.average().slice(pct10,pct90,units='pixels')
+q
+%run /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+dcmeantsys(blocks['A9ON1'].average(),blocks['A9OFF1'].average(),blocks['A9ON1'].header['TCAL'])
+%run /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+q
+%run /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+dcmeantsys(blocks['A9ON1'].average(),blocks['A9OFF1'].average(),blocks['A9ON1'].header['TCAL'])
+q
+%run /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+dcmeantsys(blocks['A9ON1'].average(),blocks['A9OFF1'].average(),blocks['A9ON1'].header['TCAL'])
+bintable.data['CAL']
+%run /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+%run gbt_sdfits_example.py
+dcmeantsys(blocks['A9ON1'].average(),blocks['A9OFF1'].average(),blocks['A9ON1'].header['TCAL'])
+blocks
+reload pyspeckit
+reload pyspeckit.spectrum.readers.gbt
+%run gbt_sdfits_example.py
+dcmeantsys(blocks['A9ON1'].average(),blocks['A9OFF1'].average(),blocks['A9ON1'].header['TCAL'])
+[s.header['CAL'] for s in blocks['A9ON1'].splist]
+[s.header['CAL'] for s in blocks['A9ON1'].speclist]
+history
+history 70
+reload gbt
+reload pyspeckit.spectrum.readers
+reload gbt
+from pyspeckit.spectrum.readers import gbt
+%run gbt_sdfits_example.py
+dcmeantsys(blocks['A9ON1'].average(),blocks['A9OFF1'].average(),blocks['A9ON1'].header['TCAL'])
+q
+gbt.dcmeantsys(blocks['A9ON1'].average(),blocks['A9OFF1'].average(),blocks['A9ON1'].header['TCAL'])
+[s.header['CAL'] for s in blocks['A9ON1'].splist]
+[s.header['CAL'] for s in blocks['A9ON1'].speclist]
+[s.header['CAL'] for s in blocks['A9OFF1'].speclist]
+calonA9 = blocks['A9ON1'].average()
+caloffA9 = blocks['A9OFF1'].average()
+print "tsys: ",gbt.dcmeantsys(calonA9, caloffA9, calonA9.header['TCAL'])
+gbt.dcmeantsys(blocks['A9ON1'].average(),blocks['A9OFF1'].average(),blocks['A9ON1'].header['TCAL'])
+calonA9.plotter()
+caloffA9.plotter()
+calonA9.plotter(axis=caloffA9.plotter.axis,color='b',clear=False)
+%run gbt_sdfits_example.py
+%run /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+totalpower(calonA9,caloffA9)
+TPA9 = totalpower(calonA9,caloffA9)
+TPA9.plotter()
+TPA9.plotter(axis=caloffA9.plotter.axis,color='r',clear=False)
+blah="abc"
+blah.remove('b')
+blah.strip('b')
+blocks
+unique
+?unique
+x=[1,1,2,3,4,2]
+set(x)
+list(set(x))
+for blah in set(x): print blah
+grep.grep('A9',blocks.keys())
+from pyspeckit.spectrum.readers import gbt
+from agpy import grep
+grep.grep('A9',blocks.keys())
+%run /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+reduce_blocks(blocks)
+nod1.xarr
+u
+nod1.xarr
+nod2.xarr
+nod1.xarr-nod2.xarr
+128/nod1.xarr.refX * 3e5
+reduced_nods
+reduced_nods['A9'].plotter()
+reduced_nods['A13'].plotter(figure=figure(2),clear=False,color='b')
+reduced_nods['C25'].plotter(figure=figure(2),clear=False,color='r')
+%run /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+reduced_nods = reduce_blocks(blocks, verbose=True)
+grep.grep('REF',gbtdata[1].data.dtype.names)
+q
+from agpy import grep
+q
+grep.grep('REF',gbtdata[1].data.dtype.names)
+grep.grep('NOD',gbtdata[1].data.dtype.names)
+grep.grep('FEED',gbtdata[1].data.dtype.names)
+[reduced_nods[name].header['FEED'] for name in reduced_nods]
+reduced_nods['A9'].plotter(figure=figure(2))
+reduced_nods['A13'].plotter(figure=figure(2),clear=False,color='b')
+reduced_nods['C25'].plotter(figure=figure(2),clear=False,color='r')
+blocks.keys()
+blocks['A13ON1'].header['CAL']
+blocks['A13OFF1'].header['CAL']
+blocks['A13OFF2'].header['CAL']
+blocks['A13ON2'].header['CAL']
+a13onmoff =  blocks['A13ON2'].average() - blocks['A13OFF2']
+q
+a13onmoff =  blocks['A13ON2'].average() - blocks['A13OFF2'].average()
+a13onmoff.plotter()
+a13onmoff1 =  blocks['A13ON1'].average() - blocks['A13OFF1'].average()
+a13onmoff1.plotter(figure=figure(3),clear=False,color='b')
+blocks['A13ON1'].plotter()
+blocks['A13OFF1'].plotter()
+blocks['A13OFF1'].plotter(figure=figure(4),color='b',clear=False)
+blocks['A13ON1'].average().plotter(figure=figure(4),color='r',clear=False)
+blocks['A13OFF1'].average().plotter(figure=figure(4),color='g',clear=False)
+a13onmoff1.plotter(figure=figure(4),clear=False,color='magenta')
+#a13onmoff1 =  blocks['A13ON1'].average() - blocks['A13OFF1'].average()
+A13ON1 = blocks['A13ON1'].average() 
+A13OFF1 = blocks['A13OFF1'].average()
+A13ON1.plotter(figure=figure(4),color='r',clear=False)
+A13OFF1.plotter(figure=figure(4),color='g',clear=False)
+A13ON1-A13OFF1
+(A13ON1-A13OFF1).plotter(figure=figure(4),clear=False,color='magenta')
+a13onmoff1
+a13onmoff1 =  blocks['A13ON1'].average() - blocks['A13OFF1'].average()
+a13onmoff1
+blocks['B17ON1'].average() - blocks['B17OFF1'].average()
+blocks['B17ON2'].average() - blocks['B17OFF2'].average()
+#dcmeantsys(blocks['B17ON2'].average(), blocks['B17OFF2'].average(), 
+name = 'B17'
+dcmeantsys(blocks[name+'ON'+num].average(), blocks[name+'OFF'+num].average(), blocks[name+'OFF'+num].header['TCAL'])
+num='2'
+gbt.dcmeantsys(blocks[name+'ON'+num].average(), blocks[name+'OFF'+num].average(), blocks[name+'OFF'+num].header['TCAL'])
+num='1'
+gbt.dcmeantsys(blocks[name+'ON'+num].average(), blocks[name+'OFF'+num].average(), blocks[name+'OFF'+num].header['TCAL'])
+reduced_nods
+for name in reduced_nods:
+    for num in '1','2':
+        print "%s %s: %f" % (name,num,gbt.dcmeantsys(blocks[name+'ON'+num].average(), blocks[name+'OFF'+num].average(), blocks[name+'OFF'+num].header['TCAL']))
+        
+for name in reduced_nods:
+    for num in '1','2':
+        print "%s %s: %f" % (name,num,gbt.dcmeantsys(blocks[name+'ON'+num].average(), blocks[name+'OFF'+num].average(), blocks[name+'OFF'+num].header['TCAL']))
+f
+for name in reduced_nods:
+    for num in '1','2':
+        print "%s %s: %f" % (name,num,gbt.dcmeantsys(blocks[name+'ON'+num].average(), blocks[name+'OFF'+num].average(), blocks[name+'OFF'+num].header['TCAL']))
+        
+for name in reduced_nods:
+    for num in '1','2':
+        print "%s %s: %f" % (name,num,gbt.dcmeantsys(blocks[name+'ON'+num].average(), blocks[name+'OFF'+num].average(), blocks[name+'OFF'+num].header['TCAL']))
+        
+for name in reduced_nods:
+    for num in '1','2':
+        print "%s %s: %f" % (name,num,gbt.dcmeantsys(blocks[name+'ON'+num].average(), blocks[name+'OFF'+num].average(), blocks[name+'OFF'+num].header['TCAL']))
+        
+blocks[name+'ON'+num].average()
+for name in reduced_nods:
+    for num in '1','2':
+        print "%s %s: %f" % (name,num,gbt.dcmeantsys(blocks[name+'ON'+num].average(), blocks[name+'OFF'+num].average(), blocks[name+'OFF'+num].header['TCAL']))
+        print blocks[name+'ON'+num].average()
+        print blocks[name+'OFF'+num].average()
+        print blocks[name+'OFF'+num].header['TCAL']
+        
+for name in reduced_nods:
+    for num in '1','2':
+        print "%s %s: %f" % (name,num,gbt.dcmeantsys(blocks[name+'ON'+num].average(), blocks[name+'OFF'+num].average(), blocks[name+'OFF'+num].header['TCAL'])),
+        print blocks[name+'ON'+num].average(),
+        print blocks[name+'OFF'+num].average(),
+        print blocks[name+'OFF'+num].header['TCAL']
+        
+%run /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+history
+%run /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+%paste
+sp1
+history
+history 100
+A13ON1-A13OFF1
+A13ON1.slice(409,3687,units='pixels')-A13OFF1.slice(409,3687,units='pixels')
+np.mean(A13ON1.slice(409,3687,units='pixels')-A13OFF1.slice(409,3687,units='pixels'))
+np.mean(A13ON1.slice(409,3687,units='pixels').data-A13OFF1.slice(409,3687,units='pixels').data)
+%paste
+av1
+av2
+av1.plotter()
+%paste
+q
+%paste
+%run /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+%paste
+av1.data
+av2.data
+av2.data.mean()
+while av2.data.mean() > 0.01:
+    av2 = blocks[name+'OFF'+num].average()
+av2.data.mean()
+av2.data*=1e20
+av2.data.mean()
+while av2.data.mean() > 0.01:
+    av2 = blocks[name+'OFF'+num].average()
+    print av2
+    
+av2.data.mean()
+av2.data *= 1e20
+while av2.data.mean() > 0.01:
+    av2 = blocks[name+'OFF'+num].average(debug=True)
+    print av2
+blocks
+blocks['D38ON1'].header['POL']
+q
+from agpy import grep
+grep.grep('POL',gbtdata[1].data.dtype.names)
+grep.grep('SRFEED',gbtdata[1].data.dtype.names)
+gbtdata[1].data['SRFEED'][whobject]
+bintable
+bintable.object
+bintable.data.object
+bintable.data['OBJECT']
+set(bintable.data['OBJECT'])
+whobject = bintable.data['OBJECT'] == objectname
+bintable.data[whobject]['EXPOSURE']
+bintable.data[whobject]['RA']
+bintable.data.dtype.names
+bintable.data['TRGTLONG']
+%run /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+bintable.data['TRGTLONG']
+list_targets(bintable)
+whobject
+bintable.data[whobject]['TRGTLONG']
+median(bintable.data[whobject]['TRGTLONG'])
+%run /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+list_targets(bintable)
+%run /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+list_targets(bintable)
+%run -i /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+list_targets(bintable)
+%run -i /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+list_targets(bintable)
+whobject = bintable.data['OBJECT'] == objectname
+RADEC = zip(bintable.data[whobject]['TRGTLONG'],bintable.data[whobject]['TRGTLAT'])
+midRA,midDEC = np.median(bintable.data[whobject]['TRGTLONG']),np.median(bintable.data[whobject]['TRGTLAT'])
+import timing
+import timeit
+T = timeit.Timer(stmt="np=list(set(RADEC))",setup="from pyspeckit.spectrum.readers import gbt; bintable=gbt._get_bintable('/Users/adam/observations/gbt/h2co_pilot/AGBT09C_049_02.raw.acs.fits'); objectname = 'G37.87-0.40'; whobject = bintable.data['OBJECT'] == objectname; RADEC = zip(bintable.data[whobject]['TRGTLONG'],bintable.data[whobject]['TRGTLAT']);")
+T.repeat(3,100)
+T = timeit.Timer(stmt="np=unique(RADEC)",setup="from pyspeckit.spectrum.readers import gbt; bintable=gbt._get_bintable('/Users/adam/observations/gbt/h2co_pilot/AGBT09C_049_02.raw.acs.fits'); objectname = 'G37.87-0.40'; whobject = bintable.data['OBJECT'] == objectname; RADEC = zip(bintable.data[whobject]['TRGTLONG'],bintable.data[whobject]['TRGTLAT']);")
+T.repeat(3,100)
+T2 = timeit.Timer(stmt="n=np.unique(RADEC)",setup="from pyspeckit.spectrum.readers import gbt; bintable=gbt._get_bintable('/Users/adam/observations/gbt/h2co_pilot/AGBT09C_049_02.raw.acs.fits'); objectname = 'G37.87-0.40'; whobject = bintable.data['OBJECT'] == objectname; RADEC = zip(bintable.data[whobject]['TRGTLONG'],bintable.data[whobject]['TRGTLAT']); import numpy as np")
+T = timeit.Timer(stmt="np=list(set(RADEC))",setup="from pyspeckit.spectrum.readers import gbt; bintable=gbt._get_bintable('/Users/adam/observations/gbt/h2co_pilot/AGBT09C_049_02.raw.acs.fits'); objectname = 'G37.87-0.40'; whobject = bintable.data['OBJECT'] == objectname; RADEC = zip(bintable.data[whobject]['TRGTLONG'],bintable.data[whobject]['TRGTLAT']);")
+T2.repeat(3,100)
+T3 = timeit.Timer(stmt="RADEC = zip(bintable.data[whobject]['TRGTLONG'],bintable.data[whobject]['TRGTLAT']);",setup="from pyspeckit.spectrum.readers import gbt; bintable=gbt._get_bintable('/Users/adam/observations/gbt/h2co_pilot/AGBT09C_049_02.raw.acs.fits'); objectname = 'G37.87-0.40'; whobject = bintable.data['OBJECT'] == objectname; RADEC = zip(bintable.data[whobject]['TRGTLONG'],bintable.data[whobject]['TRGTLAT']);")
+T3.repeat(3,100)
+T4 = timeit.Timer(stmt="RA,DEC = set(bintable.data[whobject]['TRGTLONG']),set(bintable.data[whobject]['TRGTLAT']);",setup="from pyspeckit.spectrum.readers import gbt; bintable=gbt._get_bintable('/Users/adam/observations/gbt/h2co_pilot/AGBT09C_049_02.raw.acs.fits'); objectname = 'G37.87-0.40'; whobject = bintable.data['OBJECT'] == objectname; ")
+T4.repeat(3,100)
+T4.repeat(3,10)
+T5 = timeit.Timer(stmt="RA = bintable.data[whobject]['TRGTLONG'];",setup="from pyspeckit.spectrum.readers import gbt; bintable=gbt._get_bintable('/Users/adam/observations/gbt/h2co_pilot/AGBT09C_049_02.raw.acs.fits'); objectname = 'G37.87-0.40'; whobject = bintable.data['OBJECT'] == objectname; ")
+T5.repeat(1,10)
+T6 = timeit.Timer(stmt="RA = bintable.data['TRGTLONG'][whobject];",setup="from pyspeckit.spectrum.readers import gbt; bintable=gbt._get_bintable('/Users/adam/observations/gbt/h2co_pilot/AGBT09C_049_02.raw.acs.fits'); objectname = 'G37.87-0.40'; whobject = bintable.data['OBJECT'] == objectname; ")
+T6.repeat(1,10)
+T5.repeat(3,10)
+T6.repeat(3,100)
+T3 = timeit.Timer(stmt="RADEC = zip(bintable.data['TRGTLONG'][whobject],bintable.data['TRGTLAT'][whobject]);",setup="from pyspeckit.spectrum.readers import gbt; bintable=gbt._get_bintable('/Users/adam/observations/gbt/h2co_pilot/AGBT09C_049_02.raw.acs.fits'); objectname = 'G37.87-0.40'; whobject = bintable.data['OBJECT'] == objectname; RADEC = zip(bintable.data[whobject]['TRGTLONG'],bintable.data[whobject]['TRGTLAT']);")
+T3.repeat(3,100)
+%run -i /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+list_targets(bintable)
+import coords
+coords.PositionRAsx = coords.Position((midRA,midDEC))
+RAsx = coords.Position((midRA,midDEC))
+RAsx.hmsdms()
+len(RAsx.hmsdms())
+len(RAsx.hmsdms().split())
+len(RAsx.hmsdms().split()[0])
+%run -i /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+list_targets(bintable)
+%run -i /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+list_targets(bintable)
+%run -i /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+list_targets(bintable)
+%run -i /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+list_targets(bintable)
+%run -i /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+list_targets(bintable)
+%run -i /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+list_targets(bintable)
+bintable.data[0]
+bintable.data[0].dtype
+bintable.data.dtype
+bintable.data[0]['DURATION']
+bintable.data[0]['EXPOSURE']]
+bintable.data[0]['EXPOSURE']
+bintable.data[0]['OBSMODE']
+unique(bintable.data['OBSMODE'])
+unique(bintable.data['SAMPLER'])
+%run -i /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+list_targets(bintable)
+%run -i /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+list_targets(bintable)
+%run -i /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+list_targets(bintable)
+%run -i /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+list_targets(bintable)
+%run -i /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+sdfisdfitsfile = '/Users/adam/observations/gbt/h2co_pilot/AGBT09C_049_02.raw.acs.fits'
+sdfitsfile = '/Users/adam/observations/gbt/h2co_pilot/AGBT09C_049_02.raw.acs.fits'
+A049 = GBTSession(sdfitsfile)
+%run -i /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+A049 = GBTSession(sdfitsfile)
+import pyfits
+import pyfits.fitsrec
+pyfits.FITS_rec
+%run -i /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+A049 = GBTSession(sdfitsfile)
+A049
+q
+%run -i /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+A049 = GBTSession(sdfitsfile)
+A049
+%run -i /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+A049 = GBTSession(sdfitsfile)
+A049
+%run -i /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+A049 = GBTSession(sdfitsfile)
+A049
+A049.instance_info
+%run -i /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+A049 = GBTSession(sdfitsfile)
+A049.reduce_target('G60.88-0.13')
+A049.targets
+A049.targets['G60.88-0.13'].reduced_scans
+A049.targets['G60.88-0.13'].reduced_scans['A10'].plotter()
+A10 = A049.targets['G60.88-0.13'].reduced_scans['A10']
+A10.header
+A10.header.ascard
+A10 = A049.targets['G60.88-0.13'].reduced_scans['A9'].header.ascard
+A10 = A049.targets['G60.88-0.13'].reduced_scans['A9'].header
+A049.targets['G60.88-0.13'].reduced_scans['A9'].header.ascard
+A10 = A049.targets['G60.88-0.13'].reduced_scans['A10']
+unique(bintable.data['SIG'])
+unique(bintable.data['SIDEBAND'])
+unique(bintable.data['SRFEED'])
+for name in A049.targets['G60.88-0.13'].reduced_scans: print name,A049.targets['G60.88-0.13'].reduced_scans[name].header['SRFEED']
+bintable.data['PROCTYPE']
+gbtdata = pyfits.open(sdfitsfile)
+gbtdata[0].header
+gbtdata[0].header.ascard
+gbtdata[1].header
+gbtdata[1].header.ascard
+print gbtdata[1].header.ascard
+X =  gbtdata[1].header.ascard
+type(X)
+grep.grep('pol',list(X))
+list(X)
+list(X)[0]
+grep.grep('pol',list(X))
+u
+d
+string
+list
+print list
+print list[0]
+type(list[0])
+q
+grep.grep('pol',[str(x) for x in X])
+grep.grep('POL',[str(x) for x in X])
+grep.grep('stokes',[str(x) for x in X])
+grep.grep('Stokes',[str(x) for x in X])
+bintable.data['CTYPE4']
+unique(bintable.data['CRVAL4'])
+for name in A049.targets['G60.88-0.13'].reduced_scans: print name,A049.targets['G60.88-0.13'].reduced_scans[name].header['CRVAL4']
+A049.targets['G60.88-0.13'].reduced_scans
+A10 = A049.targets['G60.88-0.13'].reduced_scans['A10']
+A14 = A049.targets['G60.88-0.13'].reduced_scans['A14']
+A10.xarr == A14.xarr
+(A10.xarr == A14.xarr).sum()
+bintable.data['PROJID']
+print gbtdata[0].header.ascard
+print gbtdata[0].data
+gbtdata[1].header['OBSERVER']
+gbtdata[1].data['OBSERVER']
+bintable.data[0]['OBSERVER']
+bintable.data[0]['PROJID']
+bintable.data[0]['BACKEND']
+bintable.data.dtype.names
+grep.grep('PROJ',gbtdata[1].data.dtype.names)
+grep.grep('BACK',gbtdata[1].data.dtype.names)
+grep.grep('TEL',gbtdata[1].data.dtype.names)
+bintable.header.keys()
+bintable.header['BACKEND']
+bintable.header['PROJID']
+bintable.header['OBSERVER']
+bintable.header['TELESCOP']
+bintable.header['BANDWID']
+bintable.data[0]['BANDWID']
+bintable.data[0]['DATE_OBS']
+bintable.header['DATE_OBS']
+grep.grep('DATE',gbtdata[1].data.dtype.names)
+bintable.data[0]['DATE-OBS']
+grep.grep('IF',gbtdata[1].data.dtype.names)
+grep.grep('IF',gbtdata[1].header.keys())
+grep.grep('IF',gbtdata[1].header.values())
+print A10.header.ascard
+bintable
+bintable.fileinfo
+bintable.fileinfo()
+bintable.data.names
+bintable.data.TUNIT7
+bintable.data.OBSID
+unique(bintable.data.OBSID)
+bintable.data.FRONTEND
+bintable.data.OBSFREQ
+set(bintable.data.OBSFREQ)
+set(bintable.data.REFFREQ)
+set(bintable.data.RESTFREQ)
+set(bintable.data.REFFRQ)
+grep.grep('FRQ',bintable.data.names)
+grep.grep('FREQ',bintable.data.names)
+bintable.data.FREQRES
+bintable.data.FREQRES[0]
+15286424888.242188 % bintable.data.FREQRES[0]
+help round
+round(15286424888.242188)
+round(log10(3888))
+floor(log10(3888))
+%run -i /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+round_to_resolution(bintable.data.OBSFREQ[0], bintable.data.FREQRES[0])
+%run -i /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+find_matched_freqs(A049.targets['G60.88-0.13'].reduced_blocks)
+find_matched_freqs(A049.targets['G60.88-0.13'].reduced_scans)
+%run -i /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+find_matched_freqs(A049.targets['G60.88-0.13'].reduced_scans)
+%run -i /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+find_matched_freqs(A049.targets['G60.88-0.13'].reduced_scans)
+%run -i /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+find_matched_freqs(A049.targets['G60.88-0.13'].reduced_scans)
+%run -i /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+identify_samplers(A049.targets['G60.88-0.13'].reduced_scans)
+%run -i /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+identify_samplers(A049.targets['G60.88-0.13'].reduced_scans)
+%run -i /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+identify_samplers(A049.targets['G60.88-0.13'].reduced_scans)
+%run -i /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+identify_samplers(A049.targets['G60.88-0.13'].reduced_scans)
+%run -i /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+identify_samplers(A049.targets['G60.88-0.13'].reduced_scans)
+block=A049.targets['G60.88-0.13'].reduced_scans
+%run -i /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+ifdict = find_matched_freqs(block)
+feeddict = find_feeds(block)
+ifdict
+feedict
+feeddict
+%run -i /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+identify_samplers(A049.targets['G60.88-0.13'].reduced_scans)
+average_pols(A049.targets['G60.88-0.13'].reduced_scans)
+find_matched_freqs(block)
+find_feeds(block)
+%run -i /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+find_feeds(block)
+average_pols(A049.targets['G60.88-0.13'].reduced_scans)
+q
+%run -i /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+average_pols(A049.targets['G60.88-0.13'].reduced_scans)
+%run -i /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+average_pols(A049.targets['G60.88-0.13'].reduced_scans)
+%paste
+IDs
+ID = IDs['A10']
+ID['feed']
+feeddict
+%run -i /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+average_pols(A049.targets['G60.88-0.13'].reduced_scans)
+%run -i /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+average_pols(A049.targets['G60.88-0.13'].reduced_scans)
+%run -i /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+average_IF(A049.targets['G60.88-0.13'].reduced_scans)
+u
+block[name]
+[block[name] for name in ifsamplers]
+sum([block[name] for name in ifsamplers])
+q
+1.__sum__
+x = list([0,1,2])
+x.__add__
+sum(x,x)
+sum([x,x])
+x.__iadd__
+x
+x.__radd__
+j=1
+j.__radd__
+%run -i /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+A049 = GBTSession(sdfitsfile)
+A049.reduce_target('G60.88-0.13')
+block=A049.targets['G60.88-0.13'].reduced_scans
+%run -i /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+average_IF(A049.targets['G60.88-0.13'].reduced_scans)
+%run -i /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+average_IF(A049.targets['G60.88-0.13'].reduced_scans)
+G60 = average_IF(A049.targets['G60.88-0.13'].reduced_scans)
+G60['if0'].plotter()
+G60['if1'].plotter()
+G60['if2'].plotter()
+G60['if3'].plotter()
+A049.reduce_target('G37.87-0.40')
+G37 = average_IF(A049.reduce_target('G37.87-0.40'))
+%run -i /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+A049 = GBTSession(sdfitsfile)
+A049.reduce_target('G37.87-0.40',verbose=False)
+G37 = A049.reduce_target('G37.87-0.40')
+G37.spectra
+G37.average_IFs()
+u
+ifsamplers
+q
+%run -i /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+G37 = GBTTarget(A049,'G37.87-0.40')
+G37.reduce()
+G37.average_IFs()
+G37.spectra
+G37.spectra['if0'].plotter()
+G37.spectra['if1'].plotter()
+G37.spectra['if2'].plotter()
+G37.spectra['if3'].plotter()
+G37.spectra['if0'].smooth(3)
+G37.spectra['if0'].plotter()
+history
+G32 = GBTTarget(A049,'G32.80+0.19')
+G32.average_IFs()
+G32.reduce()
+G32.average_IFs()
+G32['if0'].plotter()
+G32.spectra['if0'].plotter()
+G32.spectra['if1'].plotter()
+G32.spectra['if2'].plotter()
+G32.spectra['if3'].plotter()
+G37.reduce()
+G37.average_IFs()
+G37.spectra['if0'].plotter()
+G37.spectra['if0'].xarr
+G37.average_IFs()
+G37.spectra['if0'].xarr
+G37.spectra['if0'].plotter()
+G37.reduce(); G37.average_IFs()
+G37.reduce(); G37.average_IFs(); G37.spectra['if0'].plotter()
+G32.reduce(); G32.average_IFs(); G32.spectra['if0'].plotter()
+G32.reduce(); G32.average_IFs(); G32.spectra['if1'].plotter()
+G32.reduce(); G32.average_IFs(); G32.spectra['if2'].plotter()
+G32.reduce(); G32.average_IFs(); G32.spectra['if3'].plotter()
+bintable.data['CTYPE1']
+set(bintable.data['CTYPE1']0
+set(bintable.data['CTYPE1'])
+set(bintable.data['CRVAL1'])
+unique(bintable.data['SAMPLER'])
+set(bintable.data['SAMPLER'])
+identify_samplers(A049.targets['G60.88-0.13'].reduced_scans)
+identify_samplers(A049.targets[objectname].reduced_scans)
+identify_samplers(A049.targets['G37.87-0.40'].reduced_scans)
+G37.reduced_scans['A10']
+G37.reduced_scans['A13']
+objectname
+identify_samplers(A049.targets['G32.80+0.19'].reduced_scans)
+A049.targets
+A049.reduce_target('G32.80+0.19']
+A049.reduce_target('G32.80+0.19')
+A049.targets
+identify_samplers(A049.targets['G32.80+0.19'].reduced_scans)
+identify_samplers(A049.targets['G37.87-0.40'].reduced_scans)
+A049.targets['G37.87-0.40'].block.keys()
+A049.targets['G37.87-0.40'].blocks.keys()
+A049.targets['G37.87-0.40'].blocks.keys()[:10]
+A049.targets['G32.80+0.19'].blocks.keys()[:10]
+A049.targets['G37.87-0.40'].reduced_scans
+A049.targets['G32.80+0.19'].reduced_scans
+find_matched_freqs(A049.targets['G37.87-0.40'].reduced_scans)
+find_matched_freqs(A049.targets['G32.80+0.19'].reduced_scans)
+A049.targets['G32.80+0.19'].reduced_scans
+[k for k in A049.targets['G32.80+0.19'].reduced_scans]
+odict
+import collections
+collections.OrderedDict
+G37 =A049.reduce_target('G37.87-0.40')
+G32.spectra
+G37.spectra
+G37.reduced_scans
+G32.reduced_scans
+[k for k in A049.targets['G32.80+0.19'].reduced_scans]
+[k for k in A049.targets['G37.87-0.40'].reduced_scans]
+find_matched_freqs(A049.targets['G32.80+0.19'].reduced_scans,debug=True)
+%run -i /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+find_matched_freqs(A049.targets['G32.80+0.19'].reduced_scans,debug=True)
+%run -i /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+find_matched_freqs(A049.targets['G32.80+0.19'].reduced_scans,debug=True)
+%run -i /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+find_matched_freqs(A049.targets['G32.80+0.19'].reduced_scans,debug=True)
+%run -i /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+find_matched_freqs(A049.targets['G32.80+0.19'].reduced_scans,debug=True)
+import collections
+%run -i /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+find_matched_freqs(A049.targets['G32.80+0.19'].reduced_scans,debug=True)
+%run -i /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+find_matched_freqs(A049.targets['G32.80+0.19'].reduced_scans,debug=True)
+%run -i /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+find_matched_freqs(A049.targets['G32.80+0.19'].reduced_scans,debug=True)
+find_matched_freqs(A049.targets['G37.87-0.40'].reduced_scans,debug=True)
+G37.spectra['if0']
+identify_samplers(A049.targets['G37.87-0.40'].reduced_scans)
+%run -i /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+import pyspeckit
+pyspeckit.__file__
+from pyspeckit.spectrum.readers import gbt
+?gbt.GBTTarget.average_IFs
+G32.spectra
+G37.spectra
+%run -i /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+count_integrations(bintable, 'G32.80+0.19')
+G32.reduced_scans
+G32.reduced_scans['A9'].plotter()
+identify_samplers(G32.reduced_scans)
+dict(identify_samplers(G32.reduced_scans))
+collections
+import collections
+import collections.defaultdict as dict
+from collections import defaultdict as dict
+dict(identify_samplers(G32.reduced_scans))
+identify_samplers(G32.reduced_scans)
+%run -i /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+dict(identify_samplers(G32.reduced_scans))
+identify_samplers(G32.reduced_scans)
+%run -i /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+identify_samplers(G32.reduced_scans)
+from builtins import dict
+import builtin
+import builtins
+import __builtins__
+__builtins__
+__builtins__.dict
+dict = __builtins__.dict
+%run -i /Users/adam/work/pyspeckit/pyspeckit/spectrum/readers/gbt.py
+identify_samplers(G32.reduced_scans)
+G32.reduced_scans['A13'].plotter(figure=figure(4),clear=False,color='b')
+colors = ['k','b','r','g']
+for fd,col in zip(['A9','A13','C25','C29'],colors):
+    G32.reduced_scans[fd].plotter(figure=figure(4), clear=False,color=col)
+    
+G32.reduce()
+for fd,col in zip(['A9','A13','C25','C29'],colors):
+    G32.reduced_scans[fd].plotter(figure=figure(4), clear=False,color=col)
+    
+for fd,col in zip(['A9','A13','C25','C29'],colors):
+    print G32.reduced_scans[fd].header['FEED'],    G32.reduced_scans[fd].header['SRFEED']                                  
+    
+for fd,col in zip(['A9','A13','C25','C29'],colors):
+    print fd, G32.reduced_scans[fd].header['FEED'],    G32.reduced_scans[fd].header['SRFEED']                                  
+    
+colors = ['k','b','r','g']
+for fd,col in zip(['A9','A13','C25','C29'],colors):
+    G32.reduced_scans[fd].plotter(figure=figure(4), clear=False,color=col)
+    
+G32.reduce()
+for fd,col in zip(['A9','A13','C25','C29'],colors):
+    G32.reduced_scans[fd].plotter(figure=figure(4), clear=False,color=col)
+    
+G32.reduce()
+for fd,col in zip(['A9','A13','C25','C29'],colors):
+    G32.reduced_scans[fd].plotter(figure=figure(4), clear=False,color=col)
+    
+for fd,col in zip(['A9','A13','C25','C29'],colors):
+    G32.reduced_scans[fd].plotter(figure=figure(4), clear=False,color=col)
+    
+colors = ['k','b','r','g']
+for fd,col in zip(['A9','A13','C25','C29'],colors):
+    G32.reduced_scans[fd].plotter(figure=figure(4), clear=False,color=col)
+    
+G32['if0'].plotter()
+G32['if1'].plotter()
+y
+for fd,col in zip(['A9','A13','C25','C29'],colors):
+    G32.reduced_scans[fd].plotter(figure=figure(4), clear=False,color=col)
+    
+colors = ['k','b','r','g']
+for fd,col in zip(['A9','A13','C25','C29'],colors):
+    G32.reduced_scans[fd].plotter(figure=figure(4), clear=False,color=col)
+    
+figure(4)
+G32.average_IFs()
+G32.average_pols()
+G32
+G32[:]
+G32.spectra
+G32.spectra['if0'].plotter()
+G32.spectra['if1'].plotter()
+G32.spectra['if1fd1'].plotter(color='b',figure=figure(6),clear=False)
+G32.spectra['if1fd2'].plotter(color='r',figure=figure(6),clear=False)
+for fd,col in zip(['A9','A13','C25','C29'],colors):
+    G32.reduced_scans[fd].plotter(figure=figure(4), clear=False,color=col)
+    G32['if1'].plotter(figure=figure(4), color='magenta', clear=False)
+    G32['if1fd1'].plotter(figure=figure(4), color='orange', clear=False)
+    G32['if1fd2'].plotter(figure=figure(4), color='cyan', clear=False)
+sp = pyspeckit.Spectrum('/Users/adam/work/h2co/data/pilot/G32.80+0.19_h2co_Tastar.fits')
+sp.plotter(figure=figure(4),clear=False,color='yellow')
+sp.plotter(figure=figure(4),clear=False,color='purple')
+sp.plotter(figure=figure(4),clear=False,color='brown')
+import pyslalib
+pyslalib.sladoc
+pyslalib.slalib
+pyslalib.os
+pyslalib.f
+import pyregion
+pyslalib.slalib.sla_veri)(
+pyslalib.slalib.sla_veri()
+pyslalib.slalib.sla_caldj(2012,2,26)
+pyslalib.slalib.sla_obs(0,'APO')
+help pyslalib.slalib.sla_obs
+pyslalib.slalib.sla_rvlsrk
+pyslalib.slalib.sla_rvlsrk(283,5)
+pyslalib.slalib.sla_pvobs
+pyslalib.slalib.sla_obs(0,'GBT')
+pyslalib.slalib.sla_obs(0,'APO')
+pyslalib.slalib.sla_pvobs(pyslalib.slalib.sla_obs(0,'APO')[2:5],5)
+pyslalib.slalib.sla_pvobs(*pyslalib.slalib.sla_obs(0,'APO')[2:5],5)
+name,longname,lon,lat,elev = pyslalib.slalib.sla_obs(0,'APO')
+pyslalib.slalib.sla_pvobs(lat,elev,5)
+pyslalib.slalib.sla_pvobs(lat,elev,2)
+pwd
+import sys
+sys.path
+import pyregion
+q
+pyregion
+import pyregion
+u
+q
+pyregion
+pyregion.__file__
+ls ?
+ls build/bdist.macosx-10.7-intel/egg/pyregion/__init__.py
+bintable.header['VFRAME']
+bintable.data['VFRAME']
+plot(bintable.data['VFRAME'])
+print G32
+G32
+print A049
+import pyspeckit
+from pyspeckit.spectrum.readers import alfalfa
+ALF = alfalfa.read_alfalfa('HI145947.9+152515_1500+15d.src')
+ALF.plotter()
+history
+ALF.ploteach()
+import idlsave
+src=idlsave.read(('HI145947.9+152515_1500+15d.src'))
+src
+len(src)
+src[0]
+src
+src.data
+src.src
+src.src[0]
+len(src.src)
+src.src.name
+src.src.names
+src.src.dtype.names
+src.src.SRCNAME
+src.src.SRCNAME[0]
+%run alfalfa_example.py
+print G32
+import hub
+q
+import hub
+hub.Sample
+help hub.Sample
+help hub
+help hub.stitch
+help hub.link
+hub.link.query()
+history
+pwd
+%run gbt_sdfits_example.py
+(4829659960.0-4829659400.0)/4829659400.0
+(4829659960.0-4829659400.0)/4829659400.0 * 3e5
+(4829660000.0-4829659400.0)/4829659400.0 * 3e5
+sp1 = target.blocks['A13OFF2'][0]
+sp2 = target.blocks['A13OFF2'][1]
+import pyspeckit
+xc = pyspeckit.correlate.correlate(sp1,sp2)
+xc.plotter()
+sp1.plotter()
+sp2.plotter()
+xc = pyspeckit.correlate.correlate(sp1,sp2,range=[122500,123000],units='km/s')
+pdb
+xc = pyspeckit.correlate.correlate(sp1,sp2,range=[122500,123000],units='km/s')
+xarr.max()
+xarr
+print xarr
+spectrum1
+range
+units
+q
+sp1
+sp1.slice(122500,123000,units='km/s')
+q
+sp1
+sp1.xarr.as_unit('km/s')
+sp1.xarr.as_unit('km/s').x_to_pix(122500)
+sp1.xarr.as_unit('km/s').x_to_pix(123000)
+sp1 = target.blocks['A13OFF2'][0]
+sp2 = target.blocks['A13OFF2'][1]
+xc = pyspeckit.correlate.correlate(sp1,sp2)
+import pyspeckit
+sp1 = target.blocks['A13OFF2'][0]
+sp2 = target.blocks['A13OFF2'][1]
+xc = pyspeckit.correlate.correlate(sp1,sp2)
+xc.plotter()
+xc2 = pyspeckit.correlate.correlate(sp1,sp2,range=[122500,123000],units='km/s')
+%run test_units.py
+test_convert_units('cms','millimeters')
+%pdb
+test_convert_units('cms','millimeters')
+u
+l
+unit
+self
+conversion_dict[self.xtype]
+conversion_dict[self.xtype] is velocity_dict
+freqx
+self,self.units
+q
+import pymodelfit
+import pymodelfit.fitgui
+import enthought
+import pymodelfit.gui
+import pymodelfit.fitgui
+plot()
+from pylab import *
+show()
+%run fit_s233_solo_oph2.py
+spectra.specfit.add_sliders()
+%run fit_s233_solo_oph2.py
+import [ymc
+import pymc
+%run fit_s233_solo_oph2.py
+compFMC4
+compFM
+%paste
+compFMC4s
+figure()
+from pylab import *
+plot(compFMC4.trace('density0'),compFMC4.trace('temperature0'))
+plot(compFMC4.trace('density0')[:],compFMC4.trace('temperature0')[:],'.')
+figure()
+plot(compFMC4.trace('density0')[:],compFMC4.trace('temperature0')[:],'.')
+figure(10); plot(compFMC4.trace('density0')[:],compFMC4.trace('orthopara0')[:],'.')
+nsamples =10000
+compFMC4.sample(nsamples,burn=100)
+figure(10); plot(compFMC4.trace('density0')[:],compFMC4.trace('orthopara0')[:],'.')
+figure(9); plot(compFMC4.trace('density0')[:],compFMC4.trace('temperature0')[:],'.')
+import pymc
+pymc.Matplot.plot(compFMC4)
+spectra.specfit.add_sliders()
+spectra.data.shape
+%run fit_s233_solo_oph2.py
+import pyraf
+import iraf
+import pyfits
+n
+sys.path
+import sys
+sys.path

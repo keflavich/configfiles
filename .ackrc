@@ -1,0 +1,11 @@
+--type-set=IDL=.pro
+--type-set=RST=.rst 
+--type-set=rst=.rst 
+--type-add=IDL=.pro
+--type-add=RST=.rst
+--type-add=rst=.rst
+--ignore-dir=build
+--type-set=PDF=.pdf
+--noPDF
+--type-set=FITS=.fits
+--noFITS

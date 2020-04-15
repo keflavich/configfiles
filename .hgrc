@@ -1,0 +1,35 @@
+[ui]
+username = Adam Ginsburg <keflavich@gmail.com>
+verbose = True
+editor = /usr/local/bin/vim
+#merge = mvimdiff
+
+[extensions]
+hgext.convert=
+hgext.graphlog = 
+mq = 
+fetch=
+shelve=
+color =
+pager =
+churn =
+convert =
+purge =
+progress =
+rebase =
+histedit =
+shelve =
+strip =
+transplant =
+prompt=~/repos/hg-prompt/prompt.py
+
+[merge-tool]
+diffconflicts.args = $base $local $remote $other
+diffconflicts = diffconflicts
+vimdiff.executable = vim
+vimdiff.args = -d $base $local $output $other +close +close
+
+[hgmerge]
+interactive = diffconflicts
+args = $base $local $remote $other
+#noninteractive = diff3
