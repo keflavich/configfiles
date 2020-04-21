@@ -201,7 +201,6 @@ alias radmc_idl='/Applications/exelis/idl/bin/idl ~/.idl/radmc_startup'
 alias aoidl='/Applications/exelis/idl/bin/idl ~/.aoidl' # must be IDL 7, I think.  DONT AHVE !!!!!!! AUGH!?!?! (June 20143)
 alias gbtidl="/Users/adam/repos/gbtidl/gbtidl"
 alias macvim="/Applications/Vim.app/Contents/MacOS/Vim -g"
-alias gvim="/Applications/Vim.app/Contents/MacOS/Vim -g"
 alias f77="gfortran"
 alias fv="/Applications/fv.app/Contents/MacOS/fv"
 #alias ls="ls -Ghp"
