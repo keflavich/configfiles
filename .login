@@ -1,10 +1,14 @@
 #
 # .login - initialization file for the C-shell
 # Executed after .cshrc by any login shell
-# 
+ 
+# Please do not delete this line
+#
+
 if ( -f /usr/local/lib/System.login ) then
   source /usr/local/lib/System.login
 endif
+source /usr/local/lib/global.login
 #
 setenv    PRINTER ppbla9
 setenv    LPDEST  ppbla9
