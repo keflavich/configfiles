@@ -12,3 +12,7 @@
 [alias]
 	unadd = reset HEAD
 	unstage = reset --
+[core]
+	editor = vim
+[credential]
+	helper = store

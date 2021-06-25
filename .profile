@@ -38,8 +38,8 @@
 MKL_NUM_THREADS=1
 export MKL_NUM_THREADS
 
-export LC_ALL=en_US.UTF-8  
-export LANG=en_US.UTF-8
+#export LC_ALL=en_US.UTF-8  
+#export LANG=en_US.UTF-8
 
 
 
@@ -51,3 +51,5 @@ export LANG=en_US.UTF-8
 #PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
 #export PATH
 #. ~/.bashrc
+
+echo "Loaded .profile"

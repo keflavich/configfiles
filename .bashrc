@@ -1,3 +1,4 @@
+alias ll='ls -al --color=auto'
 set -o noclobber
 set -o ignoreeof
 
@@ -7,6 +8,7 @@ shopt -s nocaseglob
 
 export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
 export HISTTIMEFORMAT="%d/%m/%y %T "
 export HISTSIZE=500000
@@ -43,25 +45,38 @@ then
 
 fi
 
-export PATH=/home/aginsbur/bin/:/scratch/aginsbur/casa/casapy-stable-42.0.26945-001-64b/bin:/home/aginsbur/anaconda/bin/:$PATH
 
 HISTSIZE=100000
 export HISTSIZE
-
-export PATH=/usr/lib64/casapy/bin/:$PATH
-alias gbtidl="/opt/local/bin/gbtidl ~/.idl/idlrc"
 
 if test $SHLVL -gt 1; then
     source /etc/bashrc
     #source $HOME/.bash_profile
 fi
 
-# added by Anaconda 1.6.1 installer
-export PATH="/users/aginsbur/anaconda/bin:$PATH"
+# hipergator-specific things
+module load screen
+module load ufrc
+#Unsafe to load
+# (but necessary for ds9)
+#module load gcc
 
-## added by Miniconda 3.3.0 installer
-#export PATH="/users/aginsbur/miniconda/bin:$PATH"
+PATH=$PATH:/orange/adamginsburg/miniconda3/bin/
 
-# added by Anaconda3 installer
-export PATH="/lustre/naasc/users/aginsbur/anaconda/bin:$PATH"
-alias vncserver='PATH=/bin:/usr/bin vncserver $*'
+# 0022 -> me: rwx, group: rx, global: rx
+umask 0022
+#alias ll='ls -al --color=auto'
+
+export PYSYN_CDBS=/orange/adamginsburg/synphot/grp/hst
+
+alias gs9='/orange/adamginsburg/miniconda3/bin/python /orange/adamginsburg/repos/glue-cli/gs9.py'
+
+export MNEST_DIR=/orange/adamginsburg/repos/MultiNest/MultiNest_v3.12_CMake/multinest
+
+# getsf
+export PATH=/orange/adamginsburg/repos/getsf/v210414/bin:$PATH
+
+
+export RADEX_DATAPATH=/orange/adamginsburg/repos/pyradex/lamda/
+
+export XCLASSRootDir=/orange/adamginsburg/software/XCLASS-Interface

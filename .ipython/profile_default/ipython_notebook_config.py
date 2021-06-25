@@ -405,3 +405,4 @@ c.IPKernelApp.extensions = [
 
 # The directory to use for notebooks.
 # c.NotebookManager.notebook_dir = '/Users/adam/work/h2co/maps/S233IR'
+c.NotebookManager.notebook_dir = '/orange/adamginsburg/'

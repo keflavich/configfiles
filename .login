@@ -11,5 +11,10 @@ setenv    LPDEST  ppbla9
 setenv LD_LIBRARY_PATH /opt/SUNWspro/lib:/usr/ccs/lib:$LD_LIBRARY_PATH
 set path=(/opt/SUNWspro/bin $path)
 
+export LANG=en_US.UTF-8
+export LC_CTYPE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
 #. ~/.bashrc
+
+echo "Loaded .login"
