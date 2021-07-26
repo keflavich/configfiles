@@ -325,7 +325,7 @@ source /Users/adam/repos/git-1.7.6/contrib/completion/git-completion.bash
 . ~/.colors
 
 # instead, just use macbook #host_short=`echo $HOSTNAME | sed 's/\([-a-z_]*\).*/\1/'`
-host_short="alien"
+host_short="cas"
 #PROMPT_COMMAND='echo -ne "\033]0; $host_short ${PWD/#$HOME/~}\007"'
 export PROMPT_COMMAND='echo -ne "\033]0; $host_short ${PWD/#$HOME/~}\007"; '
 export PROMPT_COMMAND='history -a; ___vcs_dir'
