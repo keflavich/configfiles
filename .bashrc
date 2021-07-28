@@ -110,19 +110,19 @@ fi
 # User specific aliases and functions
 #PATH=/sw/bin:$PATH:/scisoft/bin:/scisoft/i386/bin:/sw/bin:/opt/local/bin
 #PATH=/usr/X11/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/sw/bin:/opt/local/bin:/scisoft/bin:/scisoft/i386/bin:/Developer/usr/bin/:/star/bin
-PATH=/Users/adam/bin/ccache:/usr/local/bin:/usr/X11/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/Developer/usr/bin/:/star/bin:/Users/adam/bin/:$PATH
+PATH=/home/adam/bin/ccache:/usr/local/bin:/usr/X11/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/Developer/usr/bin/:/star/bin:/home/adam/bin/:$PATH
 PATH=$PATH:/Library/Frameworks/GLib.framework/Resources/dev/bin/
 PATH=$PATH:/Applications//exelis/idl82/bin/:/usr/local/itt/idl/idl81/bin/
 PATH=$PATH:/usr/stsci/wcstools-3.7.3/bin.macintel/
 #PATH=/Library/Frameworks/Python.framework/Versions/2.7/bin/:$PATH
 PATH=$PATH:/usr/texbin/
 PATH=$PATH:/usr/stsci/wcstools-3.7.3/bin.macintel/
-PATH=$PATH:/Users/adam/repos/apache-maven-3.0.4/bin
+PATH=$PATH:/home/adam/repos/apache-maven-3.0.4/bin
 PATH=$PATH:/usr/local/astrometry/bin/:/usr/local/netpbm/bin/
 PATH=$PATH:/Developer-4.2/usr/bin/
 PATH=$PATH:~/.casa/bin/
-PATH=$PATH:/Users/adam/repos/esoreflex/bin/
-PATH=$PATH:/Users/adam/repos/gasgano/bin
+PATH=$PATH:/home/adam/repos/esoreflex/bin/
+PATH=$PATH:/home/adam/repos/gasgano/bin
 PATH=$PATH:/opt/local/bin/ # this is where wget lives
 PATH=$PATH:/usr/local/mysql/bin/
 # May 19, 2014: finally gave up on my custom-installed python.  gcc-4.2 is
@@ -131,7 +131,7 @@ PATH=$PATH:/usr/local/mysql/bin/
 #PATH=/Users/adam/virtual-python/bin:$PATH:/Users/adam/anaconda/bin/
 #PATH=/Users/adam/anaconda/envs/astropy27/bin:$PATH:/Users/adam/anaconda/bin/
 #PATH=/Users/adam/anaconda/envs/astropy35/bin:$PATH:/Users/adam/anaconda/bin/
-PATH=/Users/adam/miniconda3/bin:$PATH
+PATH=/home/adam/anaconda3/bin:$PATH
 # required for python extension builds, apparently?
 #export CC=/usr/bin/gcc CPP=/usr/bin/cpp
 #export CC=/usr/local/bin/gcc CPP=/usr/local/bin/cpp
@@ -148,7 +148,7 @@ PATH=/Users/adam/miniconda3/bin:$PATH
 # Oct 6, 2013: needed for PyMultiNest
 #export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH
 # Feb 22, 2017: gsl needed for Krumholz codes: despotic, slug2
-#export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib:/Users/adam/repos/MultiNest/lib:/Users/adam/anaconda/pkgs/gsl-2.2.1-0/lib/
+#export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib:/home/adam/repos/MultiNest/lib:/Users/adam/anaconda/pkgs/gsl-2.2.1-0/lib/
 #export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/X11/lib/
 
 #PATH=$PATH:/sw/bin:/opt/local/bin:/opt/local/xpa/bin/:
@@ -185,21 +185,16 @@ alias x86_64='export CFLAGS="-arch x86_64"; export CCFLAGS="-arch x86_64"; expor
 alias i386='export CFLAGS="-arch i386"; export CCFLAGS="-arch i386"; export CXXFLAGS="-arch i386"; FFLAGS="-arch i386"; LDFLAGS="-arch i386"'
 alias clearflags='export CFLAGS=""; export CCFLAGS=""; export CXXFLAGS=""; export LDFLAGS=""; export FFLAGS="";'
 
-alias nbconvert="/Users/adam/repos/nbconvert/nbconvert.py"
+alias nbconvert="/home/adam/repos/nbconvert/nbconvert.py"
 alias nbconvert="~/virtual-ipydev/bin/ipython nbconvert"
 
 alias scp='rsync -avp --progress'
 alias scp='rsync -Cavpu --partial --progress --rsh=ssh'
 #alias svn='/sw/bin/svn'
-alias HPC="export PATH=/Users/adam/Downloads/usr/local/bin:$PATH"
-alias idl="/Applications/itt/idl706/bin/idl ~/.idl/idlrc /Users/adam/work/bolocam/.idl_startup_bgps.pro"
-alias idl="/Applications/exelis/idl/bin/idl ~/.idl/idlrc /Users/adam/work/bolocam/.idl_startup_bgps.pro"
-alias bgpsv1="/Applications/itt/idl706/bin/idl ~/.idl/idlrc /Users/adam/work/bolocam/.idl_startup_bgpsv1.pro"
-alias idl_bolo="/Applications/itt/idl706/bin/idl /Users/adam/work/bolocam/bolocam_svn/environment/bolocam_startup.pro"
+alias HPC="export PATH=/home/adam/Downloads/usr/local/bin:$PATH"
 alias idlde='/Applications/exelis/idl/bin/idlde ~/.idl/idlrc'
 alias radmc_idl='/Applications/exelis/idl/bin/idl ~/.idl/radmc_startup'
 alias aoidl='/Applications/exelis/idl/bin/idl ~/.aoidl' # must be IDL 7, I think.  DONT AHVE !!!!!!! AUGH!?!?! (June 20143)
-alias gbtidl="/Users/adam/repos/gbtidl/gbtidl"
 alias macvim="/Applications/Vim.app/Contents/MacOS/Vim -g"
 alias f77="gfortran"
 alias fv="/Applications/fv.app/Contents/MacOS/fv"
@@ -209,8 +204,6 @@ alias fv="/Applications/fv.app/Contents/MacOS/fv"
 #export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 # GNU ls:
 #alias ls="ls --color=auto -hp"
-alias casjobs="java -jar /Users/adam/DU_work/casjobs/casjobs.jar"
-alias spectool='/Applications/itt/idl70/bin/idl /Users/adam/observations/triplespec/.idl_startup_tspec' 
 #alias pylab="ipython -pylab -log"
 #alias pylab32='/sw/bin/ipython -log -q4thread -i -c '\''from pylab import *;import numpy,scipy,matplotlib;'\'''
 alias pylab='ipython -log -i -c '\''import numpy,scipy,matplotlib;'\'''
@@ -222,9 +215,6 @@ alias astropylab35='~/anaconda/envs/astropy35/bin/ipython --profile=astropylab -
 alias astropylab27='~/anaconda/envs/astropy27/bin/ipython --profile=astropylab --matplotlib -i'
 #alias pelican-themes='/Users/adam/anaconda/envs/astropy27/bin/pelican-themes'
 #alias pelican='/Users/adam/anaconda/envs/astropy27/bin/pelican'
-alias blog_make_html='PATH=/Users/adam/anaconda/envs/astropy27/bin/:$PATH pelican-themes --upgrade /Users/adam/repos/pelican-themes/mine && PATH=/Users/adam/anaconda/envs/astropy27/bin/:$PATH make html'
-alias blog_make_github='PATH=/Users/adam/anaconda/envs/astropy27/bin/:$PATH pelican-themes --upgrade /Users/adam/repos/pelican-themes/mine && PATH=/Users/adam/anaconda/envs/astropy27/bin/:$PATH make github'
-alias ipython27='DYLD_LIBRARY_PATH="/Users/adam/anaconda/envs/astropy27/lib/" ~/anaconda/envs/astropy27/bin/ipython'
 alias ipynb='jupyter notebook'
 alias ipynb35='~/anaconda/envs/astropy35/bin/ipython notebook'
 alias ipynb27='~/anaconda/envs/astropy27/bin/ipython notebook'
@@ -293,12 +283,7 @@ arecibo=aginsbur@remoto.naic.edu
 
 # unfortunately the new STSCI pyraf install requires csh
 # this ameliorates the problem
-alias pyraf='/Users/adam/.bin/pyraf.csh'
 
-alias smart='/Users/adam/.idl/smart/smart'
-export IDL_DIR='/Applications/itt/idl70/'
-export IDL_DIR='/Applications//exelis/idl82/'
-export IDL_PATH='/Users/adam/.idl/smart:/Users/adam/.idl/IRS_Calibration:/Applications/itt/idl70/lib/:/Applications/itt/idl70/lib/astron/:/Users/adam/observations/triplespec/Spextool2/pro/:'$IDL_PATH
 
 # moved to 'universal' shopt -s histappend
 # moved to 'universal' shopt -s hostcomplete
@@ -314,7 +299,7 @@ export IDL_PATH='/Users/adam/.idl/smart:/Users/adam/.idl/IRS_Calibration:/Applic
 #source activate python27
 
 # load git completion tools!  http://clalance.blogspot.com/2011/10/git-bash-prompts-and-tab-completion.html
-source /Users/adam/repos/git-1.7.6/contrib/completion/git-completion.bash
+# source /Users/adam/repos/git-1.7.6/contrib/completion/git-completion.bash
 # Done once:
 # git config --global alias.unstage 'reset --'
 
@@ -390,8 +375,6 @@ export AUTOSSH_PORT=20000
 #PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 
-#. /Users/adam/repos/docbook-xsl-1.76.1/.profile.incl
-
 
 # qhull installed 11/11/2013
 # required hacking the makefile to not include -Wno-sign-somethingorother
@@ -400,11 +383,9 @@ export AUTOSSH_PORT=20000
 export LIBDIR_QHULL=/usr/local/lib
 export INCLUDEDIR_QHULL=/usr/local/include/libqhull
 
-# add artist to path...
-#. /Users/adam/Downloads/ARTIST/install/artistrc.sh
 
 # 11/12/2013: add RADEX_DATAPATH
-export RADEX_DATAPATH=/Users/adam/LAMDA/
+export RADEX_DATAPATH=~/LAMDA/
 
 # Bloody hell... MAVERICKS!!!
 # https://groups.google.com/a/continuum.io/forum/#!msg/anaconda/kvWVtW40aDI/cr9IkGdyzY4J
@@ -414,39 +395,30 @@ defaults write com.apple.Finder NSAppSleepDisabled -bool YES
 alias wtf='say "What the F?"'
 alias enhance='say "enhance"'
 
-export GIT_CEILING_DIRECTORIES='/Users/adam/'
+export GIT_CEILING_DIRECTORIES='/home/adam/'
 
 # http://stackoverflow.com/questions/8766730/tar-command-in-mac-os-x-adding-hidden-files-why
 export COPYFILE_DISABLE=true
-
-ur_setup() {
-    export PATH=/bin:$PATH 
-    eval `/Users/adam/.ureka/ur_setup -sh $*`
-}
-ur_forget() {
-    export PATH=/bin:$PATH 
-    eval `/Users/adam/.ureka/ur_forget -sh $*`
-}
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
 # Cloudy:
 export CLOUDY_DATA_PATH=~/repos/c13.02/data/
-export PATH=$PATH:/Users/adam/repos/c13.02/source
+#export PATH=$PATH:/Users/adam/repos/c13.02/source
 
 
 # RATRAN:
-export RATRAN=/Users/adam/repos/ratran
-export RATRANRUN=/Users/adam/repos/ratran/run
+#export RATRAN=/Users/adam/repos/ratran
+#export RATRANRUN=/Users/adam/repos/ratran/run
 export CFITSIO=/usr/local/lib
 
 
 # The next line updates PATH for the Google Cloud SDK.
-export PATH=$PATH:/Users/adam/google-cloud-sdk/bin/
+#export PATH=$PATH:/Users/adam/google-cloud-sdk/bin/
 
 # The next line enables shell command completion for gcloud.
-source '/Users/adam/google-cloud-sdk/completion.bash.inc'
+# source '/Users/adam/google-cloud-sdk/completion.bash.inc'
 
 # to solve this issue:
 # $ gdb
@@ -493,4 +465,27 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
+
+# WSL junk
+alias powershell=/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe
+alias open="powershell /c start"
+
+
+
+export PATH=$PATH:/home/adam/casa-release-5.7.0-134.el7/bin/
+
+
+# XCLASS: Added July 28, 2021
+export XCLASSRootDir=/mnt/d/xclass/XCLASS-Interface/
+export PATH=$PATH:$XCLASSRootDir/programs/XCLASSViewer/
+export PATH=$PATH:$XCLASSRootDir/programs/XCLASSGUI/
+# - To avoid a segmentation fault error message, please unlimit the stack and
+#   increase the OpenMP stack size by adding the following lines to your .bashrc:
+
+#ulimit -s unlimited
+export KMP_STACKSIZE='4999M'
+export OMP_STACKSIZE='4999M'
+export GOMP_STACKSIZE='4999M'
+
 

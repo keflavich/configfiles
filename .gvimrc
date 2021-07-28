@@ -1,2 +1,2 @@
-set guifont=Bitstream\ Vera\ Sans\ Mono:h12
+set guifont=monospace
 set guioptions-=T

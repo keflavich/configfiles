@@ -1,8 +1,13 @@
-if match($TERM, "xterm-256color")!=-1
-    set t_Co=256
-    set t_AB=^[[48;5;%dm
-    set t_AF=^[[38;5;%dm
-    set term=xterm-256color
+
+if has("gui_running")
+    " gvim
+else
+    if match($TERM, "xterm-256color")!=-1
+        set t_Co=256
+        set t_AB=^[[48;5;%dm
+        set t_AF=^[[38;5;%dm
+        set term=xterm-256color
+    endif
 endif
 
 
@@ -38,7 +43,6 @@ set vb t_vb=   " When no beep or flash is wanted, use ":set vb t_vb=".
 set bs=2
 set autoindent
 set popt=duplex:long,syntax:y
-set dir=/Users/adam/Documents
 set formatoptions=trocql
 set shiftwidth=4 " applies to >>, etc.
 set expandtab " use spaces in place of tabs.
@@ -61,7 +65,7 @@ set wildignore=*.aux,*.pdf,*.blg,*.fits,*.png
 
 " Python autocomplete (added 10/31/2012)
 " http://www.vim.org/scripts/script.php?script_id=850
-let g:pydiction_location = '/Users/adam/.vim/pydiction-1.2/complete-dict'
+" not for windoze let g:pydiction_location = '/Users/adam/.vim/pydiction-1.2/complete-dict'
 
 " Found 1/12/2012: http://stackoverflow.com/questions/3607516/vim-folding-messes-up-syntax-highlighting
 ":syn sync fromstart
@@ -81,6 +85,8 @@ match OverLength /\%81v.\+/
 " https://stackoverflow.com/questions/4617059/showing-trailing-spaces-in-vim
 highlight ExtraWhitespace ctermbg=DarkGray guibg=DarkGray
 match ExtraWhitespace /\s\+$/
+
+highlight Folded guibg=DarkSlateGrey
 
 " 1/19/2012 http://items.sjbach.com/319/configuring-vim-right
 " match if/else with %
@@ -477,6 +483,9 @@ command! -nargs=* -bar -bang -count=0 -complete=dir E Explore <args>
 " https://github.com/kevinw/pyflakes
 " allow lprev/lnext to work
 let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 map ]l :lnext
 map [l :lprev
 
@@ -522,8 +531,26 @@ let maplocalleader = ","
 " call plug#end()
 
 
+set directory=/home/adam/.vim/
+set backupdir=/home/adam/.vim/
+set dir=/home/adam/.vim/
+
 
 " 1/19/2012 http://www.vim.org/scripts/script.php?script_id=2332
 call pathogen#infect()
 " http://stackoverflow.com/questions/3383502/pathogen-does-not-load-plugins
 "call pathogen#runtime_append_all_bundles()
+"
+"
+
+" windoze things: https://gist.github.com/jshih/3423345
+vmap <C-c> "+yi
+vmap <C-x> "+c
+vmap <C-v> c<ESC>"+p
+imap <C-v> <ESC>"+pa
+imap <C-w> <ESC>"+pa
+
+"noremap "+p :exe 'norm a'.system('/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -Command Get-Clipboard')<CR>
+
+" https://stackoverflow.com/questions/2468939/how-to-let-tab-display-only-file-name-rather-than-the-full-path-in-vim
+set guitablabel=%t
