@@ -38,7 +38,8 @@ set vb t_vb=   " When no beep or flash is wanted, use ":set vb t_vb=".
 set bs=2
 set autoindent
 set popt=duplex:long,syntax:y
-set dir=/Users/adam/Documents
+set dir=/home/adam/.vim/swp/
+set directory=/home/adam/.vim/swp/
 set formatoptions=trocql
 set shiftwidth=4 " applies to >>, etc.
 set expandtab " use spaces in place of tabs.

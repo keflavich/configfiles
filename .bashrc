@@ -314,7 +314,7 @@ export IDL_PATH='/Users/adam/.idl/smart:/Users/adam/.idl/IRS_Calibration:/Applic
 #source activate python27
 
 # load git completion tools!  http://clalance.blogspot.com/2011/10/git-bash-prompts-and-tab-completion.html
-source /Users/adam/repos/git-1.7.6/contrib/completion/git-completion.bash
+source /home/adam/repos/git/contrib/completion/git-completion.bash
 # Done once:
 # git config --global alias.unstage 'reset --'
 
@@ -443,10 +443,10 @@ export CFITSIO=/usr/local/lib
 
 
 # The next line updates PATH for the Google Cloud SDK.
-export PATH=$PATH:/Users/adam/google-cloud-sdk/bin/
+#export PATH=$PATH:/Users/adam/google-cloud-sdk/bin/
 
 # The next line enables shell command completion for gcloud.
-source '/Users/adam/google-cloud-sdk/completion.bash.inc'
+#source '/Users/adam/google-cloud-sdk/completion.bash.inc'
 
 # to solve this issue:
 # $ gdb
@@ -478,3 +478,20 @@ export ASTROMETRY_NET_API_KEY="ylqlshinbzlbuvue"
 # (2) Install those
 # (3) install the SDK headers package that didn't exist until you completed (2), i.e.:  /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg
 export PATH=$PATH:~/bin
+export PATH=~/anaconda3/bin:$PATH
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/adam/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/adam/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/adam/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/adam/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
