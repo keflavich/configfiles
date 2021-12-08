@@ -82,5 +82,4 @@ export RADEX_DATAPATH=/orange/adamginsburg/repos/pyradex/lamda/
 
 export XCLASSRootDir=/orange/adamginsburg/software/XCLASS-Interface
 
-
-export GITHUB_TOKEN=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
+sh ~/.gh_token
