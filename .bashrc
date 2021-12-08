@@ -1,4 +1,3 @@
-alias ll='ls -al --color=auto'
 set -o noclobber
 set -o ignoreeof
 
@@ -60,6 +59,8 @@ module load ufrc
 #Unsafe to load
 # (but necessary for ds9)
 #module load gcc
+# needed for any graphics... I don't remember what's unsafe though
+module load gcc; module load libfuse
 
 PATH=$PATH:/orange/adamginsburg/miniconda3/bin/
 
@@ -80,3 +81,6 @@ export PATH=/orange/adamginsburg/repos/getsf/v210414/bin:$PATH
 export RADEX_DATAPATH=/orange/adamginsburg/repos/pyradex/lamda/
 
 export XCLASSRootDir=/orange/adamginsburg/software/XCLASS-Interface
+
+
+export GITHUB_TOKEN=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

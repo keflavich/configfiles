@@ -16,3 +16,5 @@
 	editor = vim
 [credential]
 	helper = store
+[pull]
+	ff = only
