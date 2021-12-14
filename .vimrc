@@ -491,6 +491,8 @@ set tabpagemax=30
 " http://vim.wikia.com/wiki/All_folds_open_when_opening_a_file
 set foldlevelstart=20
 set foldlevel=20
+set foldmethod=indent
+set foldenable
 
 " default for everyone
 "DoMatchParen

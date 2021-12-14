@@ -495,3 +495,11 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+
+sshx () {
+    xhost=$1;
+    port=$([[ $2 ]] && echo $2 || echo 2222);
+    args=${@:3}
+    ssh -N -f -C -L $port:$xhost:22 hpg
+    ssh -Yp $args $port adamginsburg@localhost
+}

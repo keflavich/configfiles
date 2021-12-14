@@ -42,3 +42,6 @@
 [filter "media"]
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
+[credential "https://git.overleaf.com"]
+    username = adam.g.ginsburg@gmail.com
+    helper = store
