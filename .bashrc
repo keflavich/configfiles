@@ -332,6 +332,7 @@ export CFITSIO=/usr/local/lib
 
 # The next line updates PATH for the Google Cloud SDK.
 export PATH=$PATH:/Users/adam/google-cloud-sdk/bin/
+export PATH=$PATH:/Users/adam/Applications/nvim-osx64/bin/nvim
 
 # The next line enables shell command completion for gcloud.
 source '/Users/adam/google-cloud-sdk/completion.bash.inc'
@@ -357,6 +358,8 @@ export AL_OPTS=/usr/local/share/aclocal
 #
 export ASTROMETRY_NET_API_KEY="ylqlshinbzlbuvue"
 
+alias gvim="mvim"
+
 # mac os 10.14 mojave fixes
 #export LIBRARY_PATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/lib:/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib/:/Library/Developer/CommandLineTools/usr/lib/
 #export C_INCLUDE_PATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include:/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/:/Library/Developer/CommandLineTools/usr/include/
@@ -365,3 +368,16 @@ export ASTROMETRY_NET_API_KEY="ylqlshinbzlbuvue"
 # (1) download a very specific version of xcode cmdline tools: "/Users/adam/Downloads/Command_Line_Tools_macOS_10.14_for_Xcode_10.2.1.dmg"
 # (2) Install those
 # (3) install the SDK headers package that didn't exist until you completed (2), i.e.:  /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg
+
+
+sshx () {
+    xhost=$1;
+    [[ $2 ]] && port=$2 || port=2222;
+    ssh -N -f -C -L ${port}:$xhost:22 hpg
+    ssh -Yp ${port} adamginsburg@localhost
+}
+
+sshl () {
+    xhost=$1;
+    ssh -C -L 34567:$xhost:34567 -L 23456:$xhost:23456 -L 35537:$xhost:35537 -D 8123 hpg
+}

@@ -464,8 +464,9 @@ let b:lastchecktime = 0
 " pyflakes things:
 " https://github.com/scrooloose/syntastic
 " http://pep8.readthedocs.org/en/latest/intro.html#error-codes
-let g:syntastic_python_flake8_args="--ignore=E231,E501,E225,E226,E3,E261,W293,E241,E124,E265,E262"
-let g:syntastic_python_pyflakes_args="--ignore=E231,E501,E225,E226,E3,E261,W293,E241,E124,E265,E262"
+" E501: line length
+let g:syntastic_python_flake8_args="--ignore=E226,E3,E261,W293,E124,E262,W504,E501"
+let g:syntastic_python_pyflakes_args="--ignore=E226,E3,E261,W293,E124,E262,W504,E501"
 let g:syntastic_python_checkers=['flake8']
 " Deal with major delay on quitting
 let g:syntastic_check_on_wq=0
@@ -514,6 +515,12 @@ let maplocalleader = ","
 " 5/23/2016 after code coffee suggested by sebastian:
 call plug#begin('~/.vim/plugged')
 
+" https://stackoverflow.com/questions/32154285/folding-expanding-and-colapsing-xml-tags-in-vim-xml-parsing
+let g:xml_syntax_folding=1
+au FileType xml setlocal foldmethod=syntax
+au FileType html setlocal foldmethod=syntax
+
+
 Plug 'scrooloose/syntastic'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'davidhalter/jedi-vim'
@@ -526,3 +533,4 @@ call plug#end()
 call pathogen#infect()
 " http://stackoverflow.com/questions/3383502/pathogen-does-not-load-plugins
 "call pathogen#runtime_append_all_bundles()
+"
