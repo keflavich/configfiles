@@ -9,22 +9,8 @@ export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
-export HISTTIMEFORMAT="%d/%m/%y %T "
-export HISTSIZE=500000
 
 
-. ~/.colors
-
-host_short=`hostname`
-#PROMPT_COMMAND='echo -ne "\033]0; $host_short ${PWD/#$HOME/~}\007"'
-export PROMPT_COMMAND='echo -ne "\033]0; $host_short ${PWD/#$HOME/~}\007"; '
-export PROMPT_COMMAND='history -a; ___vcs_dir'
-# could use \h instead of the variable to automatically get hostname
-export PS1="\[${Cyan}\]$host_short \[${Yellow}\]\w\\$ \[${txtrst}\]"
-. ~/.vcs.sh
-export PS1="\[${Cyan}\]$host_short \[${Yellow}\]\w\[${Green}\]"'$(___vcs_dir)'"\[${Yellow}\]\\$ \[${txtrst}\]"
-export PS1="\[${Cyan}\]$host_short \[${Yellow}\]\w\[${Green}\]\$(___vcs_dir)\[${Yellow}\]\\$ \[${txtrst}\]"
-export PS1="\`echo -e \"\[${Cyan}\]$host_short \[${Yellow}\]\w\[${Green}\]\[\$__vcs_color\]\$__vcs_branch\[${Yellow}\]\\$ \[${txtrst}\]\"\`"
 
 if [[ `shopt -q login_shell` ]];
 then
@@ -45,7 +31,8 @@ then
 fi
 
 
-HISTSIZE=100000
+export HISTTIMEFORMAT="%d/%m/%y %T "
+HISTSIZE=10000000
 export HISTSIZE
 
 if test $SHLVL -gt 1; then
@@ -53,14 +40,6 @@ if test $SHLVL -gt 1; then
     #source $HOME/.bash_profile
 fi
 
-# hipergator-specific things
-module load screen
-module load ufrc
-#Unsafe to load
-# (but necessary for ds9)
-#module load gcc
-# needed for any graphics... I don't remember what's unsafe though
-module load gcc; module load libfuse
 
 PATH=$PATH:/orange/adamginsburg/miniconda3/bin/
 
@@ -82,4 +61,8 @@ export RADEX_DATAPATH=/orange/adamginsburg/repos/pyradex/lamda/
 
 export XCLASSRootDir=/orange/adamginsburg/software/XCLASS-Interface
 
-sh ~/.gh_token
+. ~/.gh_token
+
+# April 13, 2022
+export JUPYTER_CONFIG_DIR=/blue/adamginsburg/adamginsburg/.jupyter/
+export IPYTHON_DIR=/blue/adamginsburg/adamginsburg/.ipython/

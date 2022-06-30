@@ -18,3 +18,5 @@
 	helper = store
 [pull]
 	ff = only
+[push]
+	default = simple
