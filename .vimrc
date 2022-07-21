@@ -473,6 +473,8 @@ let b:lastchecktime = 0
 let g:syntastic_python_flake8_args="--ignore=E231,E501,E225,E226,E3,E261,W293,E241,E124,E265,E262"
 let g:syntastic_python_pyflakes_args="--ignore=E231,E501,E225,E226,E3,E261,W293,E241,E124,E265,E262"
 let g:syntastic_python_checkers=['flake8']
+" https://github.com/nvie/vim-flake8#tips
+" no dice autocmd BufWritePost *.py call flake8#Flake8()
 " Deal with major delay on quitting
 let g:syntastic_check_on_wq=0
 "cabbrev E Explore
@@ -486,6 +488,7 @@ let g:syntastic_always_populate_loc_list = 1
 "let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:flake8_show_in_gutter=1
 map ]l :lnext
 map [l :lprev
 
@@ -538,6 +541,8 @@ set dir=/home/adam/.vim/
 
 " 1/19/2012 http://www.vim.org/scripts/script.php?script_id=2332
 call pathogen#infect()
+" https://github.com/vim-syntastic/syntastic#221-step-1-install-pathogenvim
+execute pathogen#infect()
 " http://stackoverflow.com/questions/3383502/pathogen-does-not-load-plugins
 "call pathogen#runtime_append_all_bundles()
 "
@@ -549,6 +554,16 @@ vmap <C-x> "+c
 vmap <C-v> c<ESC>"+p
 imap <C-v> <ESC>"+pa
 imap <C-w> <ESC>"+pa
+
+" https://vi.stackexchange.com/questions/15182/copying-from-vim-to-ubuntu-bash-on-windows/15190#15190
+let s:clip = '/mnt/c/Windows/System32/clip.exe'
+if executable(s:clip)
+    augroup WSLYank
+        autocmd!
+        autocmd TextYankPost * call system('echo '.shellescape(join(v:event.regcontents, "\<CR>")).' | '.s:clip)
+    augroup END
+end
+
 
 "noremap "+p :exe 'norm a'.system('/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -Command Get-Clipboard')<CR>
 

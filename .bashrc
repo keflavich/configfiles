@@ -185,8 +185,8 @@ alias x86_64='export CFLAGS="-arch x86_64"; export CCFLAGS="-arch x86_64"; expor
 alias i386='export CFLAGS="-arch i386"; export CCFLAGS="-arch i386"; export CXXFLAGS="-arch i386"; FFLAGS="-arch i386"; LDFLAGS="-arch i386"'
 alias clearflags='export CFLAGS=""; export CCFLAGS=""; export CXXFLAGS=""; export LDFLAGS=""; export FFLAGS="";'
 
-alias nbconvert="/home/adam/repos/nbconvert/nbconvert.py"
-alias nbconvert="~/virtual-ipydev/bin/ipython nbconvert"
+#alias nbconvert="/home/adam/repos/nbconvert/nbconvert.py"
+#alias nbconvert="~/virtual-ipydev/bin/ipython nbconvert"
 
 alias scp='rsync -avp --progress'
 alias scp='rsync -Cavpu --partial --progress --rsh=ssh'
@@ -295,8 +295,6 @@ arecibo=aginsbur@remoto.naic.edu
 # update the values of LINES and COLUMNS.
 #shopt -s checkwinsize
 
-# activate anaconda python
-#source activate python27
 
 # load git completion tools!  http://clalance.blogspot.com/2011/10/git-bash-prompts-and-tab-completion.html
 # source /Users/adam/repos/git-1.7.6/contrib/completion/git-completion.bash
@@ -484,8 +482,25 @@ export PATH=$PATH:$XCLASSRootDir/programs/XCLASSGUI/
 #   increase the OpenMP stack size by adding the following lines to your .bashrc:
 
 #ulimit -s unlimited
-export KMP_STACKSIZE='4999M'
-export OMP_STACKSIZE='4999M'
-export GOMP_STACKSIZE='4999M'
+#export KMP_STACKSIZE='4999M'
+#export OMP_STACKSIZE='4999M'
+#export GOMP_STACKSIZE='4999M'
 
 
+# activate anaconda python
+source activate python3.9
+
+
+sshl () {
+    xhost=$1;
+    ssh -L 23456:$xhost.ufhpc:23456 -L 35537:$xhost.ufhpc:35537 -D 8123 hpg
+}
+
+sshx () {
+    xhost=$1;
+    [[ $2 ]] && port=$2 || port=2222
+    ssh -N -f -C -L $port:$xhost:22 hpg
+    ssh -Yp $port adamginsburg@localhost
+}
+
+. ~/.gh_token
