@@ -1,0 +1,20 @@
+// Place your key bindings in this file to override the defaults
+[
+    // https://stackoverflow.com/questions/38957302/is-there-a-quick-change-tabs-function-in-visual-studio-code
+    {
+        "key": "ctrl+tab",
+        "command": "workbench.action.nextEditor"
+    },
+    {
+        "key": "ctrl+shift+tab",
+        "command": "workbench.action.previousEditor"
+    },
+    {
+        "key": "shift+right",
+        "command": "workbench.action.nextEditor"
+    },
+    {
+        "key": "shift+left",
+        "command": "workbench.action.previousEditor"
+    }
+]
