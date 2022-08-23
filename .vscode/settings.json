@@ -1,0 +1,23 @@
+{
+    "workbench.editorAssociations": [
+        {
+            "viewType": "jupyter.notebook.ipynb",
+            "filenamePattern": "*.ipynb"
+        },
+        {
+            "viewType": "jupyter-notebook",
+            "filenamePattern": "*.ipynb"
+        }
+    ],
+    "vim.vimrc.enable": true,
+    "git.ignoreLegacyWarning": true,
+    "cornflakes.linter.executablePath": "flake8 --max-line-length=200",
+    "trunk.trunkGrayOutNonBlockingIssues": false,
+    "files.watcherExclude": {
+        "**/__pycache__/**": true,
+        "**/.pytest_cache/**": true,
+        "**/.tox/**": true,
+        "**/*egg-info*/**": true
+    },
+    "editor.lightbulb.enabled": false
+}

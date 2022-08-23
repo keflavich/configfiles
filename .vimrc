@@ -534,3 +534,20 @@ call pathogen#infect()
 " http://stackoverflow.com/questions/3383502/pathogen-does-not-load-plugins
 "call pathogen#runtime_append_all_bundles()
 "
+"" inside ~/.vimrc
+
+func! ChangeBackground()
+  if (v:os_appearance == 1)
+    set background=dark
+    colorscheme onedark
+  else 
+    set background=light
+    colorscheme bclear
+  endif
+  redraw!
+endfunc
+
+if has("gui_vimr")
+  call ChangeBackground()
+  au OSAppearanceChanged * call ChangeBackground()
+endif

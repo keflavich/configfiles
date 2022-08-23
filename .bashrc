@@ -76,7 +76,12 @@ alias pwgen=random20
 alias universal='export CFLAGS="-arch i386 -arch x86_64"; export CCFLAGS="-arch i386 -arch x86_64"; export CXXFLAGS="-arch i386 -arch x86_64";'
 alias x86_64='export CFLAGS="-arch x86_64"; export CCFLAGS="-arch x86_64"; export CXXFLAGS="-arch x86_64"; FFLAGS="-arch x86_64"; LDFLAGS="-arch x86_64"'
 alias i386='export CFLAGS="-arch i386"; export CCFLAGS="-arch i386"; export CXXFLAGS="-arch i386"; FFLAGS="-arch i386"; LDFLAGS="-arch i386"'
+alias apple-m1='export CFLAGS="-arch apple-m1"; export CCFLAGS="-arch apple-m1"; export CXXFLAGS="-arch apple-m1"; FFLAGS="-arch apple-m1"; LDFLAGS="-arch apple-m1"'
+alias arm64='export CFLAGS="-arch arm64"; export CCFLAGS="-arch arm64"; export CXXFLAGS="-arch arm64"; FFLAGS="-arch arm64"; LDFLAGS="-arch arm64"'
 alias clearflags='export CFLAGS=""; export CCFLAGS=""; export CXXFLAGS=""; export LDFLAGS=""; export FFLAGS="";'
+
+# 8/4/2022:
+export CPATH="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include"
 
 alias nbconvert="/Users/adam/repos/nbconvert/nbconvert.py"
 alias nbconvert="~/virtual-ipydev/bin/ipython nbconvert"
@@ -332,7 +337,7 @@ export CFITSIO=/usr/local/lib
 
 # The next line updates PATH for the Google Cloud SDK.
 export PATH=$PATH:/Users/adam/google-cloud-sdk/bin/
-export PATH=$PATH:/Users/adam/Applications/nvim-osx64/bin/nvim
+export PATH=$PATH:/Users/adam/Applications/nvim-osx64/bin
 
 # The next line enables shell command completion for gcloud.
 source '/Users/adam/google-cloud-sdk/completion.bash.inc'
@@ -369,6 +374,11 @@ alias gvim="mvim"
 # (2) Install those
 # (3) install the SDK headers package that didn't exist until you completed (2), i.e.:  /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg
 
+# August 4, 2022: for Monterrey, the fix is:
+# export SDKROOT=$(xcrun --sdk macosx --show-sdk-path)
+# (this came from the 2nd answer on this: https://stackoverflow.com/a/60002595/814354)
+# which expands to:
+export SDKROOT="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk"
 
 sshx () {
     xhost=$1;
