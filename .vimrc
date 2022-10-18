@@ -527,6 +527,9 @@ Plug 'davidhalter/jedi-vim'
 
 call plug#end()
 
+au CursorHold * checktime
+au WinEnter
+au BufWinEnter
 
 
 " 1/19/2012 http://www.vim.org/scripts/script.php?script_id=2332
