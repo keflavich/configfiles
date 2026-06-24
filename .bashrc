@@ -17,9 +17,11 @@ HISTSIZE=10000000
 export HISTSIZE
 export HISTCONTROL=ignoredups:erasedups
 
-if test $SHLVL -gt 1; then
-    source /etc/bashrc
-    #source $HOME/.bash_profile
+if [[ -t 0 && -t 1 ]]; then
+    if test $SHLVL -gt 1; then
+        source /etc/bashrc
+        #source $HOME/.bash_profile
+    fi
 fi
 
 
