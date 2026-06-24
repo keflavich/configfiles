@@ -3,7 +3,7 @@ from __future__ import print_function
 
 c = get_config()
 
-c.InteractiveShellApp.ignore_old_config=True
+#c.InteractiveShellApp.ignore_old_config=True
 
 #------------------------------------------------------------------------------
 # InteractiveShellApp configuration

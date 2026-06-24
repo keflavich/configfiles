@@ -1,4 +1,3 @@
-from __future__ import print_function
 from time import strftime
 import os.path
 
@@ -12,15 +11,25 @@ notnew = os.path.exists(filename)
 
 
 try:
-  ip.magic('logstart -o %s append' % filename)
-  if notnew:
-      ip.logger.log_write( u"########################################################\n" ) 
-  else:
-      ip.logger.log_write( u"#!/usr/bin/env python\n" )
-      ip.logger.log_write( u"# " + fname + "\n" )
-      ip.logger.log_write( u"# IPython automatic logging file\n" )
-  ip.logger.log_write( u"# " + '# Started Logging At: '+ strftime('%Y-%m-%d %H:%M:%S\n') ) 
-  ip.logger.log_write( u"########################################################\n" ) 
+  # Use run_line_magic instead of deprecated magic() method
+  ip.run_line_magic('logstart', '-o %s append' % filename)
+  
+  # Write header information directly to the log file
+  if ip.history_manager.output_hist_reprs:
+      with open(filename, 'a') as f:
+          if notnew:
+              f.write("########################################################\n")
+          else:
+              f.write("#!/usr/bin/env python\n")
+              f.write("# " + fname + "\n")
+              f.write("# IPython automatic logging file\n")
+          f.write("# Started Logging At: " + strftime('%Y-%m-%d %H:%M:%S') + "\n")
+          f.write("########################################################\n")
+  
   print(" Logging to "+filename)
 except RuntimeError:
-    print(" Already logging to "+ip.logger.logfname)
+    # Get the current log filename from history_manager
+    if hasattr(ip.history_manager, 'log_file') and ip.history_manager.log_file:
+        print(" Already logging to "+ip.history_manager.log_file)
+    else:
+        print(" Logging may already be active")

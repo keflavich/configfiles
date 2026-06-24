@@ -50,6 +50,8 @@ export MKL_NUM_THREADS
 # The orginal version is saved in .profile.pysave
 #PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
 #export PATH
-#. ~/.bashrc
+. ~/.bashrc
 
 echo "Loaded .profile"
+
+. "$HOME/.local/bin/env"

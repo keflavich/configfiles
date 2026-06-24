@@ -14,9 +14,13 @@
 	unstage = reset --
 [core]
 	editor = vim
-[credential]
-	helper = store
 [pull]
 	ff = only
 [push]
 	default = simple
+[init]
+	defaultBranch = main
+[credential]
+	helper = store
+[safe]
+	directory = /orange/adamginsburg/sgrb2/2024.1.01182.S
