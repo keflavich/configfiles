@@ -19,7 +19,7 @@ endif
 "gnupg is not at fault
 "let g:ConqueTerm_Loaded = 1
 "ConqueTerm is not at fault
-"let g:loaded_gitgutter = 1
+let g:loaded_gitgutter = 1
 "gitgutter is not at fault
 let g:loaded_undo_browse = 1
 "undo_browse is not at fault (but I don't use it either)
@@ -37,7 +37,7 @@ syntax on
 set vb t_vb=   " When no beep or flash is wanted, use ":set vb t_vb=".
 set bs=2
 set autoindent
-set popt=duplex:long,syntax:y
+"set popt=duplex:long,syntax:y
 set dir=/Users/adam/Documents
 set formatoptions=trocql
 set shiftwidth=4 " applies to >>, etc.
@@ -103,11 +103,6 @@ source ~/.vim/plugin/WhichTab.vim
 map OH ^
 map OF $
 
-"#Latex-Suite
-filetype plugin on
-set grepprg=grep\ -nH\ $*
-filetype indent on
-helptags ~/.vim/doc
 
 "http://vim.wikia.com/wiki/Display_output_of_shell_commands_in_new_window
 command! -complete=shellcmd -nargs=+ Shell call s:RunShellCommand(<q-args>)
@@ -455,11 +450,29 @@ nnoremap ,l :TagbarToggle<CR>
 
 " http://stackoverflow.com/questions/15643837/vim-autoread-netrw-to-prevent-accidental-overwriting
 let b:lastchecktime = 0
-:autocmd FocusGained ftp://*,scp://*,rsync://* nested
+autocmd FocusGained ftp://*,scp://*,rsync://*,/var/folders/* nested
 \   if ! &modified && ! exists('b:lastchecktime') || localtime() - b:lastchecktime > 300 |
 \       edit |
 \       let b:lastchecktime = localtime() |
+\       filetype detect |
 \   endif
+
+" Return to last edit position when opening files
+autocmd BufReadPost *
+     \ if line("'\"") > 0 && line("'\"") <= line("$") |
+     \   exe "normal! g`\"" |
+     \ endif
+
+" hacks that don't work
+" autocmd BufRead ftp://*,scp://*,rsync://*,/var/folders/* filetype detect
+" autocmd BufReadPost ftp://*,scp://*,rsync://*,/var/folders/* filetype detect
+" autocmd FocusGained ftp://*,scp://*,rsync://*,/var/folders/* filetype detect
+" autocmd BufReadPost filetype detect
+" autocmd FocusGained filetype detect
+" au BufReadPost *.py set syntax=python
+
+
+syntax enable
 
 " pyflakes things:
 " https://github.com/scrooloose/syntastic
@@ -512,38 +525,50 @@ endif
 " https://github.com/keflavich/macvim-skim/pull/10#issuecomment-160431866
 let maplocalleader = ","
 
-" 5/23/2016 after code coffee suggested by sebastian:
-call plug#begin('~/.vim/plugged')
-
-" https://stackoverflow.com/questions/32154285/folding-expanding-and-colapsing-xml-tags-in-vim-xml-parsing
-let g:xml_syntax_folding=1
-au FileType xml setlocal foldmethod=syntax
-au FileType html setlocal foldmethod=syntax
-
-
-Plug 'scrooloose/syntastic'
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'davidhalter/jedi-vim'
-
-call plug#end()
+" " 5/23/2016 after code coffee suggested by sebastian:
+" call plug#begin('~/.vim/plugged')
+" 
+" " https://stackoverflow.com/questions/32154285/folding-expanding-and-colapsing-xml-tags-in-vim-xml-parsing
+" let g:xml_syntax_folding=1
+" au FileType xml setlocal foldmethod=syntax
+" au FileType html setlocal foldmethod=syntax
+" 
+" 
+" Plug 'scrooloose/syntastic'
+" Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+" Plug 'davidhalter/jedi-vim'
+" 
+" call plug#end()
 
 au CursorHold * checktime
-au WinEnter
-au BufWinEnter
+au WinEnter * checktime
+au BufWinEnter * checktime
+"au FileChangedShell * echo "Warning: File changed on disk"
 
 
 " 1/19/2012 http://www.vim.org/scripts/script.php?script_id=2332
 call pathogen#infect()
 " http://stackoverflow.com/questions/3383502/pathogen-does-not-load-plugins
 "call pathogen#runtime_append_all_bundles()
-"
+
+
+" https://superuser.com/a/620376/104617 says "after pathogen"
+filetype plugin on
+set grepprg=grep\ -nH\ $*
+filetype indent on
+filetype plugin indent on
+helptags ~/.vim/doc
+
+
+
+
 "" inside ~/.vimrc
 
 func! ChangeBackground()
   if (v:os_appearance == 1)
     set background=dark
     colorscheme onedark
-  else 
+  else
     set background=light
     colorscheme bclear
   endif
@@ -554,3 +579,34 @@ if has("gui_vimr")
   call ChangeBackground()
   au OSAppearanceChanged * call ChangeBackground()
 endif
+
+
+if exists("g:neovide")
+    " " Allow copy paste in neovim
+    let g:neovide_input_use_logo = 1
+    map <D-v> "+p<CR>
+    map! <D-v> <C-R>+
+    tmap <D-v> <C-R>+
+    vmap <D-c> "+y<CR>
+
+    " disable animation
+    let g:neovide_cursor_animation_length=0
+    let g:neovide_scroll_animation_length = 0
+    let g:neovide_cursor_vfx_mode = ""
+    let g:neovide_no_idle = v:true
+    let g:neovide_disable_ligatures = v:true
+
+
+    " https://github.com/neovide/neovide/issues/1263#issuecomment-1306736956
+    let g:neovide_remember_window_size=v:true
+endif
+
+
+"call plug#begin()
+
+" List your plugins here
+"Plug 'nvim-tree/nvim-web-devicons' " optional
+"Plug 'nvim-tree/nvim-tree.lua'
+"Plug 'kiyoon/nvim-tree-remote.nvim'
+
+"call plug#end()

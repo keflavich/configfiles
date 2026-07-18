@@ -8,6 +8,7 @@
 [core]
 	excludesfile = /Users/adam/.gitignore_global
 	editor = vim
+	autocrlf = input
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
@@ -44,3 +45,6 @@
 	smudge = git-media-smudge %f
 [credential]
 	helper = cache
+[credential "https://git.overleaf.com"]
+    username = adam.g.ginsburg@gmail.com
+    helper = store

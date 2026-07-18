@@ -4,5 +4,15 @@
         "hpg": "linux"
     },
     "git.ignoreLegacyWarning": true,
-    "trunk.trunkGrayOutNonBlockingIssues": false
+    "trunk.trunkGrayOutNonBlockingIssues": false,
+    "files.exclude": {
+        "**/.trunk/*out": true
+    },
+    "files.watcherExclude": {
+        "**/.trunk/*out": true
+    },
+    "flake8.args": [
+        "--max-line-length=180",
+        "--ignore=E226"
+     ]
 }

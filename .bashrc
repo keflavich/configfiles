@@ -1,4 +1,7 @@
 
+# 2026-06-15 apparently needed to fix claude rendering
+export CLAUDE_SHELL_PROMPT=""
+
 
 
 # User specific aliases and functions
@@ -25,12 +28,34 @@ PATH=$PATH:/usr/local/mysql/bin/
 #PATH=/Users/adam/virtual-python/bin:$PATH:/Users/adam/anaconda/bin/
 #PATH=/Users/adam/anaconda/envs/astropy27/bin:$PATH:/Users/adam/anaconda/bin/
 #PATH=/Users/adam/anaconda/envs/astropy35/bin:$PATH:/Users/adam/anaconda/bin/
-PATH=/Users/adam/miniconda3/bin:$PATH
+#PATH=/Users/adam/miniconda3/bin:$PATH
+PATH=/Users/adam/mambaforge/bin:$PATH
+PATH=$PATH:/Applications/CMake.app/Contents/bin/
+PATH=$PATH:~/.local/bin
 # required for python extension builds, apparently?
 #export CC=/usr/bin/gcc CPP=/usr/bin/cpp
 #export CC=/usr/local/bin/gcc CPP=/usr/local/bin/cpp
 
 
+# January 9, 2023
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/adam/mambaforge/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/adam/mambaforge/etc/profile.d/conda.sh" ]; then
+        . "/Users/adam/mambaforge/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/adam/mambaforge/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+
+if [ -f "/Users/adam/mambaforge/etc/profile.d/mamba.sh" ]; then
+    . "/Users/adam/mambaforge/etc/profile.d/mamba.sh"
+fi
+# <<< conda initialize <<<
 
 
 # July 6, 2019: disable DYLD paths entirely
@@ -77,7 +102,8 @@ alias universal='export CFLAGS="-arch i386 -arch x86_64"; export CCFLAGS="-arch 
 alias x86_64='export CFLAGS="-arch x86_64"; export CCFLAGS="-arch x86_64"; export CXXFLAGS="-arch x86_64"; FFLAGS="-arch x86_64"; LDFLAGS="-arch x86_64"'
 alias i386='export CFLAGS="-arch i386"; export CCFLAGS="-arch i386"; export CXXFLAGS="-arch i386"; FFLAGS="-arch i386"; LDFLAGS="-arch i386"'
 alias apple-m1='export CFLAGS="-arch apple-m1"; export CCFLAGS="-arch apple-m1"; export CXXFLAGS="-arch apple-m1"; FFLAGS="-arch apple-m1"; LDFLAGS="-arch apple-m1"'
-alias arm64='export CFLAGS="-arch arm64"; export CCFLAGS="-arch arm64"; export CXXFLAGS="-arch arm64"; FFLAGS="-arch arm64"; LDFLAGS="-arch arm64"'
+alias arm64='export CFLAGS="-arch arm64 -arch x86_64"; export CCFLAGS="-arch arm64 -arch x86_64"; export CXXFLAGS="-arch arm64 -arch x86_64"; FFLAGS="-arch arm64 -arch x86_64"; LDFLAGS="-arch arm64 -arch x86_64"'
+alias arm64_only='export CFLAGS="-arch arm64"; export CCFLAGS="-arch arm64"; export CXXFLAGS="-arch arm64"; FFLAGS="-arch arm64"; LDFLAGS="-arch arm64"'
 alias clearflags='export CFLAGS=""; export CCFLAGS=""; export CXXFLAGS=""; export LDFLAGS=""; export FFLAGS="";'
 
 # 8/4/2022:
@@ -322,7 +348,7 @@ ur_forget() {
 }
 
 ### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+#export PATH="/usr/local/heroku/bin:$PATH"
 
 # Cloudy:
 export CLOUDY_DATA_PATH=~/repos/c13.02/data/
@@ -337,7 +363,8 @@ export CFITSIO=/usr/local/lib
 
 # The next line updates PATH for the Google Cloud SDK.
 export PATH=$PATH:/Users/adam/google-cloud-sdk/bin/
-export PATH=$PATH:/Users/adam/Applications/nvim-osx64/bin
+export PATH=$PATH:/Users/adam/Applications/nvim-macos-arm64/bin
+export PATH=$PATH:/Applications/Xcode.app/Contents/Developer/usr/bin/
 
 # The next line enables shell command completion for gcloud.
 source '/Users/adam/google-cloud-sdk/completion.bash.inc'
@@ -384,10 +411,28 @@ sshx () {
     xhost=$1;
     [[ $2 ]] && port=$2 || port=2222;
     ssh -N -f -C -L ${port}:$xhost:22 hpg
-    ssh -Yp ${port} adamginsburg@localhost
+    ssh -o StrictHostKeyChecking=no -Yp ${port} adamginsburg@localhost
 }
 
 sshl () {
     xhost=$1;
-    ssh -C -L 34567:$xhost:34567 -L 23456:$xhost:23456 -L 35537:$xhost:35537 -D 8123 hpg
+    ssh -C -t -L 34567:$xhost:34567 -L 23456:$xhost:23456 -L 35537:$xhost:35537 -L 34345:$xhost:22 -D 8123 hpg "ssh -t $xhost screen -x"
 }
+
+ssh_sf () {
+    ssh -N -f -C -L 2223:az1-apacheint-prod02.server.ufl.edu:22 hpg
+    ssh -o StrictHostKeyChecking=no -p 2223 cnswww-starformation.astro@localhost
+}
+
+fix() {
+  stty sane
+  printf '\033[!p\033[?7h\033[?1l\033>\033[?1049l\033[?2004l\033(B\033[0m\033[?25h'
+  command clear
+}
+
+. "$HOME/.cargo/env"
+export SDKROOT=$(xcrun -sdk macosx --show-sdk-path)
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

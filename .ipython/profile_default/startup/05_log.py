@@ -12,7 +12,7 @@ notnew = os.path.exists(filename)
 
 
 try:
-  ip.magic('logstart -o %s append' % filename)
+  ip.run_line_magic('logstart', '-o %s append' % filename)
   if notnew:
       ip.logger.log_write( u"########################################################\n" ) 
   else:
